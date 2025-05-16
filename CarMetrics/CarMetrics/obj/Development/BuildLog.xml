@@ -2,18 +2,18 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>CarMetrics</Name>
-    <LastWriteTime>2025-05-16T19:26:47.5472821Z</LastWriteTime>
+    <LastWriteTime>2025-05-16T21:29:34.1825964Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
       <Name>CM_ETL_01_LoadRawData.dtsx</Name>
-      <LastWriteTime>2025-05-16T19:26:25.8089351Z</LastWriteTime>
+      <LastWriteTime>2025-05-16T20:13:27.681983Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CM_ETL_02_CleanAndStage.dtsx</Name>
-      <LastWriteTime>2025-05-15T18:36:18.3364824Z</LastWriteTime>
+      <LastWriteTime>2025-05-16T21:35:57.4728315Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CM_Main.dtsx</Name>
-      <LastWriteTime>2025-05-16T17:36:53.2886565Z</LastWriteTime>
+      <LastWriteTime>2025-05-16T20:10:20.0512252Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

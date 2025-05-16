@@ -11,16 +11,16 @@
   DTS:LocaleID="1038"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="63"
-  DTS:VersionGUID="{48B10DEE-2E43-417B-953D-9B1AC762AFF7}">
+  DTS:VersionBuild="79"
+  DTS:VersionGUID="{E1281F4B-7C69-4247-880D-7C7C7458CEC2}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:refId="Package.ConnectionManagers[CarSales file manager]"
       DTS:CreationName="FLATFILE"
       DTS:DTSID="{1127E076-AF9C-4931-BAC6-D85E48050C42}"
-      DTS:ObjectName="Flat File Connection Manager">
+      DTS:ObjectName="CarSales file manager">
       <DTS:PropertyExpression
         DTS:Name="ConnectionString">@[User::FolderPath] + "\\" + @[User::FileName]</DTS:PropertyExpression>
       <DTS:ObjectData>
@@ -125,6 +125,16 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CM_ETL_02_CleanAndStage.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{5F858155-3573-4659-8F01-A07A2B977C16}"
+      DTS:ObjectName="CM_ETL_02_CleanAndStage.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\suli\msc_2\bi-lab\bi-laboratory-car-metrics\CarMetrics\CarMetrics\CM_ETL_02_CleanAndStage.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
       DTS:refId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
       DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
       DTS:DTSID="{0E74E602-55E2-4047-AE35-519C36CA759D}"
@@ -135,7 +145,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAD2TSFeJtyYmUxEXZVI1PoE273nfDB2qWqUNj45x/aIvAAAAAAOgAAAAAIAACAAAACApD7oZ1cWEclOCQiYc4G9bKN0u44XpKfUKZ6urRCgjSAAAAA65lcSLKzPzOKq6i4mctDtAK8O0ZMr3RUPVnyp7vwjLkAAAAAzKQ8WDYERvi5whDAk8yqyMeidMkNe9lClQs0TDHu4bDwxuOnMQHhA7HTUqTNaPQQajx0XKWKViHkic7Fi1DrU</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADzqP1brcAsbNuBXuEt7KfDwhdrJvjmpGWKtrYkS72mVgAAAAAOgAAAAAIAACAAAADPCQK5jmLSgmvDZ45453ZFPf1DWwHRV0Zc+ewwcKHFmiAAAABQ1/qizE/+l1ZGOklD1obG9gnllfoOHYj6FUvbwK81pEAAAADP/Ln7ZUW5KRuG4ZzxE4G7YX//ZyWnRD21DB77KTK3ROdIZZI/G1YEentdeHnCAjRS2jbN81pufoL+048sApxe</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -278,13 +288,29 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Task"
+      DTS:refId="Package\Execute CleanAndStage ETL"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{79933248-0F41-48EB-B42B-3F550090609A}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute CleanAndStage ETL"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <Connection>{5F858155-3573-4659-8F01-A07A2B977C16}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Insert WorldCities data"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
       DTS:DTSID="{19E09786-10D4-4C50-900B-716329224742}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Task"
+      DTS:ObjectName="Insert WorldCities data"
       DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
       <DTS:Variables />
       <DTS:ObjectData>
@@ -292,11 +318,368 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\ADO NET Destination"
+              refId="Package\Insert WorldCities data\Flat File Source for World Cities"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="Flat File Source for World Cities"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Insert WorldCities data\Flat File Source for World Cities.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[WorldCities file manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[WorldCities file manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[city]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[city_ascii]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[city_ascii]"
+                      length="1000"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[city_ascii]"
+                      name="city_ascii"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[lng]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[lng]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[lng]"
+                      name="lng"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[country]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[country]"
+                      length="1000"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[iso2]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[iso2]"
+                      length="50"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[iso2]"
+                      name="iso2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[iso3]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[iso3]"
+                      length="50"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[iso3]"
+                      name="iso3"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[admin_name]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[admin_name]"
+                      length="1000"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[admin_name]"
+                      name="admin_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[capital]"
+                      codePage="65001"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[capital]"
+                      length="1000"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[capital]"
+                      name="capital"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[population]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[population]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[population]"
+                      name="population"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[city]"
+                      codePage="65001"
+                      dataType="str"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[city_ascii]"
+                      codePage="65001"
+                      dataType="str"
+                      length="1000"
+                      name="city_ascii" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[lng]"
+                      dataType="r8"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[country]"
+                      codePage="65001"
+                      dataType="str"
+                      length="1000"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[iso2]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="iso2" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[iso3]"
+                      codePage="65001"
+                      dataType="str"
+                      length="50"
+                      name="iso3" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[admin_name]"
+                      codePage="65001"
+                      dataType="str"
+                      length="1000"
+                      name="admin_name" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[capital]"
+                      codePage="65001"
+                      dataType="str"
+                      length="1000"
+                      name="capital" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[population]"
+                      dataType="i4"
+                      name="population" />
+                    <externalMetadataColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Insert WorldCities data\Insert to CityData"
               componentClassID="Microsoft.ManagedComponentHost"
               contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
               description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
-              name="ADO NET Destination"
+              name="Insert to CityData"
               usesDispositions="true"
               version="2">
               <properties>
@@ -327,7 +710,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\ADO NET Destination.Connections[IDbConnection]"
+                  refId="Package\Insert WorldCities data\Insert to CityData.Connections[IDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
                   connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
                   description="Managed connection manager"
@@ -335,143 +718,143 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input]"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="ADO NET Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[city]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[city]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="city"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[city]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[city]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[city_ascii]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[city_ascii]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="city_ascii"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[city_ascii]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city_ascii]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[city_ascii]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[city_ascii]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[lat]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[lat]"
                       cachedDataType="r8"
                       cachedName="lat"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[lat]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lat]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[lat]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[lat]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[lng]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[lng]"
                       cachedDataType="r8"
                       cachedName="lng"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[lng]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lng]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[lng]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[lng]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[country]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[country]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="country"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[country]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[country]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[country]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[country]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[iso2]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[iso2]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="iso2"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[iso2]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[iso2]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[iso2]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[iso2]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[iso3]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[iso3]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedName="iso3"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[iso3]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[iso3]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[iso3]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[iso3]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[admin_name]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[admin_name]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="admin_name"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[admin_name]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[admin_name]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[admin_name]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[admin_name]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[capital]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[capital]"
                       cachedCodepage="65001"
                       cachedDataType="str"
                       cachedLength="1000"
                       cachedName="capital"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[capital]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[capital]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[capital]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[capital]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[population]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[population]"
                       cachedDataType="i4"
                       cachedName="population"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[population]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[population]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[population]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[population]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[id]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].Columns[id]"
                       cachedDataType="i4"
                       cachedName="id"
-                      externalMetadataColumnId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[id]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[id]" />
+                      externalMetadataColumnId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      lineageId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output].Columns[id]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[city]"
                       dataType="wstr"
                       length="1000"
                       name="city" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[city_ascii]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[city_ascii]"
                       dataType="wstr"
                       length="1000"
                       name="city_ascii" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[lat]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[lat]"
                       dataType="r8"
                       name="lat" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[lng]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[lng]"
                       dataType="r8"
                       name="lng" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[country]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[country]"
                       dataType="wstr"
                       length="1000"
                       name="country" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[iso2]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[iso2]"
                       dataType="wstr"
                       length="50"
                       name="iso2" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[iso3]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[iso3]"
                       dataType="wstr"
                       length="50"
                       name="iso3" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[admin_name]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[admin_name]"
                       dataType="wstr"
                       length="1000"
                       name="admin_name" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[capital]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[capital]"
                       dataType="wstr"
                       length="1000"
                       name="capital" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[population]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[population]"
                       dataType="i4"
                       name="population" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[id]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input].ExternalColumns[id]"
                       dataType="i4"
                       name="id" />
                   </externalMetadataColumns>
@@ -479,379 +862,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  refId="Package\Insert WorldCities data\Insert to CityData.Outputs[ADO NET Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="ADO NET Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  synchronousInputId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Insert WorldCities data\Insert to CityData.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Insert WorldCities data\Insert to CityData.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Task\Flat File Source"
-              componentClassID="Microsoft.FlatFileSource"
-              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-              description="Flat File Source"
-              localeId="1033"
-              name="Flat File Source"
-              usesDispositions="true"
-              version="1">
-              <properties>
-                <property
-                  dataType="System.Boolean"
-                  description="Specifies whether zero-length columns are treated as null."
-                  name="RetainNulls">false</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                  name="FileNameColumnName"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
-                  connectionManagerID="Package.ConnectionManagers[WorldCities file manager]"
-                  connectionManagerRefId="Package.ConnectionManagers[WorldCities file manager]"
-                  name="FlatFileConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
-                  name="Flat File Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
-                      length="1000"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
-                      name="city"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city_ascii]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city_ascii]"
-                      length="1000"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city_ascii]"
-                      name="city_ascii"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lat]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lat]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lat]"
-                      name="lat"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lng]"
-                      dataType="r8"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lng]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[lng]"
-                      name="lng"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[country]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country]"
-                      length="1000"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[country]"
-                      name="country"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[iso2]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[iso2]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[iso2]"
-                      name="iso2"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[iso3]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[iso3]"
-                      length="50"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[iso3]"
-                      name="iso3"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[admin_name]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[admin_name]"
-                      length="1000"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[admin_name]"
-                      name="admin_name"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[capital]"
-                      codePage="65001"
-                      dataType="str"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[capital]"
-                      length="1000"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[capital]"
-                      name="capital"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[population]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[population]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[population]"
-                      name="population"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
-                      dataType="i4"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[id]"
-                      name="id"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                          name="FastParse">false</property>
-                        <property
-                          dataType="System.Boolean"
-                          description="Indicates whether the data is in binary format."
-                          name="UseBinaryFormat">false</property>
-                      </properties>
-                    </outputColumn>
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
-                      codePage="65001"
-                      dataType="str"
-                      length="1000"
-                      name="city" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city_ascii]"
-                      codePage="65001"
-                      dataType="str"
-                      length="1000"
-                      name="city_ascii" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lat]"
-                      dataType="r8"
-                      name="lat" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[lng]"
-                      dataType="r8"
-                      name="lng" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[country]"
-                      codePage="65001"
-                      dataType="str"
-                      length="1000"
-                      name="country" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[iso2]"
-                      codePage="65001"
-                      dataType="str"
-                      length="50"
-                      name="iso2" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[iso3]"
-                      codePage="65001"
-                      dataType="str"
-                      length="50"
-                      name="iso3" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[admin_name]"
-                      codePage="65001"
-                      dataType="str"
-                      length="1000"
-                      name="admin_name" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[capital]"
-                      codePage="65001"
-                      dataType="str"
-                      length="1000"
-                      name="capital" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[population]"
-                      dataType="i4"
-                      name="population" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[id]"
-                      dataType="i4"
-                      name="id" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
-                  isErrorOut="true"
-                  name="Flat File Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      codePage="65001"
-                      dataType="text"
-                      description="Flat File Source Error Output Column"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                      name="Flat File Source Error Output Column" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Insert WorldCities data\Insert to CityData.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -862,22 +888,22 @@
           </components>
           <paths>
             <path
-              refId="Package\Data Flow Task.Paths[Flat File Source Output]"
-              endId="Package\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              refId="Package\Insert WorldCities data.Paths[Flat File Source Output]"
+              endId="Package\Insert WorldCities data\Insert to CityData.Inputs[ADO NET Destination Input]"
               name="Flat File Source Output"
-              startId="Package\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+              startId="Package\Insert WorldCities data\Flat File Source for World Cities.Outputs[Flat File Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Foreach Loop Container"
+      DTS:refId="Package\Iterate through each new file"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
       DTS:DTSID="{7759CE80-3C99-4117-8A0E-D57F5EA8B739}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Foreach Loop Container">
+      DTS:ObjectName="Iterate through each new file">
       <DTS:ForEachEnumerator
         DTS:CreationName="Microsoft.ForEachFileEnumerator"
         DTS:DTSID="{E261CD93-17C9-4213-B8BE-B494DA90FFF1}"
@@ -900,13 +926,13 @@
       <DTS:Variables />
       <DTS:Executables>
         <DTS:Executable
-          DTS:refId="Package\Foreach Loop Container\Data Flow Task"
+          DTS:refId="Package\Iterate through each new file\Insert CarSales data"
           DTS:CreationName="Microsoft.Pipeline"
           DTS:Description="Data Flow Task"
           DTS:DTSID="{DC19A9F1-646D-47B9-8011-C1D6A78089BC}"
           DTS:ExecutableType="Microsoft.Pipeline"
           DTS:LocaleID="-1"
-          DTS:ObjectName="Data Flow Task"
+          DTS:ObjectName="Insert CarSales data"
           DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
           <DTS:Variables />
           <DTS:ObjectData>
@@ -914,11 +940,340 @@
               version="1">
               <components>
                 <component
-                  refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination"
+                  refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file"
+                  componentClassID="Microsoft.FlatFileSource"
+                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+                  description="Flat File Source"
+                  localeId="1033"
+                  name="Flat File Source for each and every car sales file"
+                  usesDispositions="true"
+                  version="1">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      description="Specifies whether zero-length columns are treated as null."
+                      name="RetainNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                      name="FileNameColumnName"></property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Connections[FlatFileConnection]"
+                      connectionManagerID="Package.ConnectionManagers[CarSales file manager]"
+                      connectionManagerRefId="Package.ConnectionManagers[CarSales file manager]"
+                      name="FlatFileConnection" />
+                  </connections>
+                  <outputs>
+                    <output
+                      refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output]"
+                      name="Flat File Source Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[date]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          length="20"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[date]"
+                          name="date"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[city]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[city]"
+                          length="1000"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[city]"
+                          name="city"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[salesperson]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[salesperson]"
+                          length="1000"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[salesperson]"
+                          name="salesperson"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[customername]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[customername]"
+                          length="1000"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[customername]"
+                          name="customername"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[carmake]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[carmake]"
+                          length="1000"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[carmake]"
+                          name="carmake"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[carmodel]"
+                          codePage="65001"
+                          dataType="str"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[carmodel]"
+                          length="1000"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[carmodel]"
+                          name="carmodel"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[caryear]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[caryear]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[caryear]"
+                          name="caryear"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[saleprice]"
+                          dataType="i4"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[saleprice]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[saleprice]"
+                          name="saleprice"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[commissionrate]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[commissionrate]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[commissionrate]"
+                          name="commissionrate"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[commisionearned]"
+                          dataType="r8"
+                          errorOrTruncationOperation="Conversion"
+                          errorRowDisposition="FailComponent"
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[commisionearned]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[commisionearned]"
+                          name="commisionearned"
+                          truncationRowDisposition="FailComponent">
+                          <properties>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                              name="FastParse">false</property>
+                            <property
+                              dataType="System.Boolean"
+                              description="Indicates whether the data is in binary format."
+                              name="UseBinaryFormat">false</property>
+                          </properties>
+                        </outputColumn>
+                      </outputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[date]"
+                          codePage="65001"
+                          dataType="str"
+                          length="20"
+                          name="date" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[city]"
+                          codePage="65001"
+                          dataType="str"
+                          length="1000"
+                          name="city" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[salesperson]"
+                          codePage="65001"
+                          dataType="str"
+                          length="1000"
+                          name="salesperson" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[customername]"
+                          codePage="65001"
+                          dataType="str"
+                          length="1000"
+                          name="customername" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[carmake]"
+                          codePage="65001"
+                          dataType="str"
+                          length="1000"
+                          name="carmake" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[carmodel]"
+                          codePage="65001"
+                          dataType="str"
+                          length="1000"
+                          name="carmodel" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[caryear]"
+                          dataType="i4"
+                          name="caryear" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[saleprice]"
+                          dataType="i4"
+                          name="saleprice" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[commissionrate]"
+                          dataType="r8"
+                          name="commissionrate" />
+                        <externalMetadataColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].ExternalColumns[commisionearned]"
+                          dataType="r8"
+                          name="commisionearned" />
+                      </externalMetadataColumns>
+                    </output>
+                    <output
+                      refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output]"
+                      isErrorOut="true"
+                      name="Flat File Source Error Output">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          codePage="1250"
+                          dataType="text"
+                          description="Flat File Source Error Output Column"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                          name="Flat File Source Error Output Column" />
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database"
                   componentClassID="Microsoft.ManagedComponentHost"
                   contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
                   description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
-                  name="ADO NET Destination"
+                  name="Insert to CarSales database"
                   usesDispositions="true"
                   version="2">
                   <properties>
@@ -949,7 +1304,7 @@
                   </properties>
                   <connections>
                     <connection
-                      refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Connections[IDbConnection]"
+                      refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Connections[IDbConnection]"
                       connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
                       connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
                       description="Managed connection manager"
@@ -957,130 +1312,130 @@
                   </connections>
                   <inputs>
                     <input
-                      refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                      refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input]"
                       errorRowDisposition="FailComponent"
                       hasSideEffects="true"
                       name="ADO NET Destination Input">
                       <inputColumns>
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[date]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[date]"
                           cachedCodepage="65001"
                           cachedDataType="str"
                           cachedLength="20"
                           cachedName="date"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[date]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[date]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[date]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[city]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[city]"
                           cachedCodepage="65001"
                           cachedDataType="str"
                           cachedLength="1000"
                           cachedName="city"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[city]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[city]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[salesperson]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[salesperson]"
                           cachedCodepage="65001"
                           cachedDataType="str"
                           cachedLength="1000"
                           cachedName="salesperson"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[salesperson]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[salesperson]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[salesperson]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[salesperson]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[customername]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[customername]"
                           cachedCodepage="65001"
                           cachedDataType="str"
                           cachedLength="1000"
                           cachedName="customername"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[customername]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[customername]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[customername]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[customername]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[carmake]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[carmake]"
                           cachedCodepage="65001"
                           cachedDataType="str"
                           cachedLength="1000"
                           cachedName="carmake"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[carmake]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[carmake]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[carmake]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[carmake]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[carmodel]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[carmodel]"
                           cachedCodepage="65001"
                           cachedDataType="str"
                           cachedLength="1000"
                           cachedName="carmodel"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[carmodel]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[carmodel]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[carmodel]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[carmodel]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[caryear]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[caryear]"
                           cachedDataType="i4"
                           cachedName="caryear"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[caryear]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[caryear]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[caryear]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[caryear]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[saleprice]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[saleprice]"
                           cachedDataType="i4"
                           cachedName="saleprice"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[saleprice]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[saleprice]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[saleprice]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[saleprice]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[commissionrate]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[commissionrate]"
                           cachedDataType="r8"
                           cachedName="commissionrate"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[commissionrate]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[commissionrate]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[commissionrate]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[commissionrate]" />
                         <inputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[commisionearned]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].Columns[commisionearned]"
                           cachedDataType="r8"
                           cachedName="commisionearned"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[commisionearned]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[commisionearned]" />
+                          externalMetadataColumnId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[commisionearned]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output].Columns[commisionearned]" />
                       </inputColumns>
                       <externalMetadataColumns
                         isUsed="True">
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[date]"
                           dataType="wstr"
                           length="20"
                           name="date" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[city]"
                           dataType="wstr"
                           length="1000"
                           name="city" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[salesperson]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[salesperson]"
                           dataType="wstr"
                           length="1000"
                           name="salesperson" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[customername]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[customername]"
                           dataType="wstr"
                           length="1000"
                           name="customername" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[carmake]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[carmake]"
                           dataType="wstr"
                           length="1000"
                           name="carmake" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[carmodel]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[carmodel]"
                           dataType="wstr"
                           length="1000"
                           name="carmodel" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[caryear]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[caryear]"
                           dataType="i4"
                           name="caryear" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[saleprice]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[saleprice]"
                           dataType="i4"
                           name="saleprice" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[commissionrate]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[commissionrate]"
                           dataType="r8"
                           name="commissionrate" />
                         <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[commisionearned]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input].ExternalColumns[commisionearned]"
                           dataType="r8"
                           name="commisionearned" />
                       </externalMetadataColumns>
@@ -1088,351 +1443,22 @@
                   </inputs>
                   <outputs>
                     <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                      refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Outputs[ADO NET Destination Error Output]"
                       exclusionGroup="1"
                       isErrorOut="true"
                       name="ADO NET Destination Error Output"
-                      synchronousInputId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                      synchronousInputId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input]">
                       <outputColumns>
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
                           name="ErrorCode"
                           specialFlags="1" />
                         <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                          refId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                           dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
-                  componentClassID="Microsoft.FlatFileSource"
-                  contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
-                  description="Flat File Source"
-                  localeId="1033"
-                  name="Flat File Source"
-                  usesDispositions="true"
-                  version="1">
-                  <properties>
-                    <property
-                      dataType="System.Boolean"
-                      description="Specifies whether zero-length columns are treated as null."
-                      name="RetainNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
-                      name="FileNameColumnName"></property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Connections[FlatFileConnection]"
-                      connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
-                      connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
-                      name="FlatFileConnection" />
-                  </connections>
-                  <outputs>
-                    <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]"
-                      name="Flat File Source Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[date]"
-                          codePage="65001"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date]"
-                          length="20"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[date]"
-                          name="date"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
-                          codePage="65001"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
-                          length="1000"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[city]"
-                          name="city"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[salesperson]"
-                          codePage="65001"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[salesperson]"
-                          length="1000"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[salesperson]"
-                          name="salesperson"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[customername]"
-                          codePage="65001"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customername]"
-                          length="1000"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[customername]"
-                          name="customername"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[carmake]"
-                          codePage="65001"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[carmake]"
-                          length="1000"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[carmake]"
-                          name="carmake"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[carmodel]"
-                          codePage="65001"
-                          dataType="str"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[carmodel]"
-                          length="1000"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[carmodel]"
-                          name="carmodel"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[caryear]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[caryear]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[caryear]"
-                          name="caryear"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[saleprice]"
-                          dataType="i4"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[saleprice]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[saleprice]"
-                          name="saleprice"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[commissionrate]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[commissionrate]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[commissionrate]"
-                          name="commissionrate"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[commisionearned]"
-                          dataType="r8"
-                          errorOrTruncationOperation="Conversion"
-                          errorRowDisposition="FailComponent"
-                          externalMetadataColumnId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[commisionearned]"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].Columns[commisionearned]"
-                          name="commisionearned"
-                          truncationRowDisposition="FailComponent">
-                          <properties>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the column uses the faster, locale-neutral parsing routines."
-                              name="FastParse">false</property>
-                            <property
-                              dataType="System.Boolean"
-                              description="Indicates whether the data is in binary format."
-                              name="UseBinaryFormat">false</property>
-                          </properties>
-                        </outputColumn>
-                      </outputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[date]"
-                          codePage="65001"
-                          dataType="str"
-                          length="20"
-                          name="date" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[city]"
-                          codePage="65001"
-                          dataType="str"
-                          length="1000"
-                          name="city" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[salesperson]"
-                          codePage="65001"
-                          dataType="str"
-                          length="1000"
-                          name="salesperson" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[customername]"
-                          codePage="65001"
-                          dataType="str"
-                          length="1000"
-                          name="customername" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[carmake]"
-                          codePage="65001"
-                          dataType="str"
-                          length="1000"
-                          name="carmake" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[carmodel]"
-                          codePage="65001"
-                          dataType="str"
-                          length="1000"
-                          name="carmodel" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[caryear]"
-                          dataType="i4"
-                          name="caryear" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[saleprice]"
-                          dataType="i4"
-                          name="saleprice" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[commissionrate]"
-                          dataType="r8"
-                          name="commissionrate" />
-                        <externalMetadataColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[commisionearned]"
-                          dataType="r8"
-                          name="commisionearned" />
-                      </externalMetadataColumns>
-                    </output>
-                    <output
-                      refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output]"
-                      isErrorOut="true"
-                      name="Flat File Source Error Output">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                          codePage="1250"
-                          dataType="text"
-                          description="Flat File Source Error Output Column"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
-                          name="Flat File Source Error Output Column" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                          lineageId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
                           name="ErrorColumn"
                           specialFlags="2" />
                       </outputColumns>
@@ -1443,10 +1469,10 @@
               </components>
               <paths>
                 <path
-                  refId="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
-                  endId="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  refId="Package\Iterate through each new file\Insert CarSales data.Paths[Flat File Source Output]"
+                  endId="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database.Inputs[ADO NET Destination Input]"
                   name="Flat File Source Output"
-                  startId="Package\Foreach Loop Container\Data Flow Task\Flat File Source.Outputs[Flat File Source Output]" />
+                  startId="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file.Outputs[Flat File Source Output]" />
               </paths>
             </pipeline>
           </DTS:ObjectData>
@@ -1455,8 +1481,8 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{BFCB14C0-3FC3-459D-A439-810D52826BD4}"
-          DTS:ObjectName="{BFCB14C0-3FC3-459D-A439-810D52826BD4}"
+          DTS:DTSID="{5B8640F3-A875-4E9E-B72D-5E40F5BBF597}"
+          DTS:ObjectName="{5B8640F3-A875-4E9E-B72D-5E40F5BBF597}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::FileName" />
       </DTS:ForEachVariableMappings>
@@ -1479,13 +1505,13 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
-      DTS:refId="Package\Truncate WorldData"
+      DTS:refId="Package\Truncate WorldCitites data"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{72BC1E2D-BCE6-40D6-9796-090BAD9CD809}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Truncate WorldData"
+      DTS:ObjectName="Truncate WorldCitites data"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -1504,15 +1530,31 @@
       DTS:From="Package\Truncate CarSales"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint"
-      DTS:To="Package\Foreach Loop Container" />
+      DTS:To="Package\Iterate through each new file" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
       DTS:CreationName=""
       DTS:DTSID="{51103E7B-247F-4C19-B3BB-A371DCF3F3C9}"
-      DTS:From="Package\Truncate WorldData"
+      DTS:From="Package\Truncate WorldCitites data"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 1"
-      DTS:To="Package\Data Flow Task" />
+      DTS:To="Package\Insert WorldCities data" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{535F1D4A-8553-463E-A264-1819BE38D5CE}"
+      DTS:From="Package\Iterate through each new file"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute CleanAndStage ETL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{6CF7F51F-2D22-41E6-9F87-D12281952F7C}"
+      DTS:From="Package\Insert WorldCities data"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Execute CleanAndStage ETL" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1525,40 +1567,48 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="155,42"
-          Id="Package\Data Flow Task"
+          Size="190,42"
+          Id="Package\Insert WorldCities data"
           TopLeft="699.5,197.5" />
         <NodeLayout
-          Size="155,42"
-          Id="Package\Foreach Loop Container\Data Flow Task"
+          Size="191,42"
+          Id="Package\Execute CleanAndStage ETL"
+          TopLeft="575.277777777778,340.611111111111" />
+        <NodeLayout
+          Size="179,42"
+          Id="Package\Iterate through each new file\Insert CarSales data"
           TopLeft="29.5,12.5" />
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205,109"
-          Size="205,152"
-          Id="Package\Foreach Loop Container"
-          TopLeft="389.5,141.5" />
+          PanelSize="240,109"
+          Size="240,152"
+          Id="Package\Iterate through each new file"
+          TopLeft="379.5,141.5" />
         <NodeLayout
           Size="170,42"
           Id="Package\Truncate CarSales"
-          TopLeft="408.5,37.5" />
+          TopLeft="409.5,57.5" />
+        <NodeLayout
+          Size="231,42"
+          Id="Package\Truncate WorldCitites data"
+          TopLeft="680.5,59.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="492.75,79.5">
+          TopLeft="497,99.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,62"
+              EndConnector="0,42"
               Start="0,0"
-              End="0,54.5">
+              End="0,34.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,54.5" />
+                    End="0,34.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1567,24 +1617,88 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Truncate WorldData"
-          TopLeft="699.5,49.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="780.75,91.5">
+          TopLeft="795.25,101.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,106"
+              EndConnector="0,96"
               Start="0,0"
-              End="0,98.5">
+              End="0,88.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,98.5" />
+                    End="0,88.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="499.5,293.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="140.777777777778,47.111111111111"
+              Start="0,0"
+              End="140.777777777778,39.611111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.0318449290411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.0318449290411"
+                    Point2="0,28.0318449290411"
+                    Point3="4,28.0318449290411" />
+                  <mssgle:LineSegment
+                    End="136.777777777778,28.0318449290411" />
+                  <mssgle:CubicBezierSegment
+                    Point1="136.777777777778,28.0318449290411"
+                    Point2="140.777777777778,28.0318449290411"
+                    Point3="140.777777777778,32.0318449290411" />
+                  <mssgle:LineSegment
+                    End="140.777777777778,39.611111111111" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="794.5,239.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-93.2222222222219,101.111111111111"
+              Start="0,0"
+              End="-93.2222222222219,93.611111111111">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.1626860505364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.1626860505364"
+                    Point2="0,60.1626860505364"
+                    Point3="-4,60.1626860505364" />
+                  <mssgle:LineSegment
+                    End="-89.2222222222219,60.1626860505364" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-89.2222222222219,60.1626860505364"
+                    Point2="-93.2222222222219,60.1626860505364"
+                    Point3="-93.2222222222219,64.1626860505364" />
+                  <mssgle:LineSegment
+                    End="-93.2222222222219,93.611111111111" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1597,70 +1711,32 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Task">
+    design-time-name="Package\Insert WorldCities data">
     <LayoutInfo>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="156,42"
-          Id="Package\Data Flow Task\Flat File Source"
-          TopLeft="368.5,20.5" />
+          Size="164,42"
+          Id="Package\Insert WorldCities data\Insert to CityData"
+          TopLeft="363.5,109.5" />
         <NodeLayout
-          Size="186,42"
-          Id="Package\Data Flow Task\ADO NET Destination"
-          TopLeft="355.5,108.5" />
+          Size="234,42"
+          Id="Package\Insert WorldCities data\Flat File Source for World Cities"
+          TopLeft="333.5,16.5" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="447.5,62.5">
+          Id="Package\Insert WorldCities data.Paths[Flat File Source Output]"
+          TopLeft="448,58.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46"
+              EndConnector="0,51"
               Start="0,0"
-              End="0,38.5">
+              End="0,43.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,38.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Foreach Loop Container\Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\Flat File Source"
-          TopLeft="322.5,32.5" />
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination"
-          TopLeft="309,146" />
-        <EdgeLayout
-          Id="Package\Foreach Loop Container\Data Flow Task.Paths[Flat File Source Output]"
-          TopLeft="401.25,74.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,71.5"
-              Start="0,0"
-              End="0,64">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,64" />
+                    End="0,43.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1673,15 +1749,53 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Foreach Loop Container\Data Flow Task\ADO NET Destination">
+    design-time-name="Package\Insert WorldCities data\Insert to CityData">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Iterate through each new file\Insert CarSales data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="314,42"
+          Id="Package\Iterate through each new file\Insert CarSales data\Flat File Source for each and every car sales file"
+          TopLeft="245.5,31.5" />
+        <NodeLayout
+          Size="215,42"
+          Id="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database"
+          TopLeft="301,142" />
+        <EdgeLayout
+          Id="Package\Iterate through each new file\Insert CarSales data.Paths[Flat File Source Output]"
+          TopLeft="405.5,73.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,68.5"
+              Start="0,0"
+              End="0,61">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,61" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\ADO NET Destination">
+    design-time-name="Package\Iterate through each new file\Insert CarSales data\Insert to CarSales database">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

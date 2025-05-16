@@ -11,12 +11,1997 @@
   DTS:LocaleID="1038"
   DTS:ObjectName="CM_ETL_02_CleanAndStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="1"
-  DTS:VersionGUID="{44C70BE6-8FE0-4382-AC9B-22806E62214E}">
+  DTS:VersionBuild="30"
+  DTS:VersionGUID="{8BA4F768-EEFD-43A4-AFBA-6E3F1F1F3E5C}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CM_ETL_03_BuildAggregations.dtsx]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{A903A82B-3855-4D4E-830D-4D906548787F}"
+      DTS:ObjectName="CM_ETL_03_BuildAggregations.dtsx">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\suli\msc_2\bi-lab\bi-laboratory-car-metrics\CarMetrics\CarMetrics\CM_ETL_03_BuildAggregations.dtsx" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{4BE3A903-4414-440E-ABF6-C1E199F87167}"
+      DTS:ObjectName="localhost.CarMetrics.sa">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=localhost;User ID=sa;Initial Catalog=CarMetrics;Encrypt=False;Application Name=SSIS-CM_ETL_02_CleanAndStage-{4BE3A903-4414-440E-ABF6-C1E199F87167}localhost.CarMetrics.sa;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC/hKe6CnNmS+r2vPkXar6UYprblxoe8km7oYTFl0cWfwAAAAAOgAAAAAIAACAAAABZTWT23bZ1KPo3VdwmIE36BCbT2TvdqOxb3qJfvgnwiSAAAADwWgJrZTQwXLx199ZwQdpN1QroCwUGOVlJeHnd9Iz1PkAAAAAQDLE4+/C4AIL84q4NUUE7ZXJTh8WMKPgUJ0F4ITR+lIfYvR8sIRFtk9UtdSJBDD9Mc68qYAke9z5kX/rKf9E0</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
   <DTS:Variables />
-  <DTS:Executables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clean data and insert to Staged table (CarSales)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{3BEBF64B-61AB-499E-89DF-4C50B620D9B7}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean data and insert to Staged table (CarSales)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Converting the purchase date from string to date type"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input].Columns[date]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="date"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[date]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input].Columns[saleprice]"
+                      cachedDataType="i4"
+                      cachedName="saleprice"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[saleprice]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input].Columns[commisionearned]"
+                      cachedDataType="r8"
+                      cachedName="commisionearned"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commisionearned]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[formatted_date]"
+                      dataType="date"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[formatted_date]"
+                      name="formatted_date"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_DATE)#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[date]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_DATE)date</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[profit]"
+                      name="profit"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">(DT_R8)#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[saleprice]} - #{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commisionearned]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_R8)saleprice - commisionearned</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Raw CarSales table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."raw.CarSales"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      length="20"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      name="salesperson"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[customername]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[customername]"
+                      name="customername"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmake]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmake]"
+                      name="carmake"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      name="carmodel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[caryear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[caryear]"
+                      name="caryear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      name="saleprice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      name="commissionrate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      name="commisionearned"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      dataType="wstr"
+                      length="20"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      name="salesperson" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      name="customername" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmake" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmodel" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      dataType="i4"
+                      name="caryear" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      dataType="i4"
+                      name="saleprice" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      dataType="r8"
+                      name="commissionrate" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      dataType="r8"
+                      name="commisionearned" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[date]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      name="salesperson" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      name="customername" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      name="carmake" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      name="carmodel" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      name="caryear" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      name="saleprice" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      name="commissionrate" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      name="commisionearned" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort the dataset by purchase date"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[date]"
+                      cachedDataType="wstr"
+                      cachedLength="20"
+                      cachedName="date"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[salesperson]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="salesperson"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[salesperson]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="customername"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[customername]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[carmake]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmake"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmake]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[carmodel]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmodel"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmodel]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[caryear]"
+                      cachedDataType="i4"
+                      cachedName="caryear"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[caryear]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[saleprice]"
+                      cachedDataType="i4"
+                      cachedName="saleprice"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[saleprice]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[commissionrate]"
+                      cachedDataType="r8"
+                      cachedName="commissionrate"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commissionrate]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[commisionearned]"
+                      cachedDataType="r8"
+                      cachedName="commisionearned"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commisionearned]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[formatted_date]"
+                      cachedDataType="date"
+                      cachedName="formatted_date"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[formatted_date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input].Columns[profit]"
+                      cachedDataType="r8"
+                      cachedName="profit"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[profit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[date]"
+                      dataType="wstr"
+                      length="20"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[date]"
+                      name="date">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[city]"
+                      name="city">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[salesperson]"
+                      name="salesperson">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[salesperson]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[customername]"
+                      name="customername">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[customername]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[carmake]"
+                      name="carmake">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmake]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[carmodel]"
+                      name="carmodel">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[carmodel]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[caryear]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[caryear]"
+                      name="caryear">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[caryear]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[saleprice]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[saleprice]"
+                      name="saleprice">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[saleprice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[commissionrate]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[commissionrate]"
+                      name="commissionrate">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commissionrate]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[commisionearned]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[commisionearned]"
+                      name="commisionearned">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output].Columns[commisionearned]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[formatted_date]"
+                      dataType="date"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[formatted_date]"
+                      name="formatted_date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[formatted_date]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[profit]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[profit]"
+                      name="profit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output].Columns[profit]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Staged CarSales table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."staged.CarSales"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[salesperson]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="salesperson"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[salesperson]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[salesperson]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[customername]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="customername"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[customername]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[customername]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[carmake]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmake"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[carmake]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[carmake]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[carmodel]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmodel"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[carmodel]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[carmodel]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[caryear]"
+                      cachedDataType="i4"
+                      cachedName="caryear"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[caryear]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[caryear]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[saleprice]"
+                      cachedDataType="i4"
+                      cachedName="saleprice"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[saleprice]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[saleprice]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[commissionrate]"
+                      cachedDataType="r8"
+                      cachedName="commissionrate"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[commissionrate]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[commissionrate]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[commisionearned]"
+                      cachedDataType="r8"
+                      cachedName="commisionearned"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[commisionearned]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[commisionearned]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[profit]"
+                      cachedDataType="r8"
+                      cachedName="profit"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[profit]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[profit]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].Columns[formatted_date]"
+                      cachedDataType="date"
+                      cachedName="formatted_date"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output].Columns[formatted_date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[date]"
+                      dataType="dbTimeStamp"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      name="salesperson" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      name="customername" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmake" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmodel" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[caryear]"
+                      dataType="i4"
+                      name="caryear" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[saleprice]"
+                      dataType="i4"
+                      name="saleprice" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[commissionrate]"
+                      dataType="r8"
+                      name="commissionrate" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[commisionearned]"
+                      dataType="r8"
+                      name="commisionearned" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input].ExternalColumns[profit]"
+                      dataType="r8"
+                      name="profit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Clean data and insert to Staged table (CarSales).Paths[ADO NET Source Output]"
+              endId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Inputs[Derived Column Input]"
+              name="ADO NET Source Output"
+              startId="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Clean data and insert to Staged table (CarSales).Paths[Derived Column Output]"
+              endId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Clean data and insert to Staged table (CarSales).Paths[Sort Output]"
+              endId="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table.Inputs[ADO NET Destination Input]"
+              name="Sort Output"
+              startId="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clean data and insert to Staged table (CityData)"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{95679C65-7E16-4F16-9E28-7723637E7145}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clean data and insert to Staged table (CityData)"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Filter USA cities"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Inputs[Conditional Split Input].Columns[iso3]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="iso3"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso3]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[USA cities]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="USA cities"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso3]}) &amp;&amp; [UPPER](#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso3]}) == "USA"</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(iso3) &amp;&amp; UPPER(iso3) == "USA"</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Raw CityData table"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."raw.CityData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city_ascii]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[city_ascii]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city_ascii]"
+                      name="city_ascii"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[lat]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lng]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[lng]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lng]"
+                      name="lng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[country]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso2]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[iso2]"
+                      length="50"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso2]"
+                      name="iso2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso3]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[iso3]"
+                      length="50"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[iso3]"
+                      name="iso3"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[admin_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[admin_name]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[admin_name]"
+                      name="admin_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[capital]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[capital]"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[capital]"
+                      name="capital"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[population]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[population]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[population]"
+                      name="population"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[id]"
+                      name="id"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[city_ascii]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city_ascii" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[lng]"
+                      dataType="r8"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[iso2]"
+                      dataType="wstr"
+                      length="50"
+                      name="iso2" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[iso3]"
+                      dataType="wstr"
+                      length="50"
+                      name="iso3" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[admin_name]"
+                      dataType="wstr"
+                      length="1000"
+                      name="admin_name" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[capital]"
+                      dataType="wstr"
+                      length="1000"
+                      name="capital" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[population]"
+                      dataType="i4"
+                      name="population" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].ExternalColumns[id]"
+                      dataType="i4"
+                      name="id" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[city_ascii]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[city_ascii]"
+                      name="city_ascii" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[lat]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[lat]"
+                      name="lat" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[lng]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[lng]"
+                      name="lng" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[iso2]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[iso2]"
+                      name="iso2" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[iso3]"
+                      dataType="wstr"
+                      length="50"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[iso3]"
+                      name="iso3" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[admin_name]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[admin_name]"
+                      name="admin_name" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[capital]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[capital]"
+                      name="capital" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[population]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[population]"
+                      name="population" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[id]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[id]"
+                      name="id" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CityData)\Sort"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Sort"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input].Columns[lat]"
+                      cachedDataType="r8"
+                      cachedName="lat"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lat]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input].Columns[lng]"
+                      cachedDataType="r8"
+                      cachedName="lng"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lng]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="country"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input].Columns[population]"
+                      cachedDataType="i4"
+                      cachedName="population"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[population]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[city]"
+                      name="city"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[lat]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[lat]"
+                      name="lat">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lat]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[lng]"
+                      dataType="r8"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[lng]"
+                      name="lng">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[lng]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[population]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[population]"
+                      name="population">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[population]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Staged CityData table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."staged.CityData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].Columns[lat]"
+                      cachedDataType="r8"
+                      cachedName="lat"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[lat]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[lat]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].Columns[lng]"
+                      cachedDataType="r8"
+                      cachedName="lng"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[lng]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[lng]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[country]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].Columns[population]"
+                      cachedDataType="i4"
+                      cachedName="population"
+                      externalMetadataColumnId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[population]"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output].Columns[population]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[lng]"
+                      dataType="r8"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input].ExternalColumns[population]"
+                      dataType="i4"
+                      name="population" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Trim string fields"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Inputs[Derived Column Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[city]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(city)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Inputs[Derived Column Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="country"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[country]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output].Columns[country]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(country)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Clean data and insert to Staged table (CityData).Paths[ADO NET Source Output]"
+              endId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Inputs[Conditional Split Input]"
+              name="ADO NET Source Output"
+              startId="Package\Clean data and insert to Staged table (CityData)\Raw CityData table.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Clean data and insert to Staged table (CityData).Paths[Derived Column Output]"
+              endId="Package\Clean data and insert to Staged table (CityData)\Sort.Inputs[Sort Input]"
+              name="Derived Column Output"
+              startId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Clean data and insert to Staged table (CityData).Paths[Sort Output]"
+              endId="Package\Clean data and insert to Staged table (CityData)\Staged CityData table.Inputs[ADO NET Destination Input]"
+              name="Sort Output"
+              startId="Package\Clean data and insert to Staged table (CityData)\Sort.Outputs[Sort Output]" />
+            <path
+              refId="Package\Clean data and insert to Staged table (CityData).Paths[USA cities]"
+              endId="Package\Clean data and insert to Staged table (CityData)\Trim string fields.Inputs[Derived Column Input]"
+              name="USA cities"
+              startId="Package\Clean data and insert to Staged table (CityData)\Filter USA cities.Outputs[USA cities]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Execute BuildAggregations ETL"
+      DTS:CreationName="Microsoft.ExecutePackageTask"
+      DTS:Description="Execute Package Task"
+      DTS:DTSID="{17E58305-0391-47B9-BDDE-BC13C1E50E8F}"
+      DTS:ExecutableType="Microsoft.ExecutePackageTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute BuildAggregations ETL"
+      DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <ExecutePackageTask>
+          <Connection>{A903A82B-3855-4D4E-830D-4D906548787F}</Connection>
+        </ExecutePackageTask>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staged CarSales"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{024E1707-6671-43E5-A44F-79A6722E808D}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staged CarSales"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4BE3A903-4414-440E-ABF6-C1E199F87167}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[staged.CarSales]" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Staged CityData"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{1937896F-A189-40F7-A782-F97DD9EADD62}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Staged CityData"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{4BE3A903-4414-440E-ABF6-C1E199F87167}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE [dbo].[staged.CityData]&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{5E956BDD-80B1-450E-8CDB-33D27AE1B26F}"
+      DTS:From="Package\Truncate Staged CarSales"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Clean data and insert to Staged table (CarSales)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{D42DB1DE-A77D-4046-B0C4-F5E84E8D2635}"
+      DTS:From="Package\Truncate Staged CityData"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Clean data and insert to Staged table (CityData)" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{D7D2A3B7-7568-449A-A8B8-4C3974F9D5A8}"
+      DTS:From="Package\Clean data and insert to Staged table (CarSales)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Execute BuildAggregations ETL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{37799C5B-6B47-46EF-84C0-F7E2FF3F8241}"
+      DTS:From="Package\Clean data and insert to Staged table (CityData)"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Execute BuildAggregations ETL" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -24,5 +2009,391 @@
 <Objects
   Version="8">
   <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="316,42"
+          Id="Package\Clean data and insert to Staged table (CarSales)"
+          TopLeft="257.5,130.5" />
+        <NodeLayout
+          Size="312,42"
+          Id="Package\Clean data and insert to Staged table (CityData)"
+          TopLeft="742.5,132.5" />
+        <NodeLayout
+          Size="191,42"
+          Id="Package\Execute BuildAggregations ETL"
+          TopLeft="595.5,262.5" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Truncate Staged CarSales"
+          TopLeft="312.5,44.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Truncate Staged CityData"
+          TopLeft="817.5,41.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="416,86.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="900.5,83.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,49"
+              Start="0,0"
+              End="0,41.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="415.5,172.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="245,90"
+              Start="0,0"
+              End="245,82.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,49.5514018691589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,49.5514018691589"
+                    Point2="0,53.5514018691589"
+                    Point3="4,53.5514018691589" />
+                  <mssgle:LineSegment
+                    End="241,53.5514018691589" />
+                  <mssgle:CubicBezierSegment
+                    Point1="241,53.5514018691589"
+                    Point2="245,53.5514018691589"
+                    Point3="245,57.5514018691589" />
+                  <mssgle:LineSegment
+                    End="245,82.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="898.5,174.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-177,88"
+              Start="0,0"
+              End="-177,80.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.3613707165109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48.3613707165109"
+                    Point2="0,52.3613707165109"
+                    Point3="-4,52.3613707165109" />
+                  <mssgle:LineSegment
+                    End="-173,52.3613707165109" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-173,52.3613707165109"
+                    Point2="-177,52.3613707165109"
+                    Point3="-177,56.3613707165109" />
+                  <mssgle:LineSegment
+                    End="-177,80.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Clean data and insert to Staged table (CarSales)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="243,42"
+          Id="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date"
+          TopLeft="486.5,204.5" />
+        <NodeLayout
+          Size="176,42"
+          Id="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table"
+          TopLeft="526.5,41.5" />
+        <NodeLayout
+          Size="338,42"
+          Id="Package\Clean data and insert to Staged table (CarSales)\Converting the purchase date from string to date type"
+          TopLeft="443.5,114.5" />
+        <NodeLayout
+          Size="189,42"
+          Id="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table"
+          TopLeft="508.5,278.5" />
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CarSales).Paths[Sort Output]"
+          TopLeft="605.5,246.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CarSales).Paths[Derived Column Output]"
+          TopLeft="610.25,156.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,48"
+              Start="0,0"
+              End="0,40.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,40.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CarSales).Paths[ADO NET Source Output]"
+          TopLeft="613.5,83.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,31"
+              Start="0,0"
+              End="0,23.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean data and insert to Staged table (CarSales)\Raw CarSales table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean data and insert to Staged table (CarSales)\Staged CarSales table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Clean data and insert to Staged table (CityData)">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Staged CityData table"
+          TopLeft="750.5,275.5" />
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Filter USA cities"
+          TopLeft="507.5,96.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Trim string fields"
+          TopLeft="507.5,182.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Raw CityData table"
+          TopLeft="504.5,26.5" />
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CityData).Paths[USA cities]"
+          TopLeft="586.75,138.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44"
+              Start="0,0"
+              End="0,36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.3365234375,13.47314453125,44.673046875,9.5537109375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CityData).Paths[ADO NET Source Output]"
+          TopLeft="588.5,68.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,28"
+              Start="0,0"
+              End="0,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="99,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Sort"
+          TopLeft="786.5,188.5" />
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CityData).Paths[Derived Column Output]"
+          TopLeft="667.5,206.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="119,0"
+              Start="0,0"
+              End="111.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="111.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Clean data and insert to Staged table (CityData).Paths[Sort Output]"
+          TopLeft="839.75,230.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45"
+              Start="0,0"
+              End="0,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean data and insert to Staged table (CityData)\Staged CityData table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Clean data and insert to Staged table (CityData)\Raw CityData table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

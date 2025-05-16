@@ -3,16 +3,8 @@
   "WorkspaceRootPath": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_02_CleanAndStage.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|solutionrelative:CarMetrics\\CM_ETL_02_CleanAndStage.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_01_LoadRawData.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|solutionrelative:CarMetrics\\CM_ETL_01_LoadRawData.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_Main.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
-      "RelativeMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|solutionrelative:CarMetrics\\CM_Main.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
+      "AbsoluteMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_03_BuildAggregations.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design",
+      "RelativeMoniker": "D:0:0:{01404EE7-FE27-1760-F016-FF64F826E56C}|CarMetrics\\CarMetrics.dtproj|solutionrelative:CarMetrics\\CM_ETL_03_BuildAggregations.dtsx||{CC84AFBD-DA02-46F4-8623-9F07E5569EDB}|Design"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -33,39 +25,19 @@
               "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a83394e3-39c2-4678-a3c8-364b69d78fd3}"
+            },
+            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "CM_ETL_02_CleanAndStage.dtsx [Design]",
-              "DocumentMoniker": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_02_CleanAndStage.dtsx",
-              "RelativeDocumentMoniker": "CarMetrics\\CM_ETL_02_CleanAndStage.dtsx",
-              "ToolTip": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_02_CleanAndStage.dtsx [Design]",
-              "RelativeToolTip": "CarMetrics\\CM_ETL_02_CleanAndStage.dtsx [Design]",
+              "Title": "CM_ETL_03_BuildAggregations.dtsx [Design]",
+              "DocumentMoniker": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_03_BuildAggregations.dtsx",
+              "RelativeDocumentMoniker": "CarMetrics\\CM_ETL_03_BuildAggregations.dtsx",
+              "ToolTip": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_03_BuildAggregations.dtsx [Design]",
+              "RelativeToolTip": "CarMetrics\\CM_ETL_03_BuildAggregations.dtsx [Design]",
               "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-05-16T20:13:29.317Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CM_ETL_01_LoadRawData.dtsx [Design]",
-              "DocumentMoniker": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_01_LoadRawData.dtsx",
-              "RelativeDocumentMoniker": "CarMetrics\\CM_ETL_01_LoadRawData.dtsx",
-              "ToolTip": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_ETL_01_LoadRawData.dtsx [Design]",
-              "RelativeToolTip": "CarMetrics\\CM_ETL_01_LoadRawData.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-05-16T20:10:22.944Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CM_Main.dtsx [Design]",
-              "DocumentMoniker": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_Main.dtsx",
-              "RelativeDocumentMoniker": "CarMetrics\\CM_Main.dtsx",
-              "ToolTip": "C:\\suli\\msc_2\\bi-lab\\bi-laboratory-car-metrics\\CarMetrics\\CarMetrics\\CM_Main.dtsx [Design]",
-              "RelativeToolTip": "CarMetrics\\CM_Main.dtsx [Design]",
-              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFkSURBVDhPjVO/S8NAGH2RtvSPaPeSwUVchS6CexYRJCBYUJC6SEFBBIXiIigKEYRSCC4unQTXDsVipkpbUJHSRTQ2/oimNCTnkOTMXdrqg4Pv\u002B\u002B69ly933wkAoFaqBGPQezdx9/CYO9xZOWU2CPF0aqVKXMcZuY7Kl2R6bomsbZ8sMwYAJvjCKOxtraNW1xTe5N8Gm7sHAIBaXVPC9Vg4KZSaNC7KIs0/jQQW5yUAQPn8gnIwrAM7nYGdzjB5cnIGqwuzDC9AxCDebSPebUdyc8DQWPx1Cx\u002BWQzrG722EtZEOeJgDwOgDukUQSyT5bdagUGrSBU6sW4A7ZNwiHQSHGBa/fANvFuDafZ4eNQgOLSx\u002B/gK06xa6dgpZKY\u002BNswbBlELAz0FRFumXjT7Bq\u002BXFpu31XpRFdJ5M3N73sO9rqMGxehWEI5Ci4puWTqsx\u002BK\u002BNnzAeWSlPxWEDgWGNg//PDLSc8AOMxO8cPcnGpQAAAABJRU5ErkJggg==",
-              "WhenOpened": "2025-05-15T20:14:14.886Z",
+              "WhenOpened": "2025-05-16T21:30:01.217Z",
               "EditorCaption": " [Design]"
             }
           ]
