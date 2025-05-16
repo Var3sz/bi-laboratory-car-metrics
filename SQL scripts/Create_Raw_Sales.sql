@@ -7,6 +7,6 @@ CREATE TABLE [dbo].[raw.CarSales](
 	[carmodel] [nvarchar](1000) NULL,
 	[caryear] [int] NULL,
 	[saleprice] [int] NULL,
-	[commissionrate] [decimal](18, 0) NULL,
-	[commisionearned] [decimal](18, 0) NULL
+	[commissionrate] [float] NULL,
+	[commisionearned] [float] NULL
 )
