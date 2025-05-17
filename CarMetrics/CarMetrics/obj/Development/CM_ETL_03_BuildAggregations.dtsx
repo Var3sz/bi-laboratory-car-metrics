@@ -11,8 +11,8 @@
   DTS:LocaleID="1038"
   DTS:ObjectName="CM_ETL_03_BuildAggregations"
   DTS:PackageType="5"
-  DTS:VersionBuild="18"
-  DTS:VersionGUID="{51D0E23A-AE51-40DF-B6B3-90FDC44C8CB9}">
+  DTS:VersionBuild="63"
+  DTS:VersionGUID="{FC7EF8AF-ABAC-4B61-912D-E20385970D03}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAADnjrP/g2Gj2rl7x1a+/34x+OwstazgjUXHz7McAleewgAAAAAOgAAAAAIAACAAAABRrWAtbfY++/LLJ47XxADGMHVTaG/WOaRZwucrb3uNwiAAAACynwtwVBamzZ9oZ/92C5NSuTUqGy58s96U/WzaIgSn2EAAAADyrZsoSe3D4LGfgyqxXr8JwANS1GVTYicTOHgXb+Tbks+7NAx2evxmnBkOKk8g5tpNJ4SHl+7peMuRx63fC5UY</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAhuVDbydUhfwAkJt+pl92IHerD7k5wbQ+C50qlUs/N+gAAAAAOgAAAAAIAACAAAABut6AP841lyAsdK+Q7J60pcs3STmPfhjkF+RRMilbr0iAAAABsSXNgyQklggMhV1fdikgdIK14hA3kJGgi3GJHmviTQUAAAAAvu0l8KiXgqE8vHzfQXqR/TR0WFug3ZmsqFu4UDNHR6IMEd1SqA5xVoihEJZYf0nbaMEldymWYxykVCDIBune2</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -35,23 +35,2564 @@
   <DTS:Variables />
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Execute SQL Task"
+      DTS:refId="Package\Clear fact and dimension tables"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
       DTS:DTSID="{BDB8357F-8974-4F8F-BAA0-5DD9C27522A3}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Execute SQL Task"
+      DTS:ObjectName="Clear fact and dimension tables"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
           SQLTask:Connection="{A6F489AF-79D3-42F4-891C-47ADE7804D00}"
-          SQLTask:SqlStatementSource="-- Először töröljük a fact táblát, hogy ne ütközzön a dimenziókkal&#xA;DELETE FROM [dbo].[dwh.FactSales];&#xA;&#xA;-- Ezután a dimenziótáblák&#xA;DELETE FROM [dbo].[dwh.DimSalesperson];&#xA;DELETE FROM [dbo].[dwh.DimCity];&#xA;DELETE FROM [dbo].[dwh.DimDate];&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          SQLTask:SqlStatementSource="DELETE FROM [dbo].[dwh.FactSales];&#xA;&#xA;DELETE FROM [dbo].[dwh.DimSalesperson];&#xA;DELETE FROM [dbo].[dwh.DimCity];&#xA;DELETE FROM [dbo].[dwh.DimDate];&#xA;DELETE FROM [dbo].[dwh.DimCar];&#xA;&#xA;&#xA;DBCC CHECKIDENT ('[dbo].[dwh.FactSales]', RESEED, 0);&#xA;DBCC CHECKIDENT ('[dbo].[dwh.DimCity]', RESEED, 0);&#xA;DBCC CHECKIDENT ('[dbo].[dwh.DimDate]', RESEED, 0);&#xA;DBCC CHECKIDENT ('[dbo].[dwh.DimCar]', RESEED, 0);&#xA;DBCC CHECKIDENT ('[dbo].[dwh.DimSalesperson]', RESEED, 0);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading dimension tables"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{B6141064-57D3-43F1-A601-4C794C6CB236}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading dimension tables"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading dimension tables\ADO NET Destination 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dwh.DimSalesperson"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\ADO NET Destination 1.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].Columns[salesperson]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="salesperson"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[SalespersonName]"
+                      lineageId="Package\Loading dimension tables\Remove duplicates.Outputs[Sort Output].Columns[salesperson]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[SalespersonKey]"
+                      dataType="i4"
+                      name="SalespersonKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input].ExternalColumns[SalespersonName]"
+                      dataType="wstr"
+                      length="500"
+                      name="SalespersonName" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\ADO NET Destination 1.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Create Year, Month and Day columns"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Create Year, Month and Day columns"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Create Year, Month and Day columns.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Create Year, Month and Day columns.Inputs[Derived Column Input].Columns[date]"
+                      cachedDataType="dbDate"
+                      cachedName="date"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Loading dimension tables\Create Year, Month and Day columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Year]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Year]"
+                      name="Year"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("yyyy",#{Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("yyyy",date)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Month]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Month]"
+                      name="Month"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("mm",#{Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("mm",date)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Day]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Day]"
+                      name="Day"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[DATEPART]("dd",#{Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">DATEPART("dd",date)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Loading dimension tables\Create Year, Month and Day columns.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Load to DimCar table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Load to DimCar table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dwh.DimCar"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Load to DimCar table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].Columns[carmake]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmake"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarMake]"
+                      lineageId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[carmake]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].Columns[carmodel]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmodel"
+                      cachedSortKeyPosition="2"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarModel]"
+                      lineageId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[carmodel]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].Columns[caryear]"
+                      cachedDataType="i4"
+                      cachedName="caryear"
+                      cachedSortKeyPosition="3"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarYear]"
+                      lineageId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[caryear]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarKey]"
+                      dataType="i4"
+                      name="CarKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarMake]"
+                      dataType="wstr"
+                      length="200"
+                      name="CarMake" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarModel]"
+                      dataType="wstr"
+                      length="200"
+                      name="CarModel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input].ExternalColumns[CarYear]"
+                      dataType="i4"
+                      name="CarYear" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Load to DimCar table.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Load to DimCar table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Load to DimCar table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Load to DimCar table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Load to DimCity table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Load to DimCity table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dwh.DimCity"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Load to DimCity table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="country"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[Country]"
+                      lineageId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[country]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].Columns[population]"
+                      cachedDataType="i4"
+                      cachedName="population"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[Population]"
+                      lineageId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[population]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[CityName]"
+                      lineageId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[city]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[CityKey]"
+                      dataType="i4"
+                      name="CityKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[CityName]"
+                      dataType="wstr"
+                      length="300"
+                      name="CityName" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[Country]"
+                      dataType="wstr"
+                      length="300"
+                      name="Country" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input].ExternalColumns[Population]"
+                      dataType="i4"
+                      name="Population" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Load to DimCity table.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Load to DimCity table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Load to DimCity table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Load to DimCity table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Load to DimDate table"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="Load to DimDate table"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dwh.DimDate"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Load to DimDate table.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].Columns[Year]"
+                      cachedDataType="i4"
+                      cachedName="Year"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[Year]"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Year]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].Columns[Month]"
+                      cachedDataType="i4"
+                      cachedName="Month"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[Month]"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Month]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].Columns[Day]"
+                      cachedDataType="i4"
+                      cachedName="Day"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[Day]"
+                      lineageId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output].Columns[Day]" />
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].Columns[date]"
+                      cachedDataType="dbDate"
+                      cachedName="date"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[FullDate]"
+                      lineageId="Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[FullDate]"
+                      dataType="dbTimeStamp"
+                      name="FullDate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[Year]"
+                      dataType="i4"
+                      name="Year" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[Month]"
+                      dataType="i4"
+                      name="Month" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input].ExternalColumns[Day]"
+                      dataType="i4"
+                      name="Day" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Load to DimDate table.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Load to DimDate table.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Load to DimDate table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Load to DimDate table.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Remove dupicates"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove dupicates"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Remove dupicates.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove dupicates.Inputs[Sort Input].Columns[carmake]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmake"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmake]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove dupicates.Inputs[Sort Input].Columns[carmodel]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="carmodel"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmodel]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">2</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove dupicates.Inputs[Sort Input].Columns[caryear]"
+                      cachedDataType="i4"
+                      cachedName="caryear"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[caryear]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[carmake]"
+                      name="carmake"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmake]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[carmodel]"
+                      name="carmodel"
+                      sortKeyPosition="2">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmodel]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[caryear]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output].Columns[caryear]"
+                      name="caryear"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[caryear]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Remove duplicated dates"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove duplicated dates"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Remove duplicated dates.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove duplicated dates.Inputs[Sort Input].Columns[date]"
+                      cachedDataType="dbDate"
+                      cachedName="date"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[date]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]"
+                      dataType="dbDate"
+                      lineageId="Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output].Columns[date]"
+                      name="date"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[date]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Remove duplicates"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove duplicates"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Remove duplicates.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates.Inputs[Sort Input].Columns[salesperson]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="salesperson"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[salesperson]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Remove duplicates.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates.Outputs[Sort Output].Columns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Remove duplicates.Outputs[Sort Output].Columns[salesperson]"
+                      name="salesperson"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[salesperson]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Remove duplicates if neccessary"
+              componentClassID="Microsoft.Sort"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              name="Remove duplicates if neccessary"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values."
+                  name="EliminateDuplicates">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Loading dimension tables\Remove duplicates if neccessary.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates if neccessary.Inputs[Sort Input].Columns[city]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="city"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[city]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates if neccessary.Inputs[Sort Input].Columns[country]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="country"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[country]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates if neccessary.Inputs[Sort Input].Columns[population]"
+                      cachedDataType="i4"
+                      cachedName="population"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[population]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output]"
+                  isSorted="true"
+                  name="Sort Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[city]"
+                      name="city"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[city]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[country]"
+                      name="country">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[country]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[population]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output].Columns[population]"
+                      name="population">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[population]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Staged CarSales for DimCar"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Staged CarSales for DimCar"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."staged.CarSales"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Staged CarSales for DimCar.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      name="salesperson"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[customername]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[customername]"
+                      name="customername"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmake]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmake]"
+                      name="carmake"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      name="carmodel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[caryear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[caryear]"
+                      name="caryear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      name="saleprice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      name="commissionrate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      name="commisionearned"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[profit]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].Columns[profit]"
+                      name="profit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      name="salesperson" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      name="customername" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmake" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmodel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      dataType="i4"
+                      name="caryear" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      dataType="i4"
+                      name="saleprice" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      dataType="r8"
+                      name="commissionrate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      dataType="r8"
+                      name="commisionearned" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output].ExternalColumns[profit]"
+                      dataType="r8"
+                      name="profit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[date]"
+                      dataType="dbDate"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      name="salesperson" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      name="customername" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      name="carmake" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      name="carmodel" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      name="caryear" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      name="saleprice" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      name="commissionrate" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      name="commisionearned" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[profit]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[profit]"
+                      name="profit" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Staged CarSales for DimDate"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Staged CarSales for DimDate"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."staged.CarSales"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Staged CarSales for DimDate.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      name="salesperson"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[customername]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[customername]"
+                      name="customername"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[carmake]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[carmake]"
+                      name="carmake"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      name="carmodel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[caryear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[caryear]"
+                      name="caryear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      name="saleprice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      name="commissionrate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      name="commisionearned"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[profit]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].Columns[profit]"
+                      name="profit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      name="salesperson" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      name="customername" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmake" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmodel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      dataType="i4"
+                      name="caryear" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      dataType="i4"
+                      name="saleprice" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      dataType="r8"
+                      name="commissionrate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      dataType="r8"
+                      name="commisionearned" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output].ExternalColumns[profit]"
+                      dataType="r8"
+                      name="profit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[date]"
+                      dataType="dbDate"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      name="salesperson" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      name="customername" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      name="carmake" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      name="carmodel" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      name="caryear" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      name="saleprice" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      name="commissionrate" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      name="commisionearned" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[profit]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[profit]"
+                      name="profit" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Staged CarSales for DimSalesperson"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."staged.CarSales"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[date]"
+                      dataType="dbDate"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[date]"
+                      name="date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[salesperson]"
+                      name="salesperson"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[customername]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[customername]"
+                      name="customername"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[carmake]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[carmake]"
+                      name="carmake"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[carmodel]"
+                      name="carmodel"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[caryear]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[caryear]"
+                      name="caryear"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      name="saleprice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      name="commissionrate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      name="commisionearned"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[profit]"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].Columns[profit]"
+                      name="profit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[date]"
+                      dataType="dbDate"
+                      name="date" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      name="salesperson" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      name="customername" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmake" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      name="carmodel" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[caryear]"
+                      dataType="i4"
+                      name="caryear" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      dataType="i4"
+                      name="saleprice" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      dataType="r8"
+                      name="commissionrate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      dataType="r8"
+                      name="commisionearned" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output].ExternalColumns[profit]"
+                      dataType="r8"
+                      name="profit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[date]"
+                      dataType="dbDate"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[date]"
+                      name="date" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[salesperson]"
+                      name="salesperson" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[customername]"
+                      name="customername" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[carmake]"
+                      name="carmake" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[carmodel]"
+                      name="carmodel" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[caryear]"
+                      name="caryear" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      name="saleprice" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      name="commissionrate" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      name="commisionearned" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[profit]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[profit]"
+                      name="profit" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading dimension tables\Staged CityData"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="Staged CityData"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."staged.CityData"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading dimension tables\Staged CityData.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[city]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[lat]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[lat]"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[lat]"
+                      name="lat"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[lng]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[lng]"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[lng]"
+                      name="lng"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[country]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[country]"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[country]"
+                      name="country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[population]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[population]"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].Columns[population]"
+                      name="population"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[lat]"
+                      dataType="r8"
+                      name="lat" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[lng]"
+                      dataType="r8"
+                      name="lng" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      name="country" />
+                    <externalMetadataColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output].ExternalColumns[population]"
+                      dataType="i4"
+                      name="population" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[city]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[lat]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[lat]"
+                      name="lat" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[lng]"
+                      dataType="r8"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[lng]"
+                      name="lng" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[country]"
+                      dataType="wstr"
+                      length="1000"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[country]"
+                      name="country" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[population]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[population]"
+                      name="population" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading dimension tables.Paths[ADO NET Source Output]"
+              endId="Package\Loading dimension tables\Remove duplicates if neccessary.Inputs[Sort Input]"
+              name="ADO NET Source Output"
+              startId="Package\Loading dimension tables\Staged CityData.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[ADO NET Source Output1]"
+              endId="Package\Loading dimension tables\Remove duplicated dates.Inputs[Sort Input]"
+              name="ADO NET Source Output"
+              startId="Package\Loading dimension tables\Staged CarSales for DimDate.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[ADO NET Source Output2]"
+              endId="Package\Loading dimension tables\Remove dupicates.Inputs[Sort Input]"
+              name="ADO NET Source Output"
+              startId="Package\Loading dimension tables\Staged CarSales for DimCar.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[ADO NET Source Output3]"
+              endId="Package\Loading dimension tables\Remove duplicates.Inputs[Sort Input]"
+              name="ADO NET Source Output"
+              startId="Package\Loading dimension tables\Staged CarSales for DimSalesperson.Outputs[ADO NET Source Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[Derived Column Output]"
+              endId="Package\Loading dimension tables\Load to DimDate table.Inputs[ADO NET Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Loading dimension tables\Create Year, Month and Day columns.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[Sort Output]"
+              endId="Package\Loading dimension tables\Load to DimCity table.Inputs[ADO NET Destination Input]"
+              name="Sort Output"
+              startId="Package\Loading dimension tables\Remove duplicates if neccessary.Outputs[Sort Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[Sort Output1]"
+              endId="Package\Loading dimension tables\Create Year, Month and Day columns.Inputs[Derived Column Input]"
+              name="Sort Output"
+              startId="Package\Loading dimension tables\Remove duplicated dates.Outputs[Sort Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[Sort Output2]"
+              endId="Package\Loading dimension tables\Load to DimCar table.Inputs[ADO NET Destination Input]"
+              name="Sort Output"
+              startId="Package\Loading dimension tables\Remove dupicates.Outputs[Sort Output]" />
+            <path
+              refId="Package\Loading dimension tables.Paths[Sort Output3]"
+              endId="Package\Loading dimension tables\ADO NET Destination 1.Inputs[ADO NET Destination Input]"
+              name="Sort Output"
+              startId="Package\Loading dimension tables\Remove duplicates.Outputs[Sort Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Loading fact table"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{741C2E56-6B98-4143-A90E-E88FB8D961E9}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Loading fact table"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Loading fact table\ADO NET Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="ADO NET Destination"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."dwh.FactSales"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading fact table\ADO NET Destination.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[DateKey]"
+                      cachedDataType="i4"
+                      cachedName="DateKey"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DateKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[DateKey]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CityKey]"
+                      cachedDataType="i4"
+                      cachedName="CityKey"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CityKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[CityKey]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[CarKey]"
+                      cachedDataType="i4"
+                      cachedName="CarKey"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CarKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[CarKey]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SalespersonKey]"
+                      cachedDataType="i4"
+                      cachedName="SalespersonKey"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalespersonKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalespersonKey]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[saleprice]"
+                      cachedDataType="i4"
+                      cachedName="saleprice"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalePrice]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[saleprice]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[commissionrate]"
+                      cachedDataType="r8"
+                      cachedName="commissionrate"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CommissionRate]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[commissionrate]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[Profit]"
+                      cachedDataType="r8"
+                      cachedName="Profit"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Profit]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[Profit]" />
+                    <inputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[commisionearned]"
+                      cachedDataType="r8"
+                      cachedName="commisionearned"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CommissionEarned]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[commisionearned]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[FactSalesKey]"
+                      dataType="i4"
+                      name="FactSalesKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CityKey]"
+                      dataType="i4"
+                      name="CityKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalespersonKey]"
+                      dataType="i4"
+                      name="SalespersonKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CarKey]"
+                      dataType="i4"
+                      name="CarKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SalePrice]"
+                      dataType="i4"
+                      name="SalePrice" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CommissionRate]"
+                      dataType="r8"
+                      name="CommissionRate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[CommissionEarned]"
+                      dataType="r8"
+                      name="CommissionEarned" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[Profit]"
+                      dataType="r8"
+                      name="Profit" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Loading fact table\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Loading fact table\ADO NET Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              name="ADO NET Source"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT 
+  dd.DateKey,
+  dc.CityKey,
+  dcar.CarKey,
+  ds.SalespersonKey,
+  s.saleprice,
+  s.commissionrate,
+  s.commisionearned,
+  s.Profit
+FROM [dbo].[staged.CarSales] s
+JOIN [dbo].[dwh.DimDate] dd ON s.date = dd.FullDate
+JOIN [dbo].[dwh.DimCity] dc ON s.city = dc.CityName
+JOIN [dbo].[dwh.DimCar] dcar ON s.carmake = dcar.CarMake AND s.carmodel = dcar.CarModel AND s.caryear = dcar.CarYear
+JOIN [dbo].[dwh.DimSalesperson] ds ON s.salesperson = ds.SalespersonName</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="The Source database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">2</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Loading fact table\ADO NET Source.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  connectionManagerRefId="Package.ConnectionManagers[localhost.CarMetrics.sa]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[DateKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DateKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[DateKey]"
+                      name="DateKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[CityKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CityKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[CityKey]"
+                      name="CityKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[CarKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CarKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[CarKey]"
+                      name="CarKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalespersonKey]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalespersonKey]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[SalespersonKey]"
+                      name="SalespersonKey"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[saleprice]"
+                      name="saleprice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[commissionrate]"
+                      name="commissionrate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[commisionearned]"
+                      name="commisionearned"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[Profit]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Profit]"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].Columns[Profit]"
+                      name="Profit"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DateKey]"
+                      dataType="i4"
+                      name="DateKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CityKey]"
+                      dataType="i4"
+                      name="CityKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CarKey]"
+                      dataType="i4"
+                      name="CarKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SalespersonKey]"
+                      dataType="i4"
+                      name="SalespersonKey" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[saleprice]"
+                      dataType="i4"
+                      name="saleprice" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[commissionrate]"
+                      dataType="r8"
+                      name="commissionrate" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[commisionearned]"
+                      dataType="r8"
+                      name="commisionearned" />
+                    <externalMetadataColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Profit]"
+                      dataType="r8"
+                      name="Profit" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  isErrorOut="true"
+                  name="ADO NET Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DateKey]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DateKey]"
+                      name="DateKey" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CityKey]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CityKey]"
+                      name="CityKey" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CarKey]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CarKey]"
+                      name="CarKey" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalespersonKey]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SalespersonKey]"
+                      name="SalespersonKey" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[saleprice]"
+                      name="saleprice" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      dataType="r8"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[commissionrate]"
+                      name="commissionrate" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      dataType="r8"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[commisionearned]"
+                      name="commisionearned" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Profit]"
+                      dataType="r8"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Profit]"
+                      name="Profit" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Loading fact table.Paths[ADO NET Source Output]"
+              endId="Package\Loading fact table\ADO NET Destination.Inputs[ADO NET Destination Input]"
+              name="ADO NET Source Output"
+              startId="Package\Loading fact table\ADO NET Source.Outputs[ADO NET Source Output]" />
+          </paths>
+        </pipeline>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{3E3270BE-FDB1-402C-9EBF-27275E6A73F0}"
+      DTS:From="Package\Clear fact and dimension tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Loading dimension tables" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{30B461ED-D73E-4203-B3B6-83184C73487F}"
+      DTS:From="Package\Loading dimension tables"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Loading fact table" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -63,13 +2604,425 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="170,42"
-          Id="Package\Execute SQL Task"
-          TopLeft="519.5,66.5" />
+          Id="Package\Clear fact and dimension tables"
+          TopLeft="499.5,64.5" />
+        <NodeLayout
+          Size="204,42"
+          Id="Package\Loading dimension tables"
+          TopLeft="482.5,167.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="584.5,106.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,61"
+              Start="0,0"
+              End="0,53.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,53.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Loading fact table"
+          TopLeft="506.5,249.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="587,209.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,40"
+              Start="0,0"
+              End="0,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\Loading dimension tables">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="224,42"
+          Id="Package\Loading dimension tables\Staged CarSales for DimDate"
+          TopLeft="76.5,16.5" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Loading dimension tables\Staged CityData"
+          TopLeft="1118.5,22.5" />
+        <NodeLayout
+          Size="240,42"
+          Id="Package\Loading dimension tables\Remove duplicates if neccessary"
+          TopLeft="1083.5,116.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[ADO NET Source Output]"
+          TopLeft="1200.75,64.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52"
+              Start="0,0"
+              End="0,44.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="184,42"
+          Id="Package\Loading dimension tables\Load to DimCity table"
+          TopLeft="1109.5,201.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[Sort Output]"
+          TopLeft="1202.5,158.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,43"
+              Start="0,0"
+              End="0,35.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="218,42"
+          Id="Package\Loading dimension tables\Staged CarSales for DimCar"
+          TopLeft="332.5,15.5" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\Loading dimension tables\Staged CarSales for DimSalesperson"
+          TopLeft="631.5,15.5" />
+        <NodeLayout
+          Size="203,42"
+          Id="Package\Loading dimension tables\Remove duplicated dates"
+          TopLeft="86.5,95.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[ADO NET Source Output1]"
+          TopLeft="188.25,58.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37"
+              Start="0,0"
+              End="0,29.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="262,42"
+          Id="Package\Loading dimension tables\Create Year, Month and Day columns"
+          TopLeft="57.5,166.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[Sort Output1]"
+          TopLeft="188.25,137.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29"
+              Start="0,0"
+              End="0,21.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="188,42"
+          Id="Package\Loading dimension tables\Load to DimDate table"
+          TopLeft="88.5,244.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[Derived Column Output]"
+          TopLeft="185.5,208.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36"
+              Start="0,0"
+              End="0,28.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,28.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Loading dimension tables\Remove dupicates"
+          TopLeft="350.5,104.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[ADO NET Source Output2]"
+          TopLeft="438.5,57.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,47"
+              Start="0,0"
+              End="0,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="183,42"
+          Id="Package\Loading dimension tables\Load to DimCar table"
+          TopLeft="344.5,209.5" />
+        <NodeLayout
+          Size="195,42"
+          Id="Package\Loading dimension tables\ADO NET Destination 1"
+          TopLeft="661.5,206.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[Sort Output2]"
+          TopLeft="435.75,146.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Loading dimension tables\Remove duplicates"
+          TopLeft="673.5,110.5" />
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[ADO NET Source Output3]"
+          TopLeft="761.25,57.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,53"
+              Start="0,0"
+              End="0,45.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Loading dimension tables.Paths[Sort Output3]"
+          TopLeft="759.5,152.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,54"
+              Start="0,0"
+              End="0,46.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,46.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading dimension tables\Staged CarSales for DimDate">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading dimension tables\Staged CityData">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading dimension tables\Load to DimCity table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading dimension tables\Load to DimDate table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading dimension tables\Load to DimCar table">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading dimension tables\ADO NET Destination 1">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Loading fact table">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="166,42"
+          Id="Package\Loading fact table\ADO NET Source"
+          TopLeft="546.5,28.5" />
+        <NodeLayout
+          Size="186,42"
+          Id="Package\Loading fact table\ADO NET Destination"
+          TopLeft="532.5,153.5" />
+        <EdgeLayout
+          Id="Package\Loading fact table.Paths[ADO NET Source Output]"
+          TopLeft="627.5,70.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,83"
+              Start="0,0"
+              End="0,75.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,75.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading fact table\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Loading fact table\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>

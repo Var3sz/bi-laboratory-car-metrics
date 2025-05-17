@@ -1,0 +1,1000 @@
+date,city,salesperson,customername,carmake,carmodel,caryear,saleprice,commissionrate,commisionearned
+3/26/2024,Milwaukee,Caleb Brown,Reggis Huby,Scion,tC,2012,13583,0.061775,839.089825
+11/9/2024,Omaha,Sophia Garcia,Tammy Colles,Dodge,Ram 50,1993,30803,0.138837,4276.596111
+12/15/2018,Kansas City,Thomas Ward,Rosalinda McGinley,Bentley,Continental GTC,2007,38044,0.146159,5560.472996
+11/11/2019,Austin,Owen Barnes,Wendy Zywicki,Ford,E-Series,2012,11452,0.097714,1119.020728
+5/6/2019,Louisville,Sebastian Flores,Linet Desaur,Mercedes-Benz,SL-Class,1991,22794,0.149409,3405.628746
+1/8/2019,Tucson,Abigail Price,Barnett Duckels,Mazda,Navajo,1994,26730,0.085055,2273.52015
+3/27/2025,Mesa,David Perez,Shelagh Lafferty,Lexus,RX Hybrid,2010,26914,0.11469,3086.76666
+7/21/2024,Washington,Jackson Robinson,Inness Gerin,Mitsubishi,Lancer Evolution,2003,47177,0.090732,4280.463564
+2/8/2019,Atlanta,David Thompson,Nessi Bullerwell,Mercury,Capri,1984,19692,0.080209,1579.475628
+5/29/2022,Memphis,Alexander Nguyen,Brandie Elsegood,Jeep,Grand Cherokee,2004,24867,0.081304,2021.786568
+6/16/2018,Nashville,Ethan Cooper,Terrell Brosini,Volkswagen,Fox,1988,12494,0.067405,842.15807
+2/6/2022,Houston,Thomas Hernandez,Fred Soar,Honda,Prelude,2000,13060,0.059003,770.57918
+6/9/2018,Tulsa,Gabriel Rivera,Zorine Duffil,Ford,F250,1998,18573,0.132293,2457.077889
+10/12/2021,Tucson,Joseph Green,Randie Kernock,Saab,900,1991,40236,0.072934,2934.572424
+10/28/2022,Tampa,Michael Taylor,Oliviero Matieu,Toyota,4Runner,1994,36284,0.083337,3023.799708
+11/29/2020,Philadelphia,Chloe Williams,Adolph Charter,Volvo,850,1997,41128,0.143859,5916.632952
+6/28/2023,Tampa,Alexander Kelly,Wanids Rangell,Mercedes-Benz,M-Class,2012,39370,0.104272,4105.18864
+11/8/2018,Mesa,Elijah Martinez,Lauryn Tremblay,Kia,Spectra,2002,43498,0.075293,3275.094914
+2/20/2021,Denver,Layla Ramirez,Jess Kaveney,Mitsubishi,Expo,1994,21190,0.053742,1138.79298
+9/9/2018,Indianapolis,Grace Anderson,Dalila Pittford,BMW,M3,2001,33103,0.104811,3469.558533
+1/14/2025,San Antonio,Sebastian Flores,Janel Dozdill,Dodge,D150 Club,1992,47362,0.110634,5239.847508
+12/25/2019,Nashville,Aria Torres,Candy Minshaw,Nissan,Altima,2004,13621,0.088541,1206.016961
+1/31/2024,Raleigh,Victoria Brooks,Ransom Lanceley,Chevrolet,Malibu,2003,30257,0.05354,1619.95978
+7/31/2021,San Antonio,Sophia Rodriguez,Felizio Baskett,Suzuki,Kizashi,2012,33032,0.079636,2630.536352
+6/16/2019,Denver,Aurora Young,Rosalie Alabastar,Subaru,Impreza WRX,2011,36059,0.120075,4329.784425
+4/5/2024,New Orleans,Elijah Torres,Cathrine Senner,Pontiac,Grand Am,2001,32413,0.111073,3600.209149
+11/29/2022,Indianapolis,Mia Moore,Cherey Dumper,Ford,Escape,2012,45270,0.089064,4031.92728
+3/27/2025,Tucson,Lucy Lewis,Harmonie Tasseler,Dodge,Ram Van 2500,1998,38947,0.056999,2219.940053
+12/30/2023,Austin,Emma Adams,Gnni Thornborrow,Aston Martin,DBS,2008,15134,0.079995,1210.64433
+3/27/2023,Dallas,Liam Davis,Eddie Brunt,Nissan,Altima,1993,47606,0.121914,5803.837884
+10/2/2019,New York,David Young,Minny Rieflin,Toyota,Prius Plug-in Hybrid,2012,18525,0.061397,1137.379425
+5/30/2021,Arlington,Sophia Miller,Emiline Thombleson,Mazda,Mazdaspeed6,2007,17958,0.064331,1155.256098
+2/25/2020,Indianapolis,Matthew Taylor,Carlee Kenrat,Mazda,626,1986,42167,0.10706,4514.39902
+11/15/2021,Colorado Springs,Lily Allen,Lonni Dawid,Acura,MDX,2008,36749,0.138445,5087.715305
+10/3/2018,Portland,Evelyn Rodriguez,Inger Matelaitis,GMC,Yukon Denali,2006,12025,0.137121,1648.880025
+1/21/2020,Miami,Noah Davis,Anetta Beeke,Mercedes-Benz,Sprinter,2011,11579,0.052744,610.722776
+7/24/2019,Columbus,Evelyn Bailey,Georgi Lockery,Ford,F350,2004,40222,0.113291,4556.790602
+10/25/2020,Denver,Abigail Jones,Nettle Seward,Ford,E250,2009,35734,0.098519,3520.477946
+5/2/2022,Jacksonville,Abigail Price,Reggie Dawtry,Ford,F-Series,2001,35407,0.087828,3109.725996
+7/12/2018,Tulsa,Benjamin Ramirez,Valaree Jorcke,Hyundai,Sonata,2008,24887,0.066654,1658.818098
+5/29/2022,Oklahoma City,Michael Gonzalez,Sascha Alleway,Infiniti,FX,2011,31959,0.063514,2029.843926
+12/8/2024,Arlington,Lily Martin,Rickert Maidens,BMW,525,2002,49558,0.0663,3285.6954
+5/19/2020,Washington,Henry Thomas,Whitney Rubberts,Chevrolet,Corvette,1978,21887,0.122781,2687.307747
+7/24/2018,Oklahoma City,Jackson Robinson,Gabriela Frankham,Hyundai,Tiburon,1999,15008,0.13127,1970.10016
+8/28/2018,Portland,Julian Cooper,Issiah Nussgen,Chrysler,Concorde,1994,16270,0.115893,1885.57911
+9/25/2018,Omaha,Liam Gonzalez,Sara-ann Jaine,Infiniti,FX,2006,42571,0.086754,3693.204534
+9/15/2023,Raleigh,Ellie Torres,Louisa Alvis,Chevrolet,Express 3500,2011,26774,0.092373,2473.194702
+8/25/2022,Louisville,Nora White,Anita Brunelli,Ford,F-Series,1997,15373,0.102765,1579.806345
+4/20/2022,Portland,Ellie Diaz,Kermie Lilburne,Lincoln,LS,2000,29102,0.128631,3743.419362
+6/29/2021,Fort Worth,Ethan Cooper,Hyacintha Ander,Cadillac,Seville,1992,32884,0.063849,2099.610516
+8/31/2020,Kansas City,Alexander Martin,Pennie Gretham,Dodge,Stratus,1997,26915,0.140212,3773.80598
+1/25/2019,Columbus,Gabriel Cooper,Thayne Chiplin,Lincoln,MKS,2013,40382,0.141962,5732.709484
+7/9/2018,Sacramento,Thomas Hernandez,Haley Voelker,Subaru,Legacy,2002,24867,0.114685,2851.871895
+1/4/2024,Atlanta,Julian Morgan,Horton Staggs,Lexus,RX,2000,13829,0.109987,1521.010223
+11/8/2018,Raleigh,Layla Hill,Evelyn Croall,Audi,100,1993,21003,0.137361,2884.993083
+8/5/2022,Las Vegas,Lily Price,Franny Baytrop,Nissan,Altima,2008,35341,0.114275,4038.592775
+4/13/2020,Baltimore,Alexander Kelly,Rorke Blasli,Dodge,Caravan,1997,49096,0.128137,6291.014152
+11/8/2022,Memphis,Chloe Hall,Ganny Bythell,Ford,E-Series,2007,21735,0.05244,1139.7834
+5/2/2024,Mesa,Stella Jenkins,Judye Bearcroft,Chevrolet,Express 2500,2006,30695,0.097222,2984.22929
+3/11/2024,New Orleans,Evelyn Rodriguez,King Coopey,Chrysler,Voyager,2003,48001,0.051749,2484.003749
+2/6/2025,Boston,Penelope Anderson,Ellette Stemson,Jaguar,XJ,2006,34466,0.126524,4360.776184
+2/2/2024,Albuquerque,David Brown,Rufe Forsard,Jeep,Grand Cherokee,2009,34313,0.082821,2841.836973
+9/25/2018,Raleigh,Emma Jones,Edouard Royson,Jeep,Compass,2012,30518,0.130076,3969.659368
+1/15/2021,Indianapolis,Benjamin Thompson,Napoleon Whinray,Toyota,RAV4,1999,10524,0.081684,859.642416
+11/29/2023,Albuquerque,David Scott,Ketti Jenkison,Audi,A8,2006,11228,0.089738,1007.578264
+3/30/2021,San Francisco,Isaac Brooks,Allyn Jurisic,Mazda,929,1992,37977,0.082838,3145.938726
+3/14/2024,Tucson,David Wright,Jourdain Janisson,Chevrolet,Express,2012,31999,0.109854,3515.218146
+4/28/2023,Seattle,Amelia Gonzalez,Terza Ilyinski,Eagle,Talon,1997,32082,0.146467,4698.954294
+1/28/2019,Dallas,Julian Cooper,Cecil Bradnum,Jaguar,XF,2009,43646,0.081536,3558.720256
+8/27/2018,Austin,Joseph Green,Derry Opfer,Chevrolet,Express 3500,1996,40343,0.13264,5351.09552
+6/27/2021,Virginia Beach,Liam Gonzalez,Faunie Leyrroyd,BMW,7 Series,2001,45108,0.104602,4718.387016
+5/16/2022,Albuquerque,Michael Gonzalez,Kameko Pavis,Mitsubishi,GTO,1996,44340,0.060075,2663.7255
+1/19/2024,Tulsa,Abigail Thomas,Bernice McGee,Mercury,Cougar,1968,23142,0.116168,2688.359856
+1/20/2022,Philadelphia,Benjamin Thompson,Sherlock Easterling,Mercedes-Benz,CLK-Class,2000,46137,0.073333,3383.364621
+5/26/2019,Omaha,Layla Ramirez,Maddi Wickett,Saab,9-7X,2005,15744,0.088515,1393.58016
+10/16/2021,Chicago,Thomas Diaz,Laurence Warstall,Chevrolet,Monte Carlo,2004,20996,0.093532,1963.797872
+1/11/2025,Seattle,Amelia Moore,Michaella Lequeux,Chrysler,Concorde,1998,42780,0.052291,2237.00898
+1/16/2020,Denver,Charlotte Thomas,Glad Ghioni,Buick,Electra,1987,40812,0.14219,5803.05828
+1/7/2024,Atlanta,Caleb Long,Norah Milleton,GMC,Safari,2004,12157,0.073004,887.509628
+3/3/2024,Milwaukee,Abigail Thompson,Annis Lacasa,Ford,Thunderbird,1955,42465,0.085052,3611.73318
+12/19/2024,Baltimore,Samuel Nelson,Harley Guerola,Smart,Fortwo,2012,18056,0.130749,2360.803944
+2/13/2024,Colorado Springs,Ellie Reed,Brion Telega,Chevrolet,Colorado,2010,46098,0.061276,2824.701048
+10/29/2021,Colorado Springs,Amelia Cooper,Bordy Babst,Saturn,Ion,2005,14799,0.082933,1227.325467
+1/24/2020,Raleigh,Jacob Anderson,Gayelord Mathers,Honda,Odyssey,2003,23973,0.08822,2114.89806
+2/3/2025,Indianapolis,Benjamin Young,Conroy Reinbeck,Jeep,Liberty,2009,28034,0.09154,2566.23236
+5/22/2018,Kansas City,Jackson Martinez,Kathlin Dewar,Ford,Crown Victoria,1998,27367,0.147546,4037.891382
+6/22/2020,Memphis,Natalie Cox,Frederic Brobyn,Nissan,Maxima,1997,28450,0.131672,3746.0684
+9/13/2019,Oakland,Nora White,Welch MacAnulty,Acura,TSX,2008,24300,0.146456,3558.8808
+4/11/2022,Fort Worth,Evelyn Bailey,Audrey Tall,Mitsubishi,Truck,1991,43025,0.09403,4045.64075
+9/10/2024,Los Angeles,Jacob Scott,Rosamond Blaw,Audi,A6,1998,29591,0.111166,3289.513106
+11/15/2023,Raleigh,Joseph Campbell,Clive Kleine,Oldsmobile,Intrigue,1998,31670,0.119624,3788.49208
+12/19/2022,Virginia Beach,Joseph Green,Alverta Mates,Lincoln,MKT,2012,10351,0.144514,1495.864414
+7/8/2018,Austin,Joseph Campbell,Ty Bethell,Nissan,GT-R,2013,33522,0.050688,1699.163136
+12/12/2021,El Paso,Natalie Cox,Tandi Danielut,Ford,Mustang,1969,27231,0.132485,3607.699035
+9/10/2023,Las Vegas,Abigail Davis,Tobi Kirtley,Nissan,240SX,1993,15793,0.051086,806.801198
+8/16/2023,Omaha,Sophia Rodriguez,Temple Marusik,Mazda,Mazda6,2007,35219,0.142318,5012.297642
+2/14/2023,El Paso,Jacob Barnes,Lothario Brazenor,Aston Martin,Virage,2011,12711,0.146186,1858.170246
+7/27/2022,San Antonio,Samuel Adams,Nial Andrzej,Mercury,Mountaineer,1997,15965,0.121805,1944.616825
+7/18/2022,Philadelphia,Jacob Lee,Arel Holttom,Mitsubishi,Eclipse,1999,31401,0.124556,3911.182956
+10/20/2024,Atlanta,Amelia Cooper,Muffin Frye,Pontiac,Firebird,1989,14852,0.105915,1573.04958
+1/29/2020,Charlotte,Lucy Brown,Valida Lambden,Chevrolet,Express 1500,2009,30108,0.055162,1660.817496
+2/4/2024,Albuquerque,Henry Lee,Quinn Hynard,Nissan,Rogue,2010,18176,0.066884,1215.683584
+7/14/2020,Long Beach,Carter Rivera,Hanni Matt,Volkswagen,Passat,2012,17315,0.080588,1395.38122
+8/25/2022,Detroit,Sebastian Anderson,Reinald Couch,Ford,Fairlane,1967,12027,0.126633,1523.015091
+11/18/2018,Minneapolis,Aurora Young,Juanita Froggatt,Cadillac,Fleetwood,1954,12949,0.143182,1854.063718
+1/6/2021,Kansas City,Gabriel King,Stanford Peterkin,Ford,Crown Victoria,2010,33924,0.141533,4801.365492
+5/1/2022,Columbus,Ellie Davis,Leilah Ferrand,Lexus,ES,1989,32187,0.132619,4268.607753
+8/30/2020,Milwaukee,Sophia Miller,Loretta Betteriss,Mitsubishi,Cordia,1986,47416,0.058783,2787.254728
+4/2/2025,Fresno,Abigail Thomas,Aldwin Fells,Mazda,B-Series,1986,33291,0.139721,4651.451811
+3/1/2024,Omaha,Gabriel Williams,Willette Molden,Acura,TSX,2007,48503,0.056428,2736.927284
+5/31/2021,San Diego,Gabriel King,Kristoforo Pavlovic,Hyundai,Santa Fe,2006,27248,0.052946,1442.672608
+6/22/2022,Oakland,Ethan Harris,Blake Cheson,Ford,Ranger,1991,27043,0.050964,1378.219452
+7/2/2020,Arlington,Zoey Wright,Derwin Rizzardini,Nissan,Maxima,1996,13184,0.135492,1786.326528
+4/25/2023,Omaha,Nora Flores,Andree Ramelet,Toyota,Yaris,2006,10110,0.133675,1351.45425
+4/18/2019,Los Angeles,Matthew Taylor,Ferrel Chastagnier,Land Rover,Discovery,1999,41730,0.057125,2383.82625
+4/29/2020,Jacksonville,Stella Campbell,Mandy Brinkler,Nissan,Titan,2011,20704,0.081162,1680.378048
+4/22/2020,Memphis,Ava Garcia,Osborne Hungerford,Oldsmobile,Aurora,1999,29250,0.147574,4316.5395
+11/15/2019,Las Vegas,Nora Ward,Sabrina Vassman,Ford,E350,2003,21919,0.149902,3285.701938
+8/29/2024,Fresno,Natalie Cox,Wallas Ryburn,Mitsubishi,Mighty Max,1994,31346,0.114849,3600.056754
+2/24/2020,El Paso,Chloe Hill,Dyane Cockerill,Bentley,Continental Super,2010,28913,0.145658,4211.409754
+9/9/2019,Omaha,Layla Lee,Aube Petrenko,Jaguar,X-Type,2002,12185,0.137621,1676.911885
+11/6/2022,Oakland,Michael Taylor,Sheffie Dowle,GMC,Savana 3500,1999,28537,0.078608,2243.236496
+11/11/2024,Jacksonville,Sebastian King,Robinson Albro,Ford,Explorer,1991,21535,0.084668,1823.32538
+9/18/2018,San Jose,Ellie Davis,Monah McGriele,Acura,ZDX,2010,36334,0.065176,2368.104784
+12/24/2018,Denver,Abigail Thomas,Corby Asch,Subaru,Forester,2000,31034,0.145488,4515.074592
+4/2/2023,Baltimore,Julian Morgan,Valentine Kingdon,Acura,ZDX,2011,16206,0.054133,877.279398
+9/3/2021,Boston,John Ward,Eldredge Dorre,Kia,Sportage,2011,26396,0.101699,2684.446804
+8/27/2021,Boston,Sophia Miller,Morten Grimolbie,Lexus,RX,2013,41824,0.081192,3395.774208
+3/7/2025,Sacramento,Emma Jones,Walton Alebrooke,Chevrolet,Silverado 1500,2009,24558,0.087605,2151.40359
+5/24/2024,Philadelphia,Evelyn Perez,Latashia Runciman,GMC,Sierra 1500,2007,12151,0.139959,1700.641809
+9/29/2022,Tucson,David Thompson,Goober Matussow,Suzuki,Esteem,1996,37619,0.097123,3653.670137
+2/27/2023,Oklahoma City,Grace Lewis,Hillier Haire,Saab,9-7X,2009,45776,0.13288,6082.71488
+11/23/2021,New Orleans,Harper Ward,Conney Vasilechko,Pontiac,Firefly,1995,37927,0.147587,5597.532149
+12/10/2020,Phoenix,Aria Garcia,Tymon Wase,Volkswagen,rio,1998,35668,0.088324,3150.340432
+12/22/2021,Jacksonville,Joseph Green,Freddi Colbridge,Dodge,Caravan,2012,23382,0.130366,3048.217812
+12/8/2020,San Antonio,Layla Ramirez,Skipp Tims,Toyota,TundraMax,2009,21941,0.107126,2350.451566
+9/10/2019,Portland,Jackson Martinez,Avril Gane,GMC,Savana 2500,2010,14896,0.121925,1816.1948
+11/4/2020,Philadelphia,Liam Davis,Mickey Ragot,Mazda,Millenia,1996,12798,0.137532,1760.134536
+12/7/2020,Washington,Layla Gonzalez,Rafael Wolfers,BMW,X5,2001,24919,0.06727,1676.30113
+9/7/2019,Portland,Abigail Brown,Amos Benedicto,Dodge,Viper,2004,36260,0.118381,4292.49506
+2/1/2019,San Diego,Daniel Jackson,Bartholomeus Beaconsall,Toyota,Tacoma,2001,14604,0.073404,1071.992016
+4/17/2020,Charlotte,Samuel Adams,Edik Hentzeler,Pontiac,Grand Prix Turbo,1990,29824,0.143078,4267.158272
+5/20/2024,Dallas,Layla Thomas,Inge Hadwick,Bentley,Arnage,2005,18477,0.068338,1262.681226
+11/20/2018,Indianapolis,Nora White,Luz Tubby,Nissan,300ZX,1991,45747,0.086053,3936.666591
+5/13/2024,Columbus,Olivia Price,Joycelin Mattke,Cadillac,CTS,2004,36444,0.075283,2743.613652
+4/17/2023,Tucson,Chloe Hill,Celestia McNeil,Toyota,Solara,2002,45146,0.13199,5958.82054
+9/11/2018,Las Vegas,Nora White,Emelyne Minillo,Isuzu,Rodeo,2004,42443,0.058181,2469.376183
+4/14/2025,Milwaukee,Liam Gonzalez,Christean Braunton,Dodge,Caravan,1996,33174,0.051512,1708.859088
+8/4/2020,Milwaukee,Amelia Gonzalez,Brandea Newall,Geo,Prizm,1995,34953,0.054704,1912.068912
+6/29/2021,Kansas City,Ethan Harris,Clarey Larrosa,Ford,Thunderbird,1994,44323,0.090002,3989.158646
+1/19/2022,Milwaukee,Olivia Price,Jocelyn Cullerne,Mazda,B-Series,1991,20955,0.053574,1122.64317
+3/2/2022,Atlanta,Abigail Jones,Blancha MacHarg,Ford,Thunderbird,1955,13903,0.060268,837.906004
+12/17/2019,San Francisco,Nora Flores,Pia Alyonov,Mercury,Cougar,1995,45386,0.073707,3345.265902
+5/27/2023,Oklahoma City,Michael Brown,Sibyl Trotton,Dodge,Caravan,2006,40296,0.101306,4082.226576
+4/23/2022,Indianapolis,Amelia Cooper,Valaria Borth,Toyota,Tacoma,2002,14921,0.126607,1889.103047
+11/3/2020,Columbus,Isabella Lopez,Aggie Goodluck,Ford,Ranger,1993,44742,0.133024,5951.759808
+4/23/2018,Seattle,Lily Barnes,Tara Roussel,Chevrolet,Suburban 2500,2002,13079,0.116017,1517.386343
+5/20/2022,New Orleans,Levi Richardson,Dilly Hestrop,Chrysler,Crossfire,2005,34107,0.146504,4996.811928
+11/15/2022,Fresno,Lily Bailey,Fannie Furber,BMW,7 Series,1999,44931,0.132957,5973.890967
+10/27/2023,San Diego,Aria Garcia,Maressa Dudleston,Infiniti,G,1992,40122,0.102843,4126.266846
+10/12/2024,El Paso,Liam Davis,Aura Espinho,Infiniti,Q,2006,37385,0.122565,4582.092525
+4/20/2020,Seattle,Charlotte Thomas,Aurelia Basili,Dodge,Ram Van 2500,2001,36276,0.118248,4289.564448
+2/21/2022,Minneapolis,Evelyn Bailey,Torr Schruurs,Buick,LeSabre,2004,32412,0.051788,1678.552656
+8/24/2020,Las Vegas,Benjamin Adams,Hollis Birchwood,Ford,Probe,1994,20655,0.146334,3022.52877
+5/25/2024,Mesa,Mia Wilson,Kincaid Giacobillo,Mazda,GLC,1984,13786,0.098435,1357.02491
+1/25/2020,Jacksonville,Thomas Diaz,Cos Joanaud,Saturn,Sky,2008,27035,0.082108,2219.78978
+12/31/2020,Tucson,Victoria Bailey,Sarine Skyrm,Suzuki,X-90,1997,41310,0.072977,3014.67987
+6/22/2021,Chicago,Charlotte Garcia,Amelia Padly,Saturn,S-Series,1999,46105,0.137308,6330.58534
+8/25/2020,Portland,Jacob Anderson,Dore Crenshaw,BMW,X3,2011,38424,0.094484,3630.453216
+6/29/2019,Boston,Michael Gonzalez,Blakeley Sineath,Land Rover,Freelander,2004,31291,0.103974,3253.450434
+12/28/2024,Denver,Zoey Young,Andriana Tipple,Kia,Sorento,2008,29007,0.128042,3714.114294
+6/30/2024,Milwaukee,Owen Barnes,Eddy Brade,Volvo,S80,2000,13912,0.06194,861.70928
+8/12/2022,Memphis,Ellie Reed,Yalonda de Voiels,Ford,F350,2004,15938,0.081924,1305.704712
+2/23/2020,Virginia Beach,Ellie Torres,Nan McDermot,Bentley,Continental,2009,44495,0.120233,5349.767335
+6/16/2020,Charlotte,Lily Barnes,Morley O'Sheerin,Pontiac,Sunfire,2002,10164,0.108802,1105.863528
+12/31/2024,Austin,Liam Davis,Maitilde O' Hogan,Lincoln,Town Car,2000,13915,0.07024,977.3896
+7/17/2019,San Jose,Henry Lee,Livvie Mowsdale,Volvo,S60,2008,21049,0.082551,1737.615999
+3/6/2020,Tampa,Benjamin Adams,Ogden Steele,Toyota,Highlander,2003,10960,0.054573,598.12008
+5/31/2023,New York,Thomas Diaz,Tiphanie Shaddock,Jaguar,XJ Series,2001,24199,0.147974,3580.822826
+6/21/2023,Boston,Jacob Davis,Yank Oppery,Mazda,Mazda3,2004,34207,0.149854,5126.055778
+9/18/2019,Minneapolis,Natalie Long,Estele Eriksson,Saab,9-3,2003,14411,0.088209,1271.179899
+10/16/2024,Miami,David Brown,Gilberte Roskam,Ford,Ranger,2005,37375,0.131925,4930.696875
+4/28/2023,Los Angeles,Grace Davis,Kara Bierling,Ford,E-Series,2009,35204,0.069784,2456.675936
+12/10/2021,Albuquerque,Mia Wilson,Archibald Geke,Mazda,RX-7,1986,40685,0.09371,3812.59135
+3/27/2019,Sacramento,Penelope Cox,Cob Stoven,GMC,Savana,2007,38517,0.073654,2836.931118
+11/19/2022,Las Vegas,Evelyn Bailey,Jerry Dunbavin,GMC,Sierra 3500,2004,22647,0.102413,2319.347211
+12/27/2023,Detroit,Jacob Davis,Loella Cline,Lincoln,Blackwood,2002,16876,0.061767,1042.379892
+11/7/2018,Portland,Jackson Martinez,Junina Diddams,Dodge,Stratus,1997,24493,0.093865,2299.035445
+9/3/2018,Omaha,Michael Brown,Felice Ticic,Kia,Soul,2010,33447,0.071975,2407.347825
+8/15/2019,Colorado Springs,Levi Richardson,Antoinette Turnbull,Hummer,H1,2000,15497,0.058432,905.520704
+11/2/2021,Mesa,Ellie Davis,Tobie Gaven,Ford,Fiesta,2011,30871,0.097547,3011.373437
+9/15/2018,Houston,Nora Price,Michaella Leacock,Mazda,Miata MX-5,2004,19052,0.118548,2258.576496
+1/30/2024,Fresno,Benjamin Adams,Aleksandr Olenchikov,Mitsubishi,3000GT,1999,26140,0.131938,3448.85932
+1/19/2023,Long Beach,Chloe Williams,Reginauld Padefield,Nissan,Sentra,2000,45843,0.07727,3542.28861
+3/25/2023,Tucson,Ellie Reed,Hobard Schutt,Porsche,911,2005,28323,0.117634,3331.747782
+3/12/2022,Fresno,Lucy Hill,Galvin MacGuiness,Toyota,TundraMax,2009,47691,0.091881,4381.896771
+5/29/2023,Houston,Alexander Nguyen,Tulley Casemore,GMC,Sierra 2500,2012,42057,0.115551,4859.728407
+11/19/2018,Dallas,Aurora Young,Retha Agney,Acura,RDX,2011,16943,0.10497,1778.50671
+11/10/2023,Philadelphia,Lucy Hill,Fianna Saunier,Chevrolet,Camaro,2010,20579,0.126213,2597.337327
+7/31/2020,Virginia Beach,Benjamin Sanchez,Berty Gelletly,Hyundai,Tucson,2005,28338,0.054306,1538.923428
+4/2/2023,Houston,Penelope White,Kati Conley,Pontiac,Vibe,2005,20431,0.13124,2681.36444
+4/12/2024,Louisville,Sophia Hall,Cale Izzat,Toyota,Celica,1992,36601,0.10725,3925.45725
+2/9/2022,Milwaukee,Olivia Johnson,Hart O'Cahill,Mercedes-Benz,SL-Class,1991,36957,0.111863,4134.120891
+6/5/2024,Tampa,Ellie Torres,Joni Ham,Hyundai,Sonata,1998,44676,0.125399,5602.325724
+4/4/2022,Miami,Grace Sanchez,Dell Exall,Cadillac,Escalade,2009,15059,0.116243,1750.503337
+8/18/2018,Portland,Zoey Wright,Elaina Koenraad,Mitsubishi,Pajero,1984,34225,0.102082,3493.75645
+8/27/2019,Houston,Henry Thomas,Harper Longega,Mitsubishi,Eclipse,2011,15404,0.067564,1040.755856
+5/18/2021,Los Angeles,Sebastian Anderson,Tricia Glason,Chevrolet,Tahoe,2002,15465,0.119486,1847.85099
+4/26/2019,Miami,Grace Lewis,Jaimie Ivie,Subaru,BRZ,2013,37976,0.134083,5091.936008
+12/9/2018,New York,Abigail Brown,Oren Bridgstock,Suzuki,SJ,1991,38319,0.124401,4766.921919
+11/18/2022,Seattle,Amelia Moore,Ava Zoppo,Mercedes-Benz,CLS-Class,2011,20300,0.050314,1021.3742
+2/9/2019,Las Vegas,Sebastian King,Barbaraanne Bleythin,Acura,TSX,2010,39822,0.069998,2787.460356
+9/16/2024,Columbus,Thomas Hernandez,Janet Kelcey,Mazda,B-Series,1994,16087,0.07566,1217.14242
+5/9/2024,Miami,Amelia Gonzalez,Clyve McBay,Toyota,Prius v,2012,19928,0.067265,1340.45692
+6/15/2024,Seattle,Stella Campbell,Nonie Battie,Ford,Laser,1986,42527,0.094317,4011.019059
+6/6/2019,Virginia Beach,Mia Wilson,Austine Mateu,Mercedes-Benz,CLK-Class,2007,12908,0.063435,818.81898
+12/31/2018,Raleigh,Evelyn Perez,Catriona Guisot,Mercury,Topaz,1985,28161,0.142413,4010.492493
+11/16/2024,Milwaukee,Natalie Harris,Bryanty Blinder,Mitsubishi,Montero,2002,34080,0.086507,2948.15856
+3/2/2021,Oakland,Caleb Brown,Nathanial Lammerts,Mercury,Grand Marquis,1989,24498,0.06442,1578.16116
+10/13/2020,Fresno,Natalie Harris,Gaston Simm,Lincoln,Navigator L,2011,14509,0.066704,967.808336
+7/23/2019,Miami,Benjamin Sanchez,Humfrey Jobling,Cadillac,Eldorado,1992,42396,0.109431,4639.436676
+11/25/2023,New York,Layla Patterson,Obadiah Paget,Ford,Mustang,1979,14100,0.070419,992.9079
+1/16/2019,Jacksonville,Thomas Hernandez,Katherina Orr,Audi,Allroad,2001,13409,0.124578,1670.466402
+5/21/2022,Atlanta,Benjamin Thompson,Suzette Killshaw,GMC,Sierra 3500,2004,35548,0.114741,4078.813068
+10/6/2018,Seattle,Matthew Cooper,Andrea Screach,Audi,riolet,1998,35961,0.054542,1961.384862
+12/22/2019,El Paso,Jacob Anderson,Tabb Copperwaite,Dodge,Ram Van 1500,1999,34726,0.115422,4008.144372
+5/22/2020,Columbus,Joseph Thomas,Joleen Tumini,Audi,Coupe Quattro,1991,20225,0.102915,2081.455875
+3/5/2025,Virginia Beach,Zoey Morgan,Tasha Padmore,Volvo,960,1992,47527,0.13377,6357.68679
+1/16/2025,Long Beach,Chloe Williams,Mellisa Del Castello,Volvo,850,1993,13593,0.09903,1346.11479
+6/8/2021,Oakland,Lily Allen,Lenette Gallegos,Pontiac,Firebird,1996,33234,0.119479,3970.765086
+4/11/2024,New York,Sophia Hall,Antoine Burnip,Mercury,Topaz,1989,24994,0.122007,3049.442958
+7/30/2019,Oakland,Henry Thomas,Aila Cowe,Pontiac,Bonneville,1967,38338,0.085988,3296.607944
+5/24/2023,Mesa,Jacob Anderson,Tommy Dobbison,Chrysler,300M,2003,28062,0.081853,2296.958886
+11/25/2023,Long Beach,Layla Gonzalez,Meridel Ditter,Cadillac,Seville,1997,25663,0.095179,2442.578677
+8/17/2024,Philadelphia,Samuel Adams,Caril Grassick,Hyundai,Accent,2000,44134,0.076208,3363.363872
+4/19/2020,Colorado Springs,Scarlett Johnson,Robbie Chidlow,Suzuki,Sidekick,1994,38209,0.0701,2678.4509
+3/30/2022,Tampa,Sebastian Flores,Carrissa Riping,Toyota,FJ Cruiser,2011,46233,0.07321,3384.71793
+4/15/2019,Austin,Joseph Campbell,Mose Dubs,Mazda,Protege,1998,49486,0.119934,5935.053924
+3/23/2022,Louisville,Henry Thomas,Clemente Reside,Toyota,Sequoia,2008,32566,0.103548,3372.144168
+5/3/2019,Milwaukee,Benjamin Adams,Luci Caveney,Mitsubishi,Galant,1986,15861,0.119451,1894.612311
+7/18/2018,Tucson,Sophia Rodriguez,Melli Liddy,Toyota,Sequoia,2006,40489,0.076014,3077.730846
+4/26/2023,Raleigh,Emma Adams,Jobyna Echelle,Ford,E350,2007,30720,0.130991,4024.04352
+11/6/2021,Baltimore,Emma Harris,Kalvin Avrahamov,Nissan,Armada,2009,30978,0.148321,4594.687938
+3/3/2020,Oakland,Emma Adams,Minta Iskow,Buick,Hearse,1996,35438,0.142089,5035.349982
+1/23/2025,Raleigh,Layla Thomas,Valentin Dounbare,Audi,S8,2003,35552,0.138875,4937.284
+1/31/2023,Arlington,Jackson Martinez,Brigid Qualtro,Infiniti,G,2002,38206,0.094769,3620.744414
+4/2/2024,Chicago,Benjamin Smith,Virge Mathews,Volkswagen,Scirocco,1987,17078,0.062896,1074.137888
+5/30/2021,Baltimore,Layla Thomas,Thayne Grunder,Lexus,GS,1995,12923,0.147813,1910.187399
+1/23/2022,Oakland,Nora Flores,Germain Haggie,Chevrolet,Silverado 2500,2008,17863,0.071655,1279.973265
+3/27/2023,Omaha,Elijah Scott,Evangelina Barlass,Infiniti,M,1992,26976,0.144612,3901.053312
+7/28/2020,Long Beach,Emma Brown,Minni Wigelsworth,Ford,Bronco II,1985,40171,0.114129,4584.676059
+2/28/2021,Phoenix,James Miller,Daphene Berrecloth,Maserati,GranSport,2005,27849,0.11968,3332.96832
+8/7/2024,Tampa,Penelope Anderson,Lovell Dedrick,Mitsubishi,Mighty Max,1995,37761,0.088259,3332.748099
+6/11/2024,Miami,Caleb Martin,Gena Bodocs,Chevrolet,Suburban 2500,2010,17568,0.069356,1218.446208
+7/22/2024,Fort Worth,Henry Patterson,Moll Ambrosoni,Audi,A8,2012,44470,0.138015,6137.52705
+8/5/2023,Sacramento,James Miller,Lefty Hayselden,Buick,LeSabre,2003,49379,0.054883,2710.067657
+10/29/2018,Tulsa,Lily Nelson,Catarina Cardoo,Mazda,Miata MX-5,2011,26415,0.120352,3179.09808
+12/21/2018,Miami,Stella Reed,Frayda Tudball,Mercedes-Benz,SLR McLaren,2006,14190,0.051868,736.00692
+4/14/2022,Kansas City,Benjamin Thompson,Regan Kulvear,Land Rover,Discovery,2002,13432,0.09489,1274.56248
+11/11/2022,Oklahoma City,Isaac Kelly,Loretta Topham,Ford,Escape,2005,40622,0.141337,5741.391614
+3/26/2021,Denver,Abigail Davis,Norma Rudland,Hummer,H1,1997,16064,0.080796,1297.906944
+8/17/2019,Columbus,Layla Young,Lonnie Corona,Chevrolet,Caprice Classic,1994,10963,0.119539,1310.506057
+11/15/2019,Sacramento,Jacob Anderson,Melissa Wrotchford,Mazda,Millenia,2002,38917,0.080441,3130.522397
+12/15/2023,Houston,David Young,Ilse Wanne,Dodge,Dakota,2003,13504,0.114812,1550.421248
+12/18/2019,Tulsa,Zoey Torres,Don Fisby,Mitsubishi,Mirage,1997,39406,0.098552,3883.540112
+2/19/2019,Boston,David Perez,Gayelord Buckie,Plymouth,Voyager,1998,25166,0.11864,2985.69424
+11/11/2023,Baltimore,Julian Cooper,Garry Carding,Mitsubishi,Galant,1992,12470,0.148396,1850.49812
+5/1/2020,Boston,Jacob Davis,Hillard Foord,Pontiac,Firefly,1985,28360,0.076685,2174.7866
+12/9/2022,Denver,Jacob Barnes,Toby Francais,Mercedes-Benz,Sprinter,2011,22295,0.092921,2071.673695
+2/28/2020,Washington,Stella Williams,Collin Heinzler,Toyota,Supra,1994,22000,0.142091,3126.002
+5/9/2022,San Francisco,Thomas Diaz,Gun Tibb,Mazda,323,1994,45606,0.130235,5939.49741
+2/8/2021,Seattle,Natalie Cox,Chet McInnery,Volkswagen,Eos,2009,29191,0.130788,3817.832508
+9/22/2019,Fort Worth,Henry Lee,Hewitt Postlewhite,Spyker,C8 Double 12 S,2006,22756,0.070401,1602.045156
+4/21/2024,Memphis,Mia Wilson,Fabiano Heggie,Dodge,Viper,1997,27817,0.073805,2053.033685
+12/29/2023,Tulsa,Michael Jones,Hale Milella,Audi,S4,1994,29175,0.050587,1475.875725
+5/21/2021,Atlanta,Thomas Brooks,Matelda Glas,GMC,Safari,2005,28024,0.068454,1918.354896
+6/18/2023,Tulsa,Caleb Long,Gerianna Orthmann,Nissan,Altima,1999,38458,0.142701,5487.995058
+11/23/2020,Louisville,Natalie Long,Filberte Chirm,Chevrolet,HHR,2007,17460,0.052227,911.88342
+12/9/2019,San Antonio,Elijah Allen,Ches Cuttle,Mazda,Mazda6,2010,18457,0.067013,1236.858941
+6/24/2020,Columbus,Benjamin Kelly,Ferdy Josovitz,Toyota,Solara,2008,37185,0.064612,2402.59722
+11/13/2022,Fresno,Gabriel Williams,Gibb Sill,GMC,Sierra Denali,2006,46034,0.107998,4971.579932
+5/12/2019,Albuquerque,Isabella Wright,Dewie Swyndley,GMC,Sierra 1500,2000,45633,0.14406,6573.88998
+12/6/2020,Oakland,Mia Wilson,Merci Verriour,Chevrolet,3500,1997,47691,0.091496,4363.535736
+10/3/2020,Baltimore,Caleb Barnes,Wallie Longmore,Suzuki,X-90,1998,35766,0.051967,1858.651722
+8/25/2020,San Diego,Lucy Hill,Merell Toffoloni,Mitsubishi,Eclipse,2004,48292,0.142544,6883.734848
+6/12/2019,Milwaukee,Layla Lee,Courtnay Govan,Jaguar,XK,2009,29877,0.085,2539.545
+7/4/2022,El Paso,Aurora Reed,Gwenny Ors,Pontiac,Bonneville,2001,19883,0.105907,2105.748881
+3/27/2025,Baltimore,Thomas Brooks,Margarethe Weeks,Cadillac,Escalade EXT,2004,44390,0.10685,4743.0715
+4/12/2020,Dallas,Evelyn Rodriguez,Arie Conant,Buick,Lucerne,2009,40441,0.109036,4409.524876
+6/14/2020,Dallas,Abigail Thomas,Cecilio Marjanovic,Ford,Ranger,1986,20021,0.093004,1862.033084
+1/18/2020,Virginia Beach,Emma Jones,Kelcie Gabbitus,Porsche,928,1987,43581,0.144834,6312.010554
+2/28/2020,Boston,Zoey Young,Mari Addinall,Volkswagen,rio,1999,22942,0.121953,2797.845726
+3/7/2022,Kansas City,Owen Barnes,Tripp Errington,Mercedes-Benz,SL-Class,2001,40271,0.07394,2977.63774
+11/7/2022,Sacramento,Sebastian Anderson,Lou Olyet,Hyundai,Sonata,2010,11008,0.138532,1524.960256
+6/24/2024,Oklahoma City,Michael Richardson,Dore Olczyk,Mazda,Navajo,1993,38875,0.127696,4964.182
+1/15/2020,San Jose,Matthew Cooper,Andres Skittle,Suzuki,SX4,2012,43896,0.071955,3158.53668
+3/27/2020,San Francisco,Sophia Miller,Dewitt Dreamer,Hyundai,Sonata,1997,46900,0.116367,5457.6123
+11/19/2023,Colorado Springs,Isaac Brooks,Hildegarde Chrystal,Porsche,924 S,1987,32726,0.140979,4613.678754
+5/25/2020,San Jose,Harper Ward,Wood Eyers,Saab,9000,1989,47690,0.073705,3514.99145
+2/1/2020,Memphis,Lily Barnes,Oriana Newcomb,Mitsubishi,Eclipse,1995,28505,0.132345,3772.494225
+8/11/2023,Sacramento,Sophia Miller,Gert Goodram,Mazda,B-Series,2004,31959,0.056936,1819.617624
+1/25/2024,Baltimore,Emma Harris,Lauree Kingcote,Land Rover,Range Rover,1998,22761,0.060159,1369.278999
+4/12/2022,Jacksonville,Lily Bailey,Viva Reinbach,Land Rover,Discovery Series II,1999,30349,0.118607,3599.603843
+10/8/2020,San Antonio,Benjamin Sanchez,Rawley Morillas,Toyota,Corolla,1995,38244,0.135982,5200.495608
+8/10/2022,El Paso,Zoey Torres,Earvin Hiseman,Suzuki,Swift,1995,40396,0.109104,4407.365184
+12/8/2018,Fresno,Harper Sanchez,Kathye Maypole,Mitsubishi,Pajero,1990,17595,0.089904,1581.86088
+6/11/2022,Las Vegas,Daniel Jackson,Mahmud Macvey,Infiniti,I,2002,15341,0.134138,2057.811058
+3/21/2023,San Jose,Thomas Bailey,Hervey Sargeaunt,Chrysler,Sebring,2010,17624,0.149507,2634.911368
+12/16/2020,Virginia Beach,Thomas Ward,Puff Bichener,Nissan,300ZX,1995,24647,0.096103,2368.650641
+8/25/2023,Portland,Caleb Martin,Petronilla Taylder,Volkswagen,Cabriolet,1995,42435,0.139093,5902.411455
+4/28/2018,Louisville,Thomas Brooks,D'arcy OIlier,Toyota,Sienna,2009,48428,0.145696,7055.765888
+1/3/2019,Long Beach,Carter Rivera,Rubina Lermouth,Dodge,Ram Van 2500,2002,37892,0.066932,2536.187344
+5/29/2019,Raleigh,Henry Thomas,Nestor Andrioni,Volvo,S40,2005,39029,0.064844,2530.796476
+8/6/2018,Boston,Alexander Thompson,Ulrica Kiehne,Mercury,Mountaineer,2009,17985,0.069599,1251.738015
+12/19/2018,Phoenix,Amelia Moore,Gerianna MacGillivray,GMC,3500,1994,36294,0.095527,3467.056938
+8/8/2020,Minneapolis,Aurora Reed,Lilas Colvine,Hyundai,Tucson,2012,14391,0.050663,729.091233
+8/13/2022,Louisville,Thomas Diaz,Ozzy Skellion,Mitsubishi,Mirage,1991,14058,0.069501,977.045058
+9/15/2020,Tulsa,Harper Ward,Karola McKeurtan,Lotus,Esprit,1995,27863,0.069642,1940.435046
+1/18/2020,Austin,Lily Barnes,Timmie Rimell,Mitsubishi,Galant,1992,41099,0.136449,5607.917451
+3/20/2021,Memphis,John Ward,Jason Bothen,Lincoln,Navigator,1998,29176,0.135521,3953.960696
+9/7/2020,Nashville,Aurora Reed,Elisha Lafflina,Jaguar,X-Type,2004,39715,0.120687,4793.084205
+8/11/2021,Sacramento,Sophia Hall,Stanwood Lamp,Chevrolet,Silverado 1500,2012,30935,0.134213,4151.879155
+6/12/2018,Minneapolis,Aiden Young,Curry Evans,Lamborghini,Gallardo,2006,22754,0.117198,2666.723292
+1/7/2022,Albuquerque,Grace Davis,Fonsie Feria,Jeep,Patriot,2012,43773,0.065309,2858.770857
+8/26/2024,New York,Noah Davis,Mollie Burston,Maserati,Karif,1990,15052,0.072215,1086.98018
+10/3/2020,Raleigh,Henry Sanchez,Britt Senescall,Toyota,Echo,2002,29012,0.068058,1974.498696
+1/30/2021,Oakland,Penelope Cox,Jonah Baudic,Hyundai,Sonata,2007,43362,0.085695,3715.90659
+10/7/2023,Philadelphia,Julian Cooper,Giovanni Harman,Mazda,B-Series,1992,34876,0.06686,2331.80936
+12/13/2023,San Diego,John Scott,Henry Hartnell,Subaru,Legacy,1998,35025,0.120618,4224.64545
+6/29/2018,Los Angeles,Zoey Torres,Sephira Skellen,Mitsubishi,Eclipse,2010,39581,0.055724,2205.611644
+4/19/2019,Oklahoma City,Julian Cooper,Jennine Burnall,Mitsubishi,Truck,1992,13193,0.065181,859.932933
+6/12/2020,Boston,Jackson Martinez,Fanechka Crips,Mercury,Sable,2009,25955,0.120535,3128.485925
+10/6/2023,San Diego,Michael Gonzalez,Kelcy Durdle,Oldsmobile,Ciera,1996,25544,0.118457,3025.865608
+2/21/2021,Denver,David Williams,Charles Gallanders,Buick,Regal,1989,18762,0.128581,2412.436722
+6/10/2023,Fort Worth,Liam Gonzalez,Nil Hasted,Isuzu,Rodeo,1993,27305,0.076871,2098.962655
+7/18/2022,Virginia Beach,Caleb Martin,Marijn Frank,Ford,Bronco II,1988,13612,0.148338,2019.176856
+4/7/2022,Charlotte,Nora White,Lorrin Ionnisian,Plymouth,Sundance,1992,20665,0.06957,1437.66405
+11/6/2023,Oklahoma City,Jacob Lee,Tera Harmon,Suzuki,Swift,1994,18052,0.087744,1583.954688
+8/21/2024,Oakland,Charlotte Thomas,Rafaela D'eath,Lincoln,MKX,2013,25874,0.10048,2599.81952
+12/24/2021,Albuquerque,Thomas Ward,Mick Everist,Suzuki,XL-7,2002,20186,0.071285,1438.95901
+12/18/2018,Portland,Natalie Long,Chiquita Hattam,Lincoln,MKZ,2012,46200,0.074233,3429.5646
+4/3/2025,Portland,Gabriel Nelson,Mile Urvoy,Audi,V8,1992,39806,0.108857,4333.161742
+5/12/2019,San Jose,Amelia Moore,Ethelyn Roubeix,Mercedes-Benz,S-Class,1997,33159,0.068087,2257.696833
+1/22/2022,El Paso,Abigail Brown,Merle Reavell,Audi,100,1989,10784,0.136787,1475.111008
+3/4/2023,Minneapolis,Amelia Moore,Torrey Chedgey,Hummer,H2,2005,23955,0.06752,1617.4416
+3/12/2019,Jacksonville,Sophia Rodriguez,Rourke Orbon,Mercedes-Benz,GL-Class,2007,33721,0.090228,3042.578388
+9/10/2020,Omaha,Lucy Brown,Dolf Lapides,Chrysler,Pacifica,2008,17364,0.119111,2068.243404
+9/24/2020,San Jose,Matthew Taylor,Conni Kliner,Honda,Prelude,1994,26338,0.114259,3009.353542
+6/21/2022,Omaha,Charlotte Thomas,Kai Gass,Mazda,B-Series Plus,1996,24990,0.122822,3069.32178
+10/19/2023,San Antonio,Penelope White,Washington Botha,Chrysler,Voyager,2002,36954,0.056476,2087.014104
+11/26/2019,San Francisco,Abigail Brown,Colman Wetheril,Dodge,Ram 50,1992,49694,0.11071,5501.62274
+11/3/2020,Columbus,Mia Moore,Edwina Mayall,Subaru,Forester,1999,42293,0.121361,5132.720773
+1/5/2022,Fresno,Nora Flores,Harlie Portigall,Mazda,B2000,1985,40406,0.062166,2511.879396
+5/18/2020,San Antonio,Alexander Nguyen,Drusie Jinkinson,GMC,Sierra 2500,2006,35144,0.102618,3606.406992
+8/18/2019,El Paso,Daniel Jackson,Kerwin Devanney,Chevrolet,Sportvan G30,1994,42662,0.070538,3009.292156
+5/15/2020,Nashville,James Miller,Dora O'Gaven,Mazda,323,1993,32824,0.085891,2819.286184
+8/7/2018,New York,Harper Martin,Francisca Challenger,Ford,E-350 Super Duty Van,2006,49411,0.075518,3731.419898
+12/7/2024,Las Vegas,Noah Davis,Devlin Frigout,Maserati,Quattroporte,2009,27423,0.064459,1767.659157
+11/7/2020,Jacksonville,Sebastian King,Karlan Bosworth,Ford,E350,2010,33235,0.076556,2544.33866
+6/8/2018,Milwaukee,Alexander Thompson,Annaliese Brandin,Scion,xB,2006,42460,0.136197,5782.92462
+2/21/2019,Atlanta,Ethan Harris,Nanci Dutt,BMW,650,2006,17347,0.074451,1291.501497
+10/2/2023,San Diego,Isaac Kelly,Annemarie Blas,Jeep,Liberty,2005,38683,0.061682,2386.044806
+7/7/2019,Washington,Benjamin Thompson,Lynna Rillatt,Nissan,Frontier,1999,49105,0.121968,5989.23864
+6/21/2021,Los Angeles,David Brown,Perry Jehaes,Geo,Tracker,1996,44749,0.131314,5876.170186
+3/16/2025,Houston,Benjamin Ramirez,Odilia McCrisken,Lamborghini,Countach,1990,16699,0.096631,1613.641069
+5/20/2018,New York,Benjamin Thompson,Titos Sidey,Acura,TSX,2008,28822,0.062537,1802.441414
+3/1/2023,New York,Jacob Lee,Margarita Wrist,Land Rover,Range Rover,2010,44075,0.113024,4981.5328
+6/29/2018,Louisville,Daniel Jackson,Reinaldo Reisen,Jeep,Cherokee,1998,29795,0.122061,3636.807495
+10/7/2019,Detroit,Layla Gonzalez,Leighton Conn,Buick,LeSabre,1997,28968,0.106525,3085.8162
+9/21/2019,El Paso,Scarlett Ramirez,Charity Jarrad,Buick,LeSabre,1993,21827,0.127665,2786.543955
+1/7/2022,Phoenix,Daniel Jackson,Temp Slowgrave,Chevrolet,Silverado 3500,2008,14873,0.121601,1808.571673
+7/28/2020,Columbus,Stella Reed,Dalila Waud,Mazda,MX-5,1997,40004,0.050643,2025.922572
+1/2/2021,San Diego,Emma Adams,Leelah Pither,Maserati,Quattroporte,2010,45076,0.093097,4196.440372
+5/14/2022,Denver,Sebastian Anderson,Rick Stent,Jeep,Cherokee,1996,28533,0.071908,2051.750964
+4/18/2020,Minneapolis,Evelyn Rodriguez,Eldredge Grocutt,Chevrolet,Suburban 2500,2006,16273,0.088538,1440.778874
+3/7/2023,El Paso,Amelia Cooper,David Wilne,Chevrolet,Express 3500,1999,14173,0.126923,1798.879679
+2/8/2025,Chicago,William Hernandez,Vi Hutten,Dodge,Ram 3500,2000,48308,0.089094,4303.952952
+6/25/2023,Tampa,Ella Sanchez,Shelli Alfonsini,Mercury,Mountaineer,2006,31023,0.070097,2174.619231
+11/2/2023,Austin,Anthony Ramirez,Alfie Welbelove,Toyota,Tacoma,2008,10126,0.128509,1301.282134
+2/15/2021,Houston,Layla Thomas,Almira Meyer,Toyota,MR2,1993,15123,0.08359,1264.13157
+1/3/2021,Arlington,Zoey Thomas,Corilla Trathan,Dodge,Challenger,2010,13623,0.084625,1152.846375
+1/26/2020,Albuquerque,Harper Sanchez,Conant Espasa,Land Rover,Defender,1994,13077,0.099388,1299.696876
+1/18/2019,Houston,Lily Martin,Pietra Pitt,Nissan,Stanza,1992,29487,0.129623,3822.193401
+6/30/2021,Mesa,Layla Thomas,Daniella Zemler,Jeep,Wrangler,2007,28662,0.121182,3473.318484
+9/8/2020,Phoenix,Lucy Cooper,Phyllis Phetteplace,Lexus,IS,2012,30303,0.125372,3799.147716
+8/18/2020,Washington,David Perez,Godfree Sallan,Mazda,Mazdaspeed 3,2011,45354,0.093474,4239.419796
+10/5/2023,Charlotte,Zoey Thomas,Felice Newall,Chrysler,Cirrus,1996,29513,0.114457,3377.969441
+2/27/2021,Columbus,Samuel Adams,Helenka Houseman,Mazda,626,1994,44875,0.139606,6264.81925
+1/21/2019,Albuquerque,Layla Patterson,Kalinda Rableau,Ford,Econoline E350,1998,39904,0.115351,4602.966304
+7/20/2021,Denver,Natalie Cox,Aubert Ney,Acura,Legend,1987,20187,0.131321,2650.977027
+5/10/2019,Fort Worth,Stella Campbell,Hilda Law,Honda,CR-V,2004,39118,0.133056,5204.884608
+8/30/2019,San Francisco,Abigail Thomas,Gunther Rangell,Dodge,Ram 3500,2007,48283,0.064744,3126.034552
+10/14/2024,Albuquerque,Emma Adams,Kerri Milroy,Acura,NSX,1992,48725,0.1094,5330.515
+4/27/2020,Omaha,Olivia Price,Koren de Marco,GMC,Yukon XL 2500,2012,23817,0.066505,1583.949585
+1/16/2021,Washington,Gabriel Rivera,Susanna Belham,Porsche,Boxster,2009,11054,0.069163,764.527802
+7/15/2023,Tulsa,Aria Garcia,Wallis Greenaway,Subaru,Legacy,2008,32300,0.137091,4428.0393
+4/22/2024,Denver,Mia Wilson,Dianna Aleksandrikin,Lexus,CT,2011,27175,0.116125,3155.696875
+10/13/2019,San Jose,Henry Lee,Jereme O'Kerin,Honda,Civic,2005,19398,0.096302,1868.066196
+2/11/2019,Kansas City,Daniel Jackson,Westleigh Shrimplin,Saab,900,1989,42114,0.090116,3795.145224
+4/19/2020,Minneapolis,Lucy Lewis,Fremont Kolyagin,Infiniti,FX,2009,19524,0.146627,2862.745548
+11/6/2019,Colorado Springs,Jackson Martinez,Stavro Labon,Mazda,626,1985,15572,0.088642,1380.333224
+1/17/2019,Oakland,Benjamin Torres,Booth Scapens,Dodge,Durango,1999,29461,0.084501,2489.483961
+11/20/2024,Omaha,Owen Barnes,Eden Garlette,BMW,M5,2006,39842,0.101297,4035.875074
+10/9/2024,Los Angeles,Nora White,Charis Beale,Mazda,MX-5,2007,14530,0.140936,2047.80008
+7/2/2024,Mesa,Zoey Wright,Rhonda Sonley,Mitsubishi,Expo,1995,32471,0.052897,1717.618487
+5/11/2020,Austin,Lily Bailey,Aurilia Feria,Mercedes-Benz,S-Class,2003,49805,0.05498,2738.2789
+12/26/2023,Nashville,Layla Patterson,Saunderson Gors,Maybach,57,2008,48319,0.127326,6152.264994
+10/20/2020,Detroit,Sebastian King,Bevin Jaffray,Lotus,Esprit,2001,20968,0.121802,2553.944336
+7/23/2022,Charlotte,Anthony Hill,Kenny Scadden,GMC,Envoy XL,2003,40735,0.133937,5455.923695
+3/15/2022,Sacramento,Mia Wilson,Giff Threlkeld,Ford,Bronco II,1985,39588,0.094092,3724.914096
+3/2/2025,Oklahoma City,Lily Price,Matti Grew,Lincoln,MKS,2010,24399,0.061886,1509.956514
+10/25/2022,Detroit,Layla Thomas,Alvy Menhci,BMW,X3,2005,29742,0.082889,2465.284638
+9/30/2023,El Paso,Caleb Long,Valaree Mulvany,Dodge,Ram 1500,2005,39061,0.052667,2057.225687
+12/23/2019,Boston,Abigail Thompson,Rafaelita Stolworthy,Mercury,Grand Marquis,2004,47142,0.108726,5125.561092
+12/5/2022,Nashville,Amelia Gonzalez,Marlane Huffadine,Volvo,V70,2007,18958,0.084009,1592.642622
+10/1/2018,San Francisco,Lily Barnes,Jordain St Ange,Land Rover,Discovery Series II,1999,33814,0.141229,4775.517406
+10/13/2023,Chicago,Brooklyn Patterson,Vick Martygin,Maserati,Quattroporte,2006,40615,0.127695,5186.332425
+12/15/2020,Detroit,Amelia Cooper,Nolly Handslip,Hyundai,Sonata,1995,36746,0.081391,2990.793686
+12/17/2024,New York,Jacob Anderson,Radcliffe Freestone,Lincoln,Continental,1992,31734,0.105587,3350.697858
+9/4/2024,Tucson,Elijah Allen,Renell Maskrey,Infiniti,QX,2010,46819,0.140071,6557.984149
+4/29/2024,Fresno,Penelope Anderson,Barris Escot,Mitsubishi,Galant,2008,12153,0.107736,1309.315608
+2/23/2020,Baltimore,Chloe Hill,Erhart Sedgwick,GMC,Sierra,2007,40917,0.090614,3707.653038
+9/30/2022,Mesa,Benjamin Kelly,Gabriel Ketley,Scion,tC,2013,48625,0.057913,2816.019625
+6/22/2019,Las Vegas,Victoria Brooks,Antony Tilt,Infiniti,M,2008,45582,0.05147,2346.10554
+4/20/2020,Oklahoma City,Charlotte Garcia,Lianne Treharne,Alfa Romeo,Spider,1993,24661,0.071709,1768.415649
+11/25/2020,Atlanta,Zoey Thomas,Blithe Dryburgh,Mazda,929,1988,25287,0.116296,2940.776952
+3/30/2023,Jacksonville,Brooklyn Patterson,Bryce Tartt,Ford,Mustang,1998,17452,0.085468,1491.587536
+1/12/2024,Indianapolis,Samuel Adams,Edi Pancoast,Ford,Econoline E350,2000,35358,0.072596,2566.849368
+9/16/2018,Columbus,Jacob Davis,Rochette Ivanishin,Lotus,Elise,2010,20023,0.106384,2130.126832
+6/17/2024,Tulsa,Alexander White,Ddene Maris,Chevrolet,Suburban 2500,1998,14206,0.124443,1767.837258
+6/16/2023,Indianapolis,Emma Jones,Agosto Askaw,Audi,Cabriolet,1998,45515,0.096347,4385.233705
+4/16/2019,San Francisco,Amelia Moore,Helsa Fordham,Bentley,Continental Flying Spur,2010,48398,0.140271,6788.835858
+1/3/2023,New Orleans,Layla Sanchez,Elliot Shillinglaw,Dodge,Ramcharger,1993,24172,0.057483,1389.479076
+11/5/2019,Chicago,Jacob Davis,Dwain Sanney,Buick,Regal,1988,47371,0.128489,6086.652419
+1/4/2022,New Orleans,Zoey Torres,Sascha Whiteway,Acura,Legend,1990,14258,0.073448,1047.221584
+6/25/2019,Fresno,Olivia Price,Freeman Cicconettii,Chevrolet,Beretta,1992,37805,0.120335,4549.264675
+12/22/2023,Denver,Natalie Long,Vilhelmina Oleszczak,Toyota,Venza,2013,37902,0.096581,3660.613062
+2/3/2022,Austin,Grace Anderson,Krysta Lightwood,Mazda,Miata MX-5,2007,23089,0.119684,2763.383876
+6/4/2018,Virginia Beach,Matthew Clark,Carol Kyle,Porsche,911,2004,10620,0.142009,1508.13558
+12/1/2021,Dallas,Amelia Gonzalez,Guthrie Peppin,Infiniti,I,1999,27746,0.147399,4089.732654
+10/15/2023,Sacramento,Aria Torres,Mead Crohan,Pontiac,G8,2009,38218,0.085219,3256.899742
+3/29/2024,San Diego,Zoey Wright,Alvin Stihl,Aston Martin,DBS,2008,28362,0.056823,1611.613926
+8/18/2023,Jacksonville,Lily Allen,Lazarus Cuerdall,Nissan,Quest,2001,29809,0.076357,2276.125813
+4/10/2024,San Jose,Caleb Brown,Ingaberg Wenzel,Buick,Century,2003,22073,0.149911,3308.985503
+11/19/2023,Kansas City,Liam Davis,Baily Caffin,BMW,Z4,2010,12198,0.101666,1240.121868
+12/26/2020,Boston,David Williams,Melisa Rubinowitsch,Mazda,Mazda3,2007,20264,0.101359,2053.938776
+5/19/2024,Washington,Olivia Price,Rachel Gunney,Porsche,911,1996,47851,0.087187,4171.985137
+3/13/2024,Fort Worth,Samuel Nelson,Barr Bleasdille,BMW,7 Series,1998,27783,0.147835,4107.299805
+1/31/2025,Atlanta,Layla Hill,Trish Axten,Pontiac,Bonneville,1986,39940,0.08898,3553.8612
+10/24/2018,San Antonio,Layla Sanchez,Turner Debrick,Ford,Probe,1997,14723,0.056983,838.960709
+5/25/2018,Chicago,Henry Thomas,Jordon Comellini,Pontiac,Grand Am,2004,39054,0.149619,5843.220426
+12/19/2023,Las Vegas,Nora Price,Hobart Kubicki,Lincoln,MKX,2012,14756,0.109829,1620.636724
+3/2/2019,Mesa,Stella Jenkins,Clotilda MacAdam,Ford,F-Series,1992,17063,0.098455,1679.937665
+2/3/2019,Milwaukee,Layla Gonzalez,Orbadiah Brearton,Ford,Torino,1970,35277,0.051835,1828.583295
+2/8/2019,Charlotte,Natalie Harris,Boony Gummie,BMW,545,2004,41876,0.143864,6024.448864
+7/19/2020,San Jose,Matthew Cooper,Ethelda Siggens,Infiniti,Q,2004,10081,0.11423,1151.55263
+1/11/2023,Long Beach,Caleb Martin,Duky Copyn,Honda,Prelude,2000,32177,0.100195,3223.974515
+11/26/2020,Albuquerque,Grace Lewis,Felice Martinek,Cadillac,SRX,2005,15231,0.135294,2060.662914
+7/14/2022,Philadelphia,Stella Campbell,Edithe Findlater,Volkswagen,Jetta III,1993,48202,0.056627,2729.534654
+4/6/2024,Jacksonville,Abigail Jones,Riva Ruprecht,Kia,Optima,2010,43739,0.085445,3737.278855
+11/24/2024,Louisville,Layla Lee,Jehanna Blackader,GMC,Canyon,2008,47593,0.125293,5963.069749
+5/19/2019,Atlanta,Lily Barnes,Devonne Beardwell,Dodge,Ram 1500,2005,20508,0.134641,2761.217628
+3/18/2022,Baltimore,Grace Lewis,Eba Coverly,Acura,Integra,1999,37134,0.12017,4462.39278
+5/14/2021,Las Vegas,Brooklyn Patterson,Alys Eade,Acura,Integra,1988,47372,0.071173,3371.607356
+6/15/2019,Nashville,Chloe Hall,Sapphira Scoles,Toyota,Prius,2011,19533,0.139699,2728.740567
+10/1/2018,Omaha,Layla Lee,Francis Terzo,Pontiac,Firebird,1994,48443,0.088222,4273.738346
+8/31/2024,Tucson,Jackson Robinson,Woody Chesswas,Ford,F250,2003,29674,0.070208,2083.352192
+7/5/2018,Albuquerque,Natalie Long,Florie Audritt,Isuzu,Trooper,1993,39037,0.14224,5552.62288
+9/25/2021,Tucson,David Wright,Carina MacKain,Chevrolet,Beretta,1994,18446,0.13783,2542.41218
+12/5/2018,Sacramento,Zoey Wright,Roslyn Legon,Mercedes-Benz,M-Class,2002,20984,0.131301,2755.220184
+5/7/2023,Louisville,Jacob Davis,Carroll Duckerin,Volvo,XC90,2012,15979,0.057388,917.002852
+1/2/2023,Atlanta,Mia Wilson,Granville Hatje,Mercedes-Benz,R-Class,2008,21463,0.111892,2401.537996
+5/1/2019,Seattle,Layla Ramirez,Teri Hanselmann,Chevrolet,Cavalier,1993,24723,0.073301,1812.220623
+1/27/2023,Nashville,Mia Wilson,Vern Robbie,Mazda,Familia,1985,44599,0.077621,3461.818979
+9/23/2018,Seattle,Charlotte Garcia,Devina Vassman,Suzuki,Daewoo Lacetti,2006,26248,0.115667,3036.027416
+11/5/2023,Fort Worth,Samuel Adams,Lorene McTrustram,Lexus,LX,1999,40193,0.077228,3104.025004
+3/6/2023,San Diego,Aurora Reed,Masha Bartkiewicz,Bentley,Continental GT,2008,10267,0.147654,1515.963618
+1/14/2025,Minneapolis,Grace Lewis,Gloriane Beavis,Ford,Tempo,1994,47447,0.075154,3565.831838
+4/10/2022,Miami,Emma Jones,Merrick Hefferon,Mazda,Familia,1986,27480,0.086856,2386.80288
+6/23/2024,Fort Worth,Abigail Jones,Lothario Sidsaff,Kia,Rio,2011,27588,0.103034,2842.501992
+8/27/2018,Tucson,Layla Sanchez,Alene Jambrozek,Honda,CR-Z,2012,42645,0.142275,6067.317375
+10/22/2018,Washington,Penelope Cox,Meir Kacheler,Ford,E-Series,2001,27677,0.146153,4045.076581
+10/29/2020,Tampa,Aurora Reed,Merci Wipper,Geo,Storm,1992,32433,0.055214,1790.755662
+7/24/2023,Detroit,Michael Gonzalez,Bendite Keyme,Honda,Accord,1992,39383,0.077989,3071.440787
+11/1/2018,Omaha,Amelia Moore,Angus Tennant,Volvo,S60,2007,27165,0.120005,3259.935825
+3/6/2025,Tulsa,Lily Bailey,Eugenia Kubas,Saturn,VUE,2004,34455,0.072077,2483.413035
+10/16/2019,Columbus,John Ward,Karlik Spellar,Alfa Romeo,Spider,1992,18940,0.102271,1937.01274
+9/7/2020,El Paso,Caleb Martin,Elka Strasse,Lamborghini,Gallardo,2009,43058,0.091211,3927.363238
+4/8/2020,San Diego,Evelyn Bailey,Loydie Willcocks,BMW,745,2004,39177,0.134376,5264.448552
+12/13/2019,New York,Layla Hill,Gwenneth Lias,Mercedes-Benz,E-Class,1988,26705,0.122496,3271.25568
+4/6/2021,Phoenix,Sebastian King,Myrah Hebborne,Pontiac,Fiero,1987,22802,0.07274,1658.61748
+3/4/2025,Tucson,Sophia Miller,Trace Sinnott,Honda,S2000,2007,43951,0.14156,6221.70356
+10/25/2022,Portland,Jackson Robinson,Cati Karolyi,Pontiac,Firefly,1991,38145,0.088637,3381.058365
+10/13/2019,Oakland,Ava Garcia,Bryon Pettinger,GMC,Sierra 2500,1999,34308,0.149488,5128.634304
+2/15/2025,Memphis,Benjamin Ramirez,Renelle Crucitti,Maserati,430,1989,33665,0.060955,2052.050075
+3/11/2019,Mesa,Alexander Kelly,George Havelin,Mercedes-Benz,SL-Class,1990,18274,0.058094,1061.609756
+1/4/2025,Raleigh,David Young,Filbert Jee,Kia,Sorento,2012,14414,0.062729,904.175806
+4/25/2020,Baltimore,Daniel Sanchez,Roxanna Reading,Porsche,911,2013,37321,0.094445,3524.781845
+8/28/2018,Houston,Emma Clark,Kiersten MacCallion,Lincoln,Continental,1993,38562,0.104727,4038.482574
+9/1/2024,Seattle,Isaac Kelly,Hubert Flohard,Ford,Taurus,1994,41032,0.058629,2405.665128
+4/1/2020,Seattle,Joseph Green,Loraine Challis,GMC,Yukon XL 1500,2006,40039,0.139604,5589.604556
+4/23/2023,Omaha,Emma Jones,Alvinia Duxbury,Chevrolet,3500,1999,17475,0.131854,2304.14865
+1/28/2019,Fresno,Levi Richardson,Jenelle Heifer,Ford,Taurus,2008,33782,0.11626,3927.49532
+8/28/2018,Oklahoma City,Abigail Price,Adrien Attenbarrow,Dodge,Ram 1500,2007,41338,0.130979,5414.409902
+4/30/2023,Phoenix,Thomas Ward,Roland Dixie,Infiniti,G,2010,30166,0.144852,4369.605432
+2/6/2024,Las Vegas,Isaac Brooks,Maribel Rembrandt,Mitsubishi,Mirage,1984,20563,0.091016,1871.562008
+11/11/2023,Fort Worth,Caleb Price,Bentlee Pardoe,Mercedes-Benz,S-Class,1995,46221,0.133493,6170.179953
+9/11/2023,Oklahoma City,Benjamin Adams,Tami Kleine,GMC,Safari,1997,34014,0.098014,3333.848196
+1/2/2022,Los Angeles,Lily Barnes,Yardley Leadley,Hyundai,Genesis Coupe,2013,14454,0.106802,1543.716108
+6/7/2024,Boston,Nora Ward,Kailey Yitzhakof,Mazda,Miata MX-5,1999,31060,0.073234,2274.64804
+5/4/2024,Louisville,Henry Patterson,Larissa Accum,Saab,900,1987,27918,0.149686,4178.933748
+10/30/2018,Detroit,Zoey Wright,Kippie Cullingworth,Ford,Focus,2011,41463,0.118813,4926.343419
+7/21/2020,Washington,Elijah Scott,Ardyth Blackledge,Maybach,57,2010,17411,0.097004,1688.936644
+2/17/2020,Houston,David Wright,Cordy Moorton,Lamborghini,Countach,1985,45450,0.11608,5275.836
+2/28/2023,Mesa,Sophia Miller,Putnam Haylands,Buick,Regal,2011,12395,0.068291,846.466945
+5/1/2018,Atlanta,Anthony Hill,Debi Gonnelly,GMC,Sierra 2500,2003,12117,0.113256,1372.322952
+2/28/2024,Louisville,David Scott,Amargo Babber,Volkswagen,Jetta,2004,47924,0.138721,6648.065204
+11/2/2020,Chicago,Daniel Jackson,Tobye Harg,GMC,3500,1992,45965,0.135257,6217.088005
+1/29/2022,Albuquerque,Thomas Diaz,Doro Isakovic,Mitsubishi,Outlander,2005,38969,0.126504,4929.734376
+5/18/2020,Phoenix,Zoey Wright,Domini Warde,Lexus,GS,2013,29142,0.118362,3449.305404
+10/12/2019,Tucson,Abigail Davis,Guy Auton,Lincoln,MKZ,2007,40481,0.074141,3001.301821
+4/25/2019,Sacramento,Amelia Cooper,Albertina Beardwell,Infiniti,G35,2008,31017,0.084446,2619.261582
+1/24/2025,Colorado Springs,Jacob Anderson,Nikki Speare,Volkswagen,rio,2000,16830,0.057059,960.30297
+4/27/2024,Albuquerque,Elijah Scott,Cull Ivasechko,Lexus,LS,2010,45075,0.067293,3033.231975
+4/13/2023,Washington,Isaac Brooks,Caresa Hellings,GMC,2500,1997,25544,0.105666,2699.132304
+9/9/2023,Baltimore,Zoey Morgan,Napoleon Whitticks,Land Rover,LR2,2010,19956,0.128347,2561.292732
+4/27/2024,Tulsa,Michael Gonzalez,Ronnie Antonikov,Dodge,Ram,2008,22979,0.070129,1611.494291
+12/5/2020,Boston,Henry Patterson,Estelle Brosnan,Chevrolet,Suburban 1500,1995,12111,0.143896,1742.724456
+6/30/2018,Austin,Penelope Anderson,Elena Castanyer,Volvo,960,1992,16183,0.051433,832.340239
+4/4/2019,Detroit,Matthew Taylor,Terrie Woolaghan,Holden,VS Commodore,1995,26877,0.12802,3440.79354
+10/7/2022,San Francisco,Lily Bailey,Mirna Minot,GMC,Sonoma,1997,20534,0.142094,2917.758196
+6/13/2018,Mesa,Owen Barnes,Egon Rowan,Lexus,LX,1996,33251,0.092831,3086.723581
+8/11/2020,Miami,Layla Ramirez,Kalie Pahl,Nissan,Armada,2007,18787,0.090509,1700.392583
+6/30/2021,Houston,Benjamin Thompson,Randolf McCard,Mercedes-Benz,W201,1991,39441,0.101237,3992.888517
+6/5/2021,Albuquerque,Stella Williams,Ritchie O'Collopy,Jeep,Cherokee,1996,45217,0.118387,5353.104979
+3/2/2021,Raleigh,Lily Allen,Zelda Rackley,Ford,Mustang,2001,24720,0.1448,3579.456
+1/4/2021,Houston,Zoey Morgan,Lorettalorna Brabham,Nissan,GT-R,2009,43849,0.082732,3627.715468
+8/28/2020,Arlington,Zoey Young,Travers Biaggetti,Volkswagen,Cabriolet,1986,39432,0.123217,4858.692744
+8/31/2024,Fort Worth,Lily Bailey,Fayina Kleen,Mercedes-Benz,G-Class,2004,23013,0.113296,2607.280848
+8/26/2022,Houston,Ella Sanchez,Lorelei Pottage,Mitsubishi,Mighty Max,1993,24933,0.060997,1520.838201
+4/27/2023,Omaha,Grace Davis,Alanah McGettigan,Lexus,LX,2001,14068,0.125245,1761.94666
+10/22/2022,Virginia Beach,David Scott,Carlo Statton,Pontiac,G6,2007,34711,0.133196,4623.366356
+2/11/2021,Philadelphia,Zoey Young,Kyrstin Pickett,Infiniti,Q,1992,11043,0.135987,1501.704441
+3/9/2021,Fort Worth,Aria Torres,Thorin Graveson,Toyota,Corolla,1998,23298,0.146952,3423.687696
+9/1/2018,Raleigh,Michael Jones,Harlen Coolbear,Plymouth,Colt Vista,1992,42032,0.053917,2266.239344
+10/31/2023,Long Beach,Anthony Ramirez,Maurise Ralfe,Chevrolet,Sportvan G20,1993,15222,0.057698,878.278956
+3/19/2022,San Francisco,Layla Young,Elaine Shegog,Lexus,ES,2011,36940,0.11401,4211.5294
+2/15/2025,Milwaukee,Caleb Long,Yale Fitchen,Honda,Civic,2005,10818,0.087438,945.904284
+11/6/2020,Arlington,Michael Brown,Nora Danelutti,Nissan,Xterra,2012,35222,0.111171,3915.664962
+5/22/2021,Phoenix,Benjamin Sanchez,Glori Medendorp,BMW,X5,2009,48221,0.075889,3659.443469
+9/11/2024,Oklahoma City,Brooklyn Patterson,Verla Heigold,Jaguar,XK,2012,34158,0.092954,3175.122732
+4/25/2024,Mesa,Lily Allen,Grier Custy,Mazda,B-Series,2006,26345,0.08902,2345.2319
+9/8/2024,New York,Zoey Young,Kit Liver,Lincoln,Continental,1990,28031,0.07855,2201.83505
+3/19/2025,Indianapolis,Abigail Jones,Adamo Swigger,Pontiac,G5,2007,46799,0.070207,3285.617393
+12/3/2024,New Orleans,Lucy Brown,Candie Wroth,Ford,Courier,1989,25303,0.11373,2877.71019
+12/29/2019,Oakland,Natalie Long,Ingamar Bevis,Aston Martin,Vanquish S,2006,44704,0.113805,5087.53872
+5/23/2024,San Francisco,Abigail Price,Smitty Rodenborch,Ford,F350,2009,39486,0.115972,4579.270392
+9/11/2019,Atlanta,Sebastian Flores,Gilbert Badwick,Hyundai,Tiburon,2009,14479,0.057813,837.074427
+12/22/2024,Fresno,Caleb Price,Isa Dexter,Acura,CL,2002,12728,0.097172,1236.805216
+8/1/2021,San Diego,Aria Garcia,Reeva Wells,Toyota,Solara,2004,40558,0.064366,2610.556228
+12/26/2019,Portland,Thomas Brooks,Armando Meffin,Pontiac,Bonneville,1964,15082,0.108585,1637.67897
+11/12/2018,El Paso,Ella Sanchez,Powell Eick,Audi,A8,2008,46777,0.093409,4369.392793
+5/30/2018,Minneapolis,Aria Torres,Celka Skalls,Scion,xB,2006,20100,0.116359,2338.8159
+2/25/2024,Denver,Jacob Davis,Happy Gresly,Mercedes-Benz,CLK-Class,2007,16556,0.13097,2168.33932
+10/15/2021,Miami,Zoey Morgan,Nedi Papierz,Acura,TL,2007,28636,0.060406,1729.786216
+2/28/2022,Kansas City,Grace Sanchez,Archambault Mitroshinov,Plymouth,Voyager,1993,49522,0.148751,7366.447022
+11/16/2018,Miami,Abigail Davis,Idell Lepere,BMW,X5,2007,44120,0.136721,6032.13052
+10/31/2021,New Orleans,Julian Morgan,Bride Girsch,Subaru,B9 Tribeca,2006,31163,0.136818,4263.659334
+10/13/2023,Phoenix,Michael Brown,Alva Girardini,Buick,Century,1994,27365,0.088262,2415.28963
+10/26/2019,New Orleans,Caleb Brown,Tades Liepins,Ford,E250,2010,19001,0.081764,1553.597764
+2/15/2020,New Orleans,Gabriel Nelson,Arabela Buddle,Mitsubishi,L300,1989,36409,0.088801,3233.155609
+4/23/2024,Miami,Harper Ward,Upton Cleary,Mazda,Mazdaspeed6,2007,29501,0.06905,2037.04405
+8/12/2022,San Jose,Lily Barnes,Syd Markie,Ford,E250,2004,38211,0.148031,5656.412541
+7/21/2021,Kansas City,Penelope White,Bathsheba Vasilov,Ford,Escape,2013,36642,0.109041,3995.480322
+6/29/2024,New Orleans,David Thompson,Othella Stormes,Pontiac,Fiero,1987,19217,0.084966,1632.791622
+10/29/2020,Dallas,Layla Sanchez,Velvet Suffe,Ford,Country,1967,18490,0.052996,979.89604
+1/21/2023,San Diego,Benjamin Kelly,Leonelle Hickisson,Acura,NSX,2001,24294,0.144629,3513.616926
+10/5/2022,Raleigh,Jacob Nelson,Dayna Linebarger,Ford,Expedition,2009,17063,0.121286,2069.503018
+8/20/2018,Milwaukee,Daniel Jackson,Nealy Sheron,Ford,LTD Crown Victoria,1987,20941,0.147254,3083.646014
+8/10/2019,Houston,Michael Gonzalez,Aldon Bamborough,Toyota,T100 Xtra,1998,17184,0.086854,1492.499136
+10/22/2020,Austin,Michael Brown,Hesther Kitto,Isuzu,Trooper,1993,44766,0.088695,3970.52037
+7/31/2021,Philadelphia,Grace Davis,Mickie Leathers,Hyundai,XG350,2003,37018,0.071766,2656.633788
+8/17/2018,Indianapolis,Hannah Anderson,Grannie Frossell,BMW,8 Series,1995,31436,0.08348,2624.27728
+10/30/2023,Fort Worth,Michael Jones,Hyacinthie Paggitt,Dodge,Viper,2006,30025,0.082899,2489.042475
+7/5/2022,Tampa,Stella Reed,Jarrad Ambrosio,Pontiac,Torrent,2008,15459,0.111791,1728.177069
+3/15/2020,Phoenix,Michael Taylor,Ilene Itscowicz,Chevrolet,Corvette,1956,14192,0.071367,1012.840464
+2/8/2024,Austin,Elijah Martinez,Jeremy Dinse,BMW,Z4,2003,33590,0.117896,3960.12664
+8/5/2024,Long Beach,Matthew Cooper,Reinald Angus,Lincoln,Navigator,2005,19051,0.127416,2427.402216
+12/22/2024,Milwaukee,Layla Gonzalez,Abbey Brixey,Chevrolet,Uplander,2005,45897,0.072228,3315.048516
+8/6/2018,Los Angeles,Stella Reed,Glynis Caunter,Ford,F-Series Super Duty,2008,30442,0.089268,2717.496456
+2/17/2025,Tulsa,Hannah Anderson,Berget Flintuff,Audi,4000,1987,33162,0.094897,3146.974314
+9/27/2018,New Orleans,Matthew Clark,Tani Langelay,Ford,F350,2009,10311,0.145061,1495.723971
+10/25/2021,Columbus,David Thompson,Cecelia Belton,Mitsubishi,Challenger,1998,31976,0.14674,4692.15824
+11/9/2022,Austin,David Williams,Ephrem Stillmann,Cadillac,Sixty Special,1993,39131,0.144701,5662.294831
+6/11/2021,Oklahoma City,Henry Patterson,Ilene Prangley,GMC,Sierra 3500,2006,22083,0.133473,2947.484259
+4/18/2019,Kansas City,Abigail Brown,Emmey Brantl,Chrysler,Concorde,1998,44158,0.135165,5968.61607
+6/23/2024,Fort Worth,William Hernandez,Valentine O'Donohue,Pontiac,G3,2009,22174,0.094195,2088.67993
+5/30/2021,Fresno,Henry Lee,Cass Cuphus,Ford,Econoline E150,1993,36263,0.11587,4201.79381
+6/22/2019,Boston,Liam Gonzalez,Joceline Biasioli,Toyota,Avalon,2007,12539,0.08833,1107.56987
+6/23/2022,Atlanta,Carter Rivera,Lizabeth Spurrett,BMW,Z4,2005,28712,0.106234,3050.190608
+12/17/2023,Houston,Grace Davis,Jarrad Ferschke,Audi,Coupe GT,1986,27979,0.072605,2031.415295
+10/26/2022,Tampa,Zoey Wright,Daphne Lotherington,Chevrolet,Prizm,1999,16843,0.111453,1877.202879
+6/15/2024,Miami,Daniel Sanchez,Silvain Laverock,Nissan,Leaf,2011,25026,0.100843,2523.696918
+1/5/2020,Louisville,Zoey Wright,Bearnard Fifield,Kia,Sephia,2000,42975,0.145732,6262.8327
+4/3/2025,Raleigh,William Hernandez,Celestina Ropcke,Land Rover,Range Rover,1994,14448,0.140282,2026.794336
+4/17/2025,Washington,Penelope White,Gaye Heyball,Buick,Roadmaster,1992,44576,0.064142,2859.193792
+3/17/2025,Arlington,Sebastian Anderson,Charley Christopherson,Lincoln,Aviator,2004,31453,0.144533,4545.996449
+10/10/2024,Washington,Natalie Harris,Jenni Easson,Ford,Mustang,1971,18745,0.104221,1953.622645
+3/11/2023,Portland,Hannah Hill,Colleen Nappin,Chevrolet,Suburban 1500,2010,38848,0.096771,3759.359808
+11/6/2018,San Francisco,Gabriel Cooper,Tallie Mattityahou,Lexus,SC,2005,18747,0.085595,1604.649465
+2/21/2021,New York,Matthew Cooper,Ibbie Craigg,Chevrolet,Suburban 1500,1997,13716,0.140311,1924.505676
+9/28/2024,Philadelphia,Joseph Thomas,Connie Thinn,Pontiac,Grand Prix,1997,32474,0.095057,3086.881018
+8/13/2024,Detroit,Layla Gonzalez,Guglielma Shingler,Chevrolet,Express 2500,1999,20789,0.113505,2359.655445
+4/28/2024,Oakland,Liam Davis,Nerta Avramov,Chevrolet,S10,1997,29352,0.135015,3962.96028
+9/24/2022,Portland,Elijah Torres,Horatia Davidovitch,Maserati,Gran Sport,2005,26998,0.066254,1788.725492
+5/28/2018,Sacramento,Sophia Rodriguez,Amos Scroxton,Lexus,SC,2003,13366,0.092488,1236.194608
+8/28/2023,Columbus,Layla Young,Sande O'Sheeryne,Volkswagen,Cabriolet,1991,20416,0.109698,2239.594368
+1/10/2025,Colorado Springs,Layla Gonzalez,Shayna Lucien,Nissan,Quest,2012,26661,0.050408,1343.927688
+11/29/2022,Indianapolis,Aurora Cooper,Meredeth d'Escoffier,Ferrari,599 GTB Fiorano,2010,26730,0.089132,2382.49836
+7/8/2024,New Orleans,Samuel Nelson,Royal Pothecary,GMC,Safari,2004,20089,0.069459,1395.361851
+3/29/2024,Raleigh,Levi Richardson,Wittie Piddock,Acura,SLX,1997,22780,0.095487,2175.19386
+2/2/2021,Virginia Beach,David Scott,Noami Pentecust,Mercury,Cougar,1988,19027,0.087125,1657.727375
+6/23/2024,Tucson,Matthew Taylor,Nowell Esche,Scion,xD,2012,40343,0.148512,5991.419616
+6/25/2018,Baltimore,Natalie Cox,Monica Grumble,Volvo,V70,2005,46127,0.132862,6128.525474
+6/4/2023,Detroit,Ellie Davis,Sunny Cousin,Ford,Contour,1999,20586,0.125749,2588.668914
+5/18/2018,Minneapolis,Henry Lee,Sabra Meininking,Mazda,626,1999,32024,0.061866,1981.196784
+12/12/2018,New Orleans,Zoey Wright,Barbabra Swinnard,Chevrolet,Camaro,1970,28919,0.135808,3927.431552
+7/29/2021,Jacksonville,James Miller,Rafaela Garrow,Ford,F250,1999,16253,0.095974,1559.865422
+11/16/2018,New York,Abigail Thomas,Bank Valek,Mitsubishi,Galant,2003,47310,0.058113,2749.32603
+10/28/2024,Washington,Liam Gonzalez,Staford Troth,Oldsmobile,Bravada,1994,19358,0.088194,1707.259452
+5/24/2020,Louisville,Henry Patterson,Ivette Le Lievre,Lotus,Esprit,1988,28029,0.072666,2036.755314
+10/19/2020,Boston,Ellie Reed,Susanna Quidenham,Suzuki,XL-7,2007,30848,0.060068,1852.977664
+5/26/2020,Oklahoma City,Michael Richardson,Chancey Chaffyn,Dodge,Avenger,1995,21115,0.073219,1546.019185
+5/30/2021,Sacramento,Brooklyn Patterson,Alison Fairn,Acura,Vigor,1993,27766,0.05648,1568.22368
+2/3/2020,Boston,Caleb Long,Cayla Ajam,Dodge,Ram 1500,2010,41030,0.134323,5511.27269
+7/9/2018,Washington,Charlotte Thomas,Yehudi Marrion,Porsche,944,1986,23149,0.143228,3315.584972
+3/1/2022,Long Beach,Sebastian Anderson,Livvie Seelbach,Chevrolet,Silverado 1500,1999,30084,0.142885,4298.55234
+2/23/2019,Atlanta,Caleb Martin,Gerardo Beernaert,GMC,Jimmy,1996,11156,0.072561,809.490516
+11/20/2019,Indianapolis,Emma Brown,Timotheus Saberton,Hyundai,Sonata,1995,20915,0.057926,1211.52229
+12/4/2022,San Jose,Ellie Torres,Cassie Torfin,Chevrolet,Camaro,1971,23775,0.097465,2317.230375
+8/24/2024,Tucson,Sophia Miller,Tory Castille,Chevrolet,TrailBlazer,2002,22530,0.106897,2408.38941
+11/13/2024,Atlanta,Layla Ramirez,Gaylene Tome,Jeep,Liberty,2004,28442,0.08702,2475.02284
+11/29/2020,New Orleans,Emma Clark,Rorie Wickson,Audi,TT,2009,44007,0.096606,4251.340242
+10/22/2018,Omaha,Samuel Adams,Angel Jaques,BMW,M Roadster,2008,23063,0.125065,2884.374095
+9/28/2022,Oklahoma City,Gabriel Cooper,Fanechka Milkins,Honda,CR-V,2003,14830,0.136884,2029.98972
+3/12/2019,Atlanta,Henry Thomas,Sandro Brim,GMC,3500,1992,22277,0.061639,1373.132003
+5/19/2022,Virginia Beach,Layla Hill,Melvyn Baty,Mercedes-Benz,SL-Class,2009,39070,0.145173,5671.90911
+1/11/2020,Memphis,Sebastian King,Gaby Plunket,Kia,Carens,2009,49288,0.085534,4215.799792
+7/14/2022,Baltimore,Henry Lee,Lyndsie Hatterslay,Land Rover,Discovery Series II,2000,21010,0.089266,1875.47866
+2/28/2025,Sacramento,Layla Lee,Romy Antonoczyk,Cadillac,Eldorado,2001,42874,0.091557,3925.414818
+6/16/2024,Kansas City,Michael Gonzalez,Konstanze Piddletown,Mercury,Montego,2006,25749,0.057675,1485.073575
+4/10/2024,Memphis,Alexander Kelly,Ange De Meyer,Ford,Club Wagon,1994,19212,0.101154,1943.370648
+8/23/2020,Oakland,James Miller,Nancee Jandel,Eagle,Vision,1994,37666,0.068945,2596.88237
+2/18/2025,Charlotte,Michael Gonzalez,Inglis Croshaw,Acura,ZDX,2012,29302,0.086862,2545.230324
+5/24/2019,Baltimore,Gabriel Williams,Pollyanna De Few,Mitsubishi,Pajero,1990,40332,0.059919,2416.653108
+5/11/2020,Miami,Carter Rivera,Bettye Kinzel,Ford,F150,1984,41862,0.090294,3779.887428
+6/14/2023,Charlotte,Chloe Hall,Hube Yemm,Kia,Rondo,2010,22354,0.101827,2276.240758
+1/30/2020,Baltimore,Evelyn Rodriguez,Nick Juarez,BMW,7 Series,2000,45798,0.099845,4572.70131
+6/3/2020,Dallas,Emma Adams,Marley Shama,Isuzu,Rodeo,2003,26713,0.075786,2024.471418
+3/17/2021,Jacksonville,Benjamin Kelly,Kiley Lineham,Ford,F-Series Super Duty,2012,19310,0.084908,1639.57348
+10/8/2019,Denver,David Perez,Gisella Pfiffer,Chevrolet,Metro,2000,19866,0.119727,2378.496582
+1/30/2021,Fort Worth,Elijah Torres,Gwenora Prue,Mercedes-Benz,SLS AMG,2011,16355,0.087867,1437.064785
+7/13/2019,Colorado Springs,Natalie Cox,Annabelle Condon,Infiniti,I,1997,34563,0.144971,5010.632673
+9/10/2018,Tulsa,Victoria Taylor,Hebert Hirschmann,Mercury,Topaz,1990,17584,0.081936,1440.762624
+6/21/2019,Indianapolis,Hannah Anderson,Noelani Maasze,Dodge,Viper,2006,42339,0.123313,5220.949107
+11/15/2019,Tampa,Alexander Nguyen,Claresta Heugh,Mitsubishi,Outlander,2007,21946,0.140932,3092.893672
+11/27/2024,Minneapolis,Benjamin Ramirez,Adelbert Wharrier,Volvo,S80,2000,25375,0.069844,1772.2915
+5/2/2020,Indianapolis,Jacob Nelson,Madalyn Worcester,Toyota,Celica,1992,31667,0.095524,3024.958508
+4/15/2024,Detroit,Benjamin Adams,Orelia McKibbin,Porsche,911,1992,32311,0.096415,3115.265065
+12/24/2023,Tulsa,Carter Rivera,Tudor Farlambe,Mercedes-Benz,S-Class,2008,18459,0.105854,1953.958986
+1/7/2024,Minneapolis,Thomas Hernandez,Rayshell Jonuzi,Eagle,Talon,1997,31644,0.113622,3595.454568
+12/17/2022,Mesa,Caleb Long,Arri Abilowitz,Ford,Econoline E250,1997,28292,0.116815,3304.92998
+8/15/2023,Louisville,Sophia Hall,Matty Grumley,Acura,TSX,2007,29180,0.114995,3355.5541
+9/30/2024,Arlington,Layla Lee,Bette Vasyukhichev,Chrysler,300M,1999,40586,0.111843,4539.259998
+8/15/2018,Detroit,John Scott,Bridget Minero,Maybach,57,2004,10102,0.084674,855.376748
+5/23/2024,Albuquerque,Zoey Morgan,Joelie Bellenger,Chevrolet,Tahoe,2007,39719,0.115539,4589.093541
+9/13/2020,Columbus,Emma Jones,Bev Matzke,Lincoln,Mark LT,2008,23760,0.070867,1683.79992
+10/18/2020,Washington,Sophia Miller,Farr Jinkinson,Ford,Escape,2006,19590,0.096202,1884.59718
+3/29/2024,Virginia Beach,Samuel Adams,Shea Patriskson,Aston Martin,DBS,2008,29134,0.097975,2854.40365
+7/13/2024,Albuquerque,Isabella Lopez,Daisie Denham,Chevrolet,Silverado 1500,2000,47926,0.05537,2653.66262
+5/20/2020,Arlington,Jacob Davis,Sherlocke Angelini,Chrysler,New Yorker,1996,30567,0.079172,2420.050524
+6/29/2020,San Francisco,Gabriel Rivera,Rasia Ucchino,Chevrolet,G-Series G10,1993,20424,0.06818,1392.50832
+2/18/2019,Fresno,Natalie Cox,Cacilia Wogan,Jaguar,XJ,2012,46714,0.136345,6369.22033
+1/31/2021,Colorado Springs,Sophia Garcia,Brandise Morphew,Lotus,Esprit,2004,36179,0.124179,4492.672041
+8/15/2023,Dallas,Aiden Jones,Fayth Guilford,GMC,Suburban 2500,1992,11935,0.136762,1632.25447
+8/28/2018,Colorado Springs,Benjamin Kelly,Heda Athow,Mitsubishi,Lancer,2010,22485,0.149493,3361.350105
+1/4/2022,El Paso,Mia Moore,Gerrie Hunnisett,Lincoln,Continental Mark VII,1989,40706,0.084391,3435.220046
+10/15/2024,Kansas City,Alexander Martin,Kelby Turfs,Dodge,Spirit,1995,30711,0.120661,3705.619971
+9/19/2018,El Paso,Henry Thomas,Felipe Nelane,Toyota,Matrix,2010,35529,0.077845,2765.755005
+9/9/2020,Albuquerque,Zoey Torres,Koralle Welbourn,Ram,Dakota,2011,44200,0.124848,5518.2816
+12/16/2020,Seattle,Layla Young,Case Padbury,Mazda,RX-7,1983,30877,0.05033,1554.03941
+3/5/2019,Albuquerque,Lily Barnes,Gunilla de Lloyd,Lincoln,Mark LT,2006,34378,0.077866,2676.877348
+10/11/2021,Long Beach,Samuel Adams,Lorain Buckwell,Hyundai,Santa Fe,2002,14036,0.095406,1339.118616
+6/17/2019,Long Beach,David Williams,Deena Tack,Chevrolet,Suburban 2500,2004,20073,0.093337,1873.553601
+11/21/2020,Fort Worth,David Williams,Annmaria Coppen,Honda,Accord,2002,10017,0.062824,629.308008
+11/22/2020,El Paso,Thomas Ward,Grissel Charville,Mitsubishi,Eclipse,2002,29745,0.073472,2185.42464
+2/15/2022,Mesa,Caleb Martin,Vanya Cleverly,Hyundai,Tucson,2008,37705,0.085873,3237.841465
+4/21/2019,San Antonio,Ellie Torres,Dale Nolte,Toyota,RAV4,1998,43440,0.051234,2225.60496
+8/24/2023,San Diego,Aiden Jones,Veronica Volcker,Ford,Contour,1999,37118,0.133098,4940.331564
+7/7/2020,Austin,Elijah Torres,Anabel Brigginshaw,Panoz,Esperante,2006,22919,0.101968,2337.004592
+6/20/2021,Baltimore,Hannah Hill,Trenna Kearn,Pontiac,Grand Prix,1979,22869,0.093282,2133.266058
+7/6/2022,San Antonio,Harper Ward,Ezequiel Allison,Subaru,Legacy,2007,39223,0.133194,5224.268262
+8/19/2019,Fort Worth,Nora Ward,Sheela Formby,Mazda,626,1991,18841,0.129454,2439.042814
+8/4/2019,Los Angeles,Anthony Ramirez,Berthe Herrero,Dodge,Caravan,2001,13749,0.062996,866.132004
+11/16/2018,San Diego,Alexander Thompson,Wilona De Maine,Infiniti,G,2009,12506,0.105426,1318.457556
+8/2/2019,Austin,Caleb Perez,Gale Whissell,Subaru,Outback,2000,14744,0.13836,2039.97984
+4/16/2021,San Diego,Lily Allen,Guillema Seville,Lamborghini,Countach,1985,36518,0.072306,2640.470508
+3/4/2025,Dallas,Henry Thomas,Jamaal Harmond,Maserati,GranSport,2006,39243,0.051055,2003.551365
+7/22/2021,Baltimore,Benjamin Adams,William Straine,Dodge,Ram Van 1500,1997,15601,0.105895,1652.067895
+3/13/2023,San Francisco,Matthew Taylor,Bar De Vile,Mercury,Grand Marquis,1998,31763,0.11172,3548.56236
+2/11/2019,Tampa,Aurora Cooper,Prinz Jaynes,Mercedes-Benz,CLK-Class,2000,34941,0.061624,2153.204184
+6/10/2022,Raleigh,Henry Patterson,Aimil Speir,Acura,MDX,2008,20915,0.107245,2243.029175
+9/11/2018,Nashville,Sophia Miller,Albert Medler,Buick,Reatta,1988,49606,0.114091,5659.598146
+6/14/2023,Long Beach,Isaac Kelly,Stavro Faull,Mitsubishi,GTO,1996,32698,0.139848,4572.749904
+12/6/2019,Tampa,Layla Sanchez,Morgan Christy,Volvo,V40,2004,25231,0.106047,2675.671857
+4/30/2021,Phoenix,Samuel Adams,Ambrosio Folger,GMC,Yukon,1998,29156,0.06098,1777.93288
+8/4/2020,Tulsa,Thomas Brooks,Basilius Braikenridge,Honda,Element,2005,32900,0.132563,4361.3227
+12/2/2019,Phoenix,Lily Martin,Jacinta O'Lehane,Saturn,Astra,2009,20956,0.12039,2522.89284
+10/18/2023,Seattle,Aurora Young,Rodina Wellfare,Mitsubishi,Cordia,1984,10092,0.121133,1222.474236
+10/6/2022,Baltimore,Olivia Johnson,Roxanna Ganiford,Infiniti,QX,1998,45754,0.13036,5964.49144
+5/13/2023,Miami,Alexander Thompson,Benyamin Shurlock,Nissan,Pathfinder,1996,21806,0.062756,1368.457336
+9/23/2022,San Antonio,John Scott,Kayne Haberfield,Chrysler,Imperial,1926,39404,0.063726,2511.059304
+7/9/2021,New Orleans,Alexander Nguyen,Aurelia Peche,Eagle,Talon,1994,11257,0.144074,1621.841018
+5/25/2023,El Paso,John Scott,Jobey Izard,Chevrolet,Impala,2003,28141,0.116185,3269.562085
+7/2/2024,Oakland,Michael Taylor,Richmound Oxteby,Jeep,Grand Cherokee,1997,30985,0.070019,2169.538715
+5/5/2023,Washington,Noah Davis,Allsun Scurrey,BMW,5 Series,2010,30535,0.066939,2043.982365
+11/12/2019,Detroit,Grace Lewis,Lanette Danielou,Volkswagen,rio,1999,44567,0.136135,6067.128545
+12/4/2019,San Jose,Benjamin Young,Lianna Corryer,Mazda,MPV,1990,12779,0.127473,1628.977467
+11/7/2019,Los Angeles,Lucy Cooper,Dur Plumb,Dodge,Colt,1993,42718,0.050576,2160.505568
+9/9/2021,Jacksonville,Thomas Ward,Carlyle Warrender,Porsche,914,1970,15133,0.121868,1844.228444
+6/22/2023,Albuquerque,Jacob Scott,Merv Birley,Infiniti,QX,2007,21627,0.090129,1949.219883
+12/16/2020,New Orleans,Sebastian King,Toby Spackman,Ford,Expedition,2010,33803,0.109725,3709.034175
+9/22/2020,New Orleans,Emma Clark,Thatch Barnwall,Ford,Tempo,1992,11274,0.117481,1324.480794
+10/22/2024,Raleigh,Samuel Adams,Chanda Rodell,Nissan,370Z,2011,26301,0.091981,2419.192281
+2/16/2019,Kansas City,Harper Ward,Cristiano Slaughter,Hyundai,Elantra,1992,15039,0.093008,1398.747312
+7/8/2022,Philadelphia,Zoey Morgan,Amos Duggan,Lincoln,Navigator,2000,37607,0.071426,2686.117582
+9/27/2020,Virginia Beach,Penelope Cox,Crysta Deere,Infiniti,QX,1997,38928,0.069752,2715.305856
+4/4/2021,Minneapolis,Samuel Adams,Katrinka Madgewick,Toyota,4Runner,1997,33427,0.073867,2469.152209
+7/13/2021,Baltimore,Zoey Torres,Liesa Stiddard,Geo,Metro,1994,35960,0.099888,3591.97248
+5/31/2018,Tucson,Anthony Campbell,Stefan Carloni,Porsche,Panamera,2011,10621,0.149379,1586.554359
+1/24/2019,Chicago,Thomas Diaz,Boy Roder,Chevrolet,Impala,2009,49159,0.112761,5543.217999
+10/31/2020,Dallas,Ella Sanchez,Effie Pfeuffer,Audi,A4,1997,25838,0.092249,2383.529662
+4/23/2021,Louisville,Caleb Perez,Kev Folkerd,Mitsubishi,Lancer,2010,22308,0.089855,2004.48534
+1/12/2025,Arlington,Zoey Martinez,Tabbatha Lavall,Lexus,LS,2003,30412,0.120704,3670.850048
+1/20/2019,Memphis,Noah Davis,Marian Kilfether,Pontiac,Turbo Firefly,1988,28630,0.096941,2775.42083
+4/10/2021,San Antonio,Scarlett Ramirez,Edie Castellini,Lexus,SC,1998,48211,0.106441,5131.627051
+5/25/2020,Louisville,Benjamin Thompson,Petronella Bedome,Chrysler,Imperial,1992,34145,0.116038,3962.11751
+10/9/2018,Philadelphia,Benjamin Torres,Maurita Titterrell,GMC,Sonoma,1999,26333,0.077334,2036.436222
+8/22/2021,Los Angeles,Alexander Thompson,Dionis Druce,Porsche,944,1985,37071,0.076972,2853.429012
+5/9/2019,Tampa,Matthew Cooper,Peder Melville,Mercury,Mountaineer,2003,36088,0.079563,2871.269544
+2/3/2025,Houston,Julian Cooper,Darla Anwell,Chevrolet,G-Series G20,1995,47336,0.092373,4372.568328
+2/12/2019,Nashville,Jacob Lee,Ad Cluckie,Dodge,Colt,1994,42527,0.122367,5203.901409
+5/15/2021,Raleigh,Samuel Rodriguez,Helene Priter,Volkswagen,Golf,2002,23032,0.056975,1312.2482
+2/17/2020,Fresno,Lucy Brown,Mark Noulton,Ford,Escape,2005,45963,0.114374,5256.972162
+4/10/2021,Tampa,Henry Thomas,Hedvig Faughey,Lexus,IS,2009,48478,0.123007,5963.133346
+6/13/2023,Philadelphia,Lucy Hill,Ram Lillegard,GMC,Sierra 1500,2003,14664,0.139454,2044.953456
+10/25/2020,San Diego,Benjamin Smith,Bastien Tappin,Mercedes-Benz,CL-Class,2004,45076,0.138692,6251.680592
+5/1/2018,Baltimore,John Scott,Tildy Adney,Subaru,Impreza,1995,34481,0.080552,2777.513512
+12/14/2021,Boston,Penelope White,Hilarius MacCaull,Nissan,Quest,1996,24862,0.147075,3656.57865
+10/14/2024,Philadelphia,Sophia Miller,Laryssa Klimkowski,Lamborghini,Gallardo,2012,13250,0.110941,1469.96825
+10/23/2020,Dallas,Sophia Garcia,Lyndy Scardafield,Volkswagen,Golf,1992,41300,0.104755,4326.3815
+9/20/2021,Boston,Thomas Bailey,Ashlan Kubera,Bugatti,Veyron,2009,44391,0.06186,2746.02726
+11/16/2019,Raleigh,Abigail Thomas,Bamby Benedick,Dodge,Ram 2500,2006,25359,0.122901,3116.646459
+11/12/2018,Tampa,Sebastian Flores,Donall Daines,Maserati,Quattroporte,1986,41535,0.09326,3873.5541
+5/8/2023,Milwaukee,Emma Harris,Durward Jannings,Chevrolet,Aveo,2006,14977,0.095687,1433.104199
+4/29/2023,Memphis,Gabriel Williams,Gayle Barmadier,Acura,NSX,1995,45052,0.148012,6668.236624
+8/27/2020,Denver,Harper Sanchez,Tedie Seak,Toyota,Camry,1999,37538,0.087197,3273.200986
+3/2/2019,El Paso,Chloe Hall,Lucio Atwill,Ford,E150,2010,18623,0.099875,1859.972125
+2/17/2020,Virginia Beach,Emma Adams,Arnie Keenleyside,Pontiac,Bonneville,1990,19433,0.101872,1979.678576
+3/9/2024,Sacramento,Liam Davis,Noell Mussilli,GMC,Canyon,2004,37265,0.096407,3592.606855
+5/3/2019,Detroit,Jacob Nelson,Netta Campion,Porsche,Boxster,2005,39784,0.111199,4423.941016
+10/21/2021,Oakland,Grace Davis,Trstram Blinde,Chrysler,Town & Country,2001,36713,0.103749,3808.937037
+1/4/2023,New York,Olivia Price,Vevay Oakes,Ford,F150,1994,49953,0.108751,5432.438703
+12/3/2021,New York,Zoey Martinez,Royce Cary,Suzuki,Vitara,1999,23599,0.107686,2541.281914
+4/3/2021,Detroit,Layla Thomas,Krishna Hatcliffe,Bentley,Continental,2010,48292,0.079834,3855.343528
+5/5/2021,Tulsa,Michael Richardson,Thornie Castelain,Infiniti,J,1994,23865,0.064824,1547.02476
+12/12/2020,El Paso,Hannah Hill,Gordan Pilsbury,Jaguar,XK Series,2004,15879,0.088375,1403.306625
+5/1/2020,Los Angeles,Liam Davis,Sella Douse,Isuzu,Oasis,1996,49902,0.091257,4553.906814
+12/25/2019,Virginia Beach,Jacob Scott,Nora Bladen,Ford,Thunderbird,1997,23886,0.121458,2901.145788
+11/30/2022,Virginia Beach,Michael Gonzalez,Jenilee Menhci,Chevrolet,Express,2009,37605,0.137376,5166.02448
+8/21/2021,Colorado Springs,Aurora Young,Giovanni Lafayette,Audi,S4,2000,26919,0.051884,1396.665396
+8/5/2020,Albuquerque,Alexander Kelly,Anna-maria Kunzelmann,Mazda,Protege,1993,10950,0.123425,1351.50375
+3/10/2024,Miami,Harper Sanchez,Quent Rands,GMC,Savana 3500,1997,27187,0.096378,2620.228686
+1/21/2021,New York,Sophia Hall,Arlen Petley,Ford,F250,2002,40290,0.082763,3334.52127
+5/9/2023,Oklahoma City,Alexander Thompson,Dorree Jenman,Chrysler,LHS,1997,39517,0.146437,5786.750929
+6/5/2022,Raleigh,Alexander Nguyen,Saxon Fargher,Chevrolet,Cobalt,2005,35361,0.121298,4289.218578
+3/13/2020,Dallas,Mia Moore,Chaim Mayhew,Lincoln,Continental,1998,14209,0.07087,1006.99183
+7/7/2019,Las Vegas,Joseph Campbell,Johanna Bathersby,Chrysler,Pacifica,2008,15572,0.073935,1151.31582
+1/1/2019,Tulsa,David Thompson,Kai Lakes,Honda,Passport,1996,39664,0.130309,5168.576176
+11/25/2021,Denver,Grace Anderson,Eugen Roarty,GMC,Savana 3500,2004,13979,0.084933,1187.278407
+8/1/2020,Colorado Springs,Caleb Long,Zelma Leming,Chevrolet,Corvette,1961,34715,0.072375,2512.498125
+2/17/2023,Chicago,Jacob Nelson,Cindee Cropp,Ferrari,F430,2008,45837,0.067169,3078.825453
+3/3/2022,Houston,Alexander Nguyen,Bordy Oaker,Nissan,Sentra,1996,28586,0.082759,2365.748774
+5/28/2023,Austin,Thomas Hernandez,Farrel Bestiman,Chevrolet,Vega,1971,16084,0.082298,1323.681032
+11/22/2023,Arlington,David Wright,Freddie Pridham,Jeep,Grand Cherokee,1999,20270,0.118562,2403.25174
+2/5/2021,Jacksonville,Elijah Scott,Garry Crinage,Buick,Roadmaster,1994,41921,0.088226,3698.522146
+8/17/2020,Columbus,Layla Ramirez,Willetta Agastina,Saab,9-3,2011,22443,0.142468,3197.409324
+11/8/2022,Las Vegas,Michael Jones,Jacki Quelch,Toyota,Previa,1995,35006,0.074501,2607.982006
+2/13/2021,San Antonio,Charlotte Thomas,Lalo Ossulton,Chevrolet,Cavalier,1996,26011,0.071829,1868.344119
+1/17/2023,Las Vegas,Layla Gonzalez,Glennis Fripps,Oldsmobile,Silhouette,2004,35465,0.123564,4382.19726
+3/8/2021,Milwaukee,Sebastian Anderson,Cedric Keveren,Pontiac,LeMans,1966,40306,0.112929,4551.716274
+2/22/2020,Denver,Caleb Martin,Jessamine Trickey,Hyundai,XG350,2005,28122,0.078233,2200.068426
+1/3/2022,Miami,Isaac Brooks,Ofella Pickup,GMC,Savana 2500,2011,14778,0.106652,1576.103256
+8/1/2018,Indianapolis,Jacob Nelson,Cordie Etchell,GMC,Yukon,2006,38956,0.134553,5241.646668
+2/13/2021,Colorado Springs,Lily Allen,Tadeas Luby,Ford,Explorer,2001,42690,0.087305,3727.05045
+2/25/2021,Albuquerque,Benjamin Smith,Ramonda Ventam,Dodge,Dakota,2003,17535,0.06377,1118.20695
+12/1/2018,Washington,Michael Jones,Aland Attyeo,Jaguar,XK Series,1998,35954,0.10683,3840.96582
+5/14/2021,Chicago,John Scott,Sanders Vivian,Ford,Windstar,1997,29124,0.095294,2775.342456
+8/14/2023,Charlotte,Liam Gonzalez,Deck Barneveld,Chevrolet,Express 1500,2009,31319,0.122236,3828.309284
+10/13/2021,Arlington,Lily Allen,Trent Hebblewhite,Oldsmobile,Intrigue,1999,49596,0.129198,6407.704008
+4/17/2025,Boston,Grace Anderson,Bourke Turbayne,Mitsubishi,Diamante,2005,47671,0.051259,2443.567789
+3/12/2019,San Antonio,Aria Garcia,Judie Muckian,Chevrolet,Aveo,2007,24385,0.054694,1333.71319
+3/6/2025,Las Vegas,Evelyn Perez,Dag Mortlock,Cadillac,Eldorado,1994,30632,0.094501,2894.754632
+10/29/2020,Baltimore,Jacob Nelson,Lexi Prinne,Ford,Thunderbird,1993,36440,0.137202,4999.64088
+9/1/2019,Oakland,Layla Thomas,El McIlriach,Saab,900,1991,17938,0.094473,1694.656674
+9/12/2023,Virginia Beach,David Wright,Sherwood Farherty,Infiniti,Q,2003,27403,0.065096,1783.825688
+12/20/2018,Washington,Gabriel King,Sandi Sanham,Kia,Optima,2001,16749,0.064521,1080.662229
+4/13/2025,Portland,Stella Campbell,Steffi Quesne,BMW,3 Series,2007,33595,0.140915,4734.039425
+5/11/2018,New Orleans,Anthony Campbell,Ira Tutchener,Nissan,Rogue,2012,19394,0.081636,1583.248584
+8/22/2021,Arlington,Layla Thomas,Bord Buttrey,Ford,Tempo,1987,20770,0.097314,2021.21178
+3/31/2025,Mesa,Jacob Scott,Vincenz Worviell,Ford,F350,2000,16726,0.072091,1205.794066
+11/1/2019,Seattle,David Scott,Karleen Rousby,GMC,Savana 3500,2009,46621,0.14042,6546.52082
+5/8/2022,Dallas,Daniel Sanchez,Nessi Gawkroge,Kia,Rio,2005,47056,0.102069,4802.958864
+1/16/2024,Miami,Abigail Thompson,Celestyn Lofting,Suzuki,Kizashi,2010,28866,0.084498,2439.119268
+5/6/2024,Mesa,Isaac Brooks,Bail Waulker,Chevrolet,Corvette,1997,25341,0.144316,3657.111756
+6/15/2023,Washington,Caleb Perez,Cyndi Casserly,Mazda,Mazda6,2011,24996,0.10891,2722.31436
+9/5/2022,Tulsa,Chloe Williams,Gratiana Clutram,BMW,3 Series,1998,29501,0.086204,2543.104204
+11/3/2019,Omaha,Alexander Martin,Franciska Coventon,Ford,Expedition,2004,19592,0.084108,1647.843936
+6/15/2021,Detroit,Gabriel Rivera,Valli Iredale,Mercedes-Benz,SLR McLaren,2008,29944,0.133801,4006.537144
+3/25/2019,Long Beach,Scarlett Johnson,Kristoforo Lethebridge,Maserati,Quattroporte,2010,32465,0.116873,3794.281945
+4/29/2020,Minneapolis,Aurora Young,Giacinta Ludewig,Chevrolet,2500,1997,43423,0.10328,4484.72744
+1/14/2022,Fresno,David Perez,Chad Culleton,Ford,Taurus,2007,44768,0.123487,5528.266016
+10/24/2023,Nashville,Benjamin Ramirez,Timmie Lemmen,Chevrolet,Express 1500,2005,48877,0.107504,5254.473008
+7/10/2022,Baltimore,Layla Young,Maxim Middlemiss,GMC,Sonoma,2002,47372,0.072555,3437.07546
+7/20/2021,Miami,Ellie Davis,Adolphe Luter,Ford,Edge,2012,11744,0.089081,1046.167264
+2/6/2025,Oakland,Benjamin Adams,Brigid Giuroni,Aston Martin,Vanquish S,2005,44531,0.095362,4246.565222
+1/12/2021,Tampa,Jackson Martinez,Esdras Amaya,Volvo,C30,2013,11899,0.126917,1510.185383
+1/8/2022,Houston,Elijah Allen,Lyndel Flemyng,Nissan,Versa,2011,36405,0.063065,2295.881325
+1/14/2021,San Francisco,Owen Barnes,Lilah Catherall,Mercedes-Benz,GL-Class,2011,26315,0.051053,1343.459695
+5/20/2018,Nashville,Michael Gonzalez,Donnajean Troy,Saturn,S-Series,2000,17904,0.059578,1066.684512
+12/14/2020,Long Beach,Elijah Martinez,Ingram Kinvan,Porsche,911,2011,44803,0.082426,3692.932078
+6/14/2023,Fresno,Victoria Bailey,Steffi Danzey,Mazda,Mazda6,2010,18720,0.142631,2670.05232
+7/13/2019,Oklahoma City,Layla Sanchez,Anne McPherson,Toyota,Tercel,1996,44715,0.131268,5869.64862
+9/17/2023,Raleigh,Evelyn Perez,Jules Ambrogiotti,Honda,Accord,1987,13403,0.120161,1610.517883
+4/21/2023,Miami,Lily Martin,Luise Jantet,Acura,TL,2011,24526,0.138123,3387.604698
+1/10/2024,New Orleans,Liam Gonzalez,Nancy Jewett,Cadillac,Eldorado,2002,25834,0.124599,3218.890566
+8/8/2021,Sacramento,Layla Ramirez,Sophia Windybank,Jaguar,X-Type,2006,42871,0.070933,3040.968643
+9/14/2024,Memphis,Alexander Nguyen,Emily Dinsmore,Ford,Excursion,2000,24099,0.131336,3165.066264
+2/12/2020,Chicago,Aria Garcia,Uriah Weldrake,Volkswagen,Golf III,1995,31682,0.057967,1836.510494
+11/10/2022,Virginia Beach,Charlotte Thomas,Pamelina Inkle,Saturn,Ion,2004,15376,0.117916,1813.076416
+11/23/2019,Seattle,John Scott,Kendricks Skeels,Volkswagen,GLI,2008,11667,0.129487,1510.724829
+12/24/2021,Denver,John Ward,Aldous Brosh,Maserati,Quattroporte,2011,38829,0.08105,3147.09045
+9/18/2022,Nashville,Zoey Young,Mariya MacDonogh,Cadillac,CTS,2005,22495,0.141625,3185.854375
+1/24/2019,Long Beach,Ella Sanchez,Antoine Dossit,Lexus,GS,1994,42361,0.119969,5082.006809
+12/28/2021,Miami,Isaac Brooks,Dud Bagster,Ford,F250,1997,27943,0.091202,2548.457486
+4/18/2022,Indianapolis,Sophia Garcia,Gussy Bricksey,Mercedes-Benz,SL-Class,1995,14407,0.138858,2000.527206
+10/5/2019,Kansas City,Grace Lewis,Marieann Bristoe,Porsche,911,1997,21949,0.089073,1955.063277
+11/15/2019,Virginia Beach,Gabriel King,Tabby Easthope,Isuzu,Hombre Space,1997,33509,0.119867,4016.623303
+7/7/2021,Washington,Gabriel Williams,Jodie Kitteman,Volvo,XC60,2011,11931,0.057975,691.699725
+3/2/2021,Milwaukee,Gabriel Rivera,Iris Luney,Ford,Bronco,1986,18421,0.146108,2691.455468
+9/6/2022,San Antonio,Isaac Brooks,Brooke Kendell,Mercedes-Benz,E-Class,1986,25579,0.083757,2142.420303
+4/18/2024,Sacramento,Grace Anderson,Sybyl Dun,Ford,Bronco,1993,40504,0.105704,4281.434816
+3/29/2023,Tucson,Penelope Cox,Goldy Tarbox,Chevrolet,Camaro,1976,34605,0.063657,2202.850485
+7/4/2022,Fresno,Lily Barnes,Durante Tidmas,Mercury,Villager,1995,15992,0.121432,1941.940544
+7/18/2018,Minneapolis,Olivia Johnson,Augustin Hovy,Cadillac,Seville,1997,36433,0.116124,4230.745692
+11/8/2023,Memphis,Elijah Allen,Granny Asty,Ford,Thunderbird,2003,20166,0.102404,2065.079064
+6/14/2020,Denver,Ella Sanchez,Kimberlee Wellman,Mitsubishi,Chariot,1991,33660,0.138226,4652.68716
+1/5/2020,Omaha,Alexander Thompson,Lorrin Audibert,Suzuki,SJ 410,1984,12380,0.132366,1638.69108
+8/25/2021,Omaha,Grace Lewis,Tobe Cockarill,Mercury,Mountaineer,2006,29351,0.080126,2351.778226
+8/8/2020,Milwaukee,Benjamin Adams,Terrel Robion,Infiniti,Q,1994,28124,0.111277,3129.554348
+1/30/2019,Oklahoma City,Layla Gonzalez,Dionysus Brea,Dodge,Spirit,1994,40537,0.10205,4136.80085
+4/8/2021,Kansas City,Layla Young,Emylee Cliff,Infiniti,G,2004,34907,0.084506,2949.850942
+7/17/2022,Oakland,Mia Moore,Estelle Haine,Hyundai,Azera,2006,43286,0.076594,3315.447884
+7/8/2019,New Orleans,Thomas Hernandez,Melina Geroldini,Chevrolet,Astro,1997,30399,0.132449,4026.317151
+12/26/2024,San Antonio,Natalie Harris,Chevalier Craigmyle,Jaguar,S-Type,2002,30950,0.098641,3052.93895
+2/14/2021,Las Vegas,Emma Brown,Nancy Prettyjohn,Mazda,MX-5,2003,44690,0.148195,6622.83455
+7/19/2024,Fresno,Aiden Jones,Eimile Scown,Chevrolet,Corvette,1989,12252,0.096485,1182.13422
+8/10/2019,Arlington,Stella Campbell,Christian Kilius,Chevrolet,Aveo,2009,27345,0.139154,3805.16613
+9/1/2018,New Orleans,Ellie Torres,Ruddie Nijssen,Oldsmobile,98,1992,40775,0.061987,2527.519925
+10/30/2018,Albuquerque,Benjamin Ramirez,Petr Blakeston,Acura,Legend,1995,40407,0.085076,3437.665932
+3/26/2023,New Orleans,Anthony Hill,Reamonn Cowope,Volkswagen,CC,2013,37305,0.141288,5270.74884
+10/19/2021,Phoenix,Lily Nelson,Nevins Hawson,Mercedes-Benz,CLK-Class,1998,34864,0.115459,4025.362576
+4/1/2023,Columbus,Joseph Green,Corine McTrustey,Oldsmobile,Achieva,1997,43878,0.130754,5737.224012
+12/7/2022,Portland,Henry Sanchez,Eva Poley,Isuzu,Impulse,1992,46314,0.130091,6025.034574
+9/20/2019,Detroit,Daniel Sanchez,Zachary Causey,Chevrolet,Camaro,2012,45708,0.135702,6202.667016
+6/1/2024,Los Angeles,Ellie Gonzalez,Row McCarry,Volkswagen,GTI,1995,40928,0.078428,3209.901184
+12/23/2019,Seattle,Chloe Hill,Tamara Tyght,Mazda,CX-7,2010,35137,0.127339,4474.310443
+3/8/2025,Oklahoma City,Samuel Adams,Gabriello Sumbler,GMC,Canyon,2007,11984,0.107278,1285.619552
+6/26/2019,Oakland,Sebastian Anderson,Orelee Michal,Nissan,Sentra,2003,47131,0.059195,2789.919545
+5/4/2023,Charlotte,Abigail Price,Garret McCart,Hyundai,Santa Fe,2001,23617,0.071712,1693.622304
+8/11/2020,Houston,Sophia Garcia,Dora Simione,GMC,1500 Club Coupe,1998,39488,0.127455,5032.94304
+10/24/2023,Boston,Sebastian King,Sharla Janota,Suzuki,Forenza,2006,34523,0.0578,1995.4294
+12/8/2021,Omaha,Benjamin Thompson,Bill Bowden,Chevrolet,1500,1998,39102,0.087038,3403.359876
+10/14/2018,Colorado Springs,Joseph Campbell,Filippo Scallon,Toyota,4Runner,2001,15701,0.083609,1312.744909
+2/5/2023,Los Angeles,Isabella Wright,Elisabeth Callinan,Chevrolet,Silverado,2003,41935,0.091282,3827.91067
+3/5/2020,Long Beach,Abigail Price,Audra Gumb,GMC,Yukon XL 1500,2007,32725,0.115736,3787.4606
+6/12/2020,New York,Harper Ward,Ardis Brickell,Land Rover,LR2,2009,49486,0.091116,4508.966376
+1/18/2023,Chicago,Aiden Jones,Jae Comerford,Chevrolet,HHR Panel,2006,22193,0.091612,2033.145116
+8/6/2020,San Antonio,Samuel Nelson,Rod Daen,Audi,A6,2001,30936,0.121204,3749.566944
+12/21/2019,Mesa,Lily Price,Price Bambury,Holden,Monaro,2004,24435,0.068622,1676.77857
+10/21/2020,El Paso,Benjamin Torres,Eldredge Macauley,Oldsmobile,Regency,1997,48668,0.130591,6355.602788
+4/25/2022,Long Beach,Chloe Hill,Had Wollen,Suzuki,Daewoo Magnus,2006,14416,0.114522,1650.949152
+3/10/2020,Denver,Grace Anderson,Eustace Dobble,Subaru,Forester,2002,38972,0.069196,2696.706512
+7/7/2020,Atlanta,James Miller,Doralynn Blazy,BMW,X5,2008,31334,0.094867,2972.562578
+4/23/2021,Columbus,Caleb Martin,Kristian Coppen,Lamborghini,Diablo,1993,48242,0.110407,5326.254494
+4/22/2024,Las Vegas,Benjamin Torres,Alexina Kemme,Volvo,850,1993,35243,0.14527,5119.75061
+2/1/2024,Virginia Beach,Amelia Gonzalez,Aubrie Woolley,Dodge,Ram 1500 Club,2001,39511,0.143404,5666.035444
+7/7/2021,Austin,Isaac Kelly,Tommy Dunrige,GMC,Yukon XL 2500,2007,44582,0.121517,5417.470894
+9/24/2023,Jacksonville,Gabriel Wilson,Shena Platfoot,Mercedes-Benz,W201,1984,43695,0.093764,4097.01798
+12/15/2020,Virginia Beach,Benjamin Kelly,Dalt Aldridge,Mazda,MX-5,1995,22213,0.106784,2371.992992
+1/11/2019,Charlotte,Alexander Martin,Corbet Butte,Mitsubishi,Galant,1995,33903,0.075806,2570.050818
+4/14/2024,Austin,Olivia Johnson,Marijn Whysall,Chevrolet,Express,2009,35031,0.116336,4075.366416
+9/30/2023,Denver,Zoey Torres,Sandie Lougheed,Ford,Thunderbird,1990,36375,0.050077,1821.550875
+4/7/2022,Tampa,Elijah Torres,Stace Churn,Mazda,B-Series,1989,31818,0.079605,2532.87189
+12/9/2020,Omaha,Natalie Cox,Roselin Colwill,Mitsubishi,Diamante,1997,29697,0.050517,1500.203349
+3/26/2022,Boston,Lucy Lewis,Rutledge Leeson,Mercury,Marquis,1984,46195,0.138436,6395.05102
+12/28/2018,San Francisco,Julian Cooper,Siouxie Tunney,Pontiac,Fiero,1986,18709,0.092641,1733.220469
+2/12/2024,Washington,Chloe Hill,Aldridge MacCarter,BMW,X5 M,2012,41863,0.077803,3257.066989
+2/20/2023,Denver,Nora White,Konstance Kearns,Chevrolet,Venture,2000,41513,0.142052,5897.004676
+3/12/2025,Dallas,Abigail Thompson,Louis Padefield,Saturn,Sky,2008,33479,0.063762,2134.687998
+7/30/2024,Tulsa,Levi Richardson,Luigi Andresen,Jaguar,XK,2010,13077,0.139011,1817.846847
+12/20/2021,Arlington,Layla Gonzalez,Bronny Boughton,BMW,7 Series,1994,46489,0.113396,5271.666644
+2/21/2023,Jacksonville,Alexander Nguyen,Austina Silman,Aston Martin,V8 Vantage S,2011,19497,0.072815,1419.674055
+6/2/2022,Fresno,Anthony Ramirez,Tessie Ruckert,Land Rover,Range Rover,1990,20530,0.060348,1238.94444
+6/23/2018,San Jose,Brooklyn Patterson,Rip Hanbury,Mercury,Tracer,1999,22537,0.146347,3298.222339
+2/2/2021,Sacramento,Alexander Martin,Von Roddell,Ford,Econoline E150,1995,13283,0.133398,1771.925634
+6/11/2022,Tulsa,Sebastian King,Salem Kennsley,Volkswagen,Vanagon,1984,46603,0.091109,4245.952727
+4/17/2022,Tucson,David Brown,Selig Kneeshaw,Ford,F-Series,2007,22115,0.124226,2747.25799
+8/30/2023,San Francisco,Emma Jones,Romonda Atteridge,Porsche,928,1988,48041,0.145705,6999.813905
+1/14/2020,Long Beach,Liam Davis,Chrissy Adess,Dodge,Avenger,2000,47327,0.070803,3350.893581
+2/12/2024,Mesa,Gabriel Nelson,Carolan Gurden,Jaguar,XK Series,1997,39803,0.132428,5271.031684
+6/14/2020,Tampa,Amelia Cooper,Bail Roggeman,GMC,Savana 3500,2007,41048,0.109883,4510.477384
+7/1/2021,Chicago,Layla Gonzalez,Jamie Ambrosoni,Audi,A8,1999,26376,0.084294,2223.338544
+8/4/2019,Tulsa,Chloe Hall,Mattheus McLuckie,Jeep,Wrangler,2007,16675,0.065828,1097.6819
+10/21/2019,Long Beach,Lucy Lewis,Judie Fidge,Subaru,Alcyone SVX,1996,17574,0.1231,2163.3594
+6/12/2022,Arlington,Julian Morgan,Cecil Christofor,Toyota,MR2,2002,25441,0.103974,2645.202534
+7/27/2019,Tampa,Amelia Moore,Ann-marie Traher,Volkswagen,Tiguan,2009,37085,0.137155,5086.393175
+11/20/2020,Dallas,Lucy Cooper,Edgard Ancell,Mercury,Lynx,1984,46985,0.056614,2660.00879
+2/18/2020,San Diego,Zoey Thomas,Ervin Dumbleton,Toyota,Ipsum,2000,20060,0.136011,2728.38066
+2/18/2020,Austin,Alexander Kelly,Sherilyn Whyborne,Dodge,Dakota,1997,17513,0.0891,1560.4083
+7/31/2020,San Francisco,Ava Garcia,Ophelie Falco,Pontiac,6000,1991,29517,0.120315,3551.337855
+5/20/2021,Long Beach,Ethan Harris,Zola Mallett,Pontiac,Sunbird,1991,42474,0.097375,4135.90575
+1/13/2025,Fort Worth,Benjamin Smith,Cookie Breslauer,Chevrolet,Avalanche 1500,2006,35292,0.149494,5275.942248
+11/4/2023,Long Beach,Alexander Nguyen,Dalila Haste,Lexus,ES,1989,49126,0.134179,6591.677554
+12/20/2019,Kansas City,Ellie Gonzalez,Gweneth Kynston,Mazda,CX-7,2012,31272,0.136291,4262.092152
+8/31/2023,Philadelphia,Layla Ramirez,Livy Creaney,Acura,NSX,1997,29464,0.09552,2814.40128
+5/12/2018,Baltimore,Emma Harris,Theobald O'Hartnett,Mitsubishi,Mirage,1997,12219,0.081873,1000.406187
+5/1/2022,Oakland,Thomas Ward,Delinda Ciobotaru,Chevrolet,Tracker,1999,44013,0.073378,3229.585914
+6/25/2022,Las Vegas,Michael Brown,Arnold Grayshon,Ford,Focus,2005,42801,0.08574,3669.75774
+7/18/2022,Arlington,Scarlett Nguyen,Lorne Aust,Mitsubishi,Diamante,2001,11225,0.063862,716.85095
+12/31/2019,Fort Worth,Mia Moore,Beatriz Biford,Kia,Sephia,2001,22302,0.099649,2222.371998
+10/6/2021,Indianapolis,Chloe Hill,Ashli Leyninye,Mercury,Grand Marquis,2004,32343,0.090033,2911.937319
+11/12/2021,Memphis,Alexander Nguyen,Rennie Wilcott,Mercedes-Benz,E-Class,1994,20841,0.143853,2998.040373
+11/3/2023,Long Beach,Benjamin Smith,Gregory Dykas,Ford,Econoline E250,1995,44807,0.086047,3855.507929
+9/17/2022,San Antonio,Amelia Moore,Roseanna Raffles,Ford,Explorer,2009,29152,0.148369,4325.253088
+6/8/2021,Dallas,Zoey Young,Hal Cromblehome,Acura,RDX,2012,29330,0.087954,2579.69082
+3/8/2022,Colorado Springs,Ellie Reed,Anet Scurfield,BMW,5 Series,1997,39303,0.103169,4054.851207
+6/5/2021,Memphis,Michael Brown,Marianna Dorney,Ford,Econoline E250,2002,10369,0.130277,1350.842213
+5/24/2023,Colorado Springs,Hannah Anderson,Andy Grayer,Dodge,Daytona,1993,20376,0.086833,1769.309208
+8/29/2023,Dallas,Anthony Hill,Audrye O'Skehan,BMW,525,2002,41986,0.07358,3089.32988
+4/4/2020,Oklahoma City,David Thompson,Carlo Wayt,Ford,F150,2010,35591,0.129022,4592.022002
+11/7/2019,Detroit,Jacob Scott,Ring Matczak,GMC,1500 Club Coupe,1995,34359,0.062058,2132.250822
+3/9/2023,Fort Worth,Ellie Torres,Eldridge Dows,GMC,Yukon XL 1500,2010,18339,0.127008,2329.199712
+9/28/2023,Oklahoma City,Zoey Wright,Didi Colnet,Volkswagen,GTI,2000,41246,0.094036,3878.608856
+8/6/2021,Dallas,Natalie Harris,Dari Lepope,Dodge,Caravan,2011,39347,0.113176,4453.136072
+3/3/2023,El Paso,Natalie Harris,Audy Dunkerly,Ford,Ranger,1998,41656,0.120855,5034.33588
+3/12/2024,Memphis,Layla Lee,Jeana Bernadzki,Saab,9-5,2011,11415,0.062442,712.77543
+9/5/2020,Colorado Springs,Emma Jones,Shelley Frise,Subaru,Outback,2003,42034,0.126246,5306.624364
+10/15/2020,San Antonio,Elijah Allen,Demetris Bason,BMW,M5,2003,34546,0.062175,2147.89755
+9/7/2023,Las Vegas,Grace Lewis,Glynn Morton,Dodge,Stratus,2004,40168,0.079427,3190.423736
+2/18/2019,Dallas,Emma Clark,Cazzie Jantel,Volkswagen,GTI,2006,37682,0.074999,2826.112318
+12/7/2021,Raleigh,Caleb Barnes,Deeanne Hagston,Hyundai,Tiburon,2005,32988,0.085484,2819.946192
+10/31/2024,Tampa,Michael Brown,Demeter Petyankin,Chevrolet,Lumina,1997,27541,0.101926,2807.143966
+10/21/2021,San Diego,Lily Price,Glenna Scane,Chevrolet,Camaro,1993,31629,0.113752,3597.862008
+2/1/2022,Washington,Charlotte Garcia,Julia Skarin,Toyota,Corolla,1996,44313,0.149623,6630.243999
+9/13/2019,Jacksonville,Charlotte Garcia,Jewelle Snibson,Volkswagen,Quantum,1984,44147,0.128186,5659.027342
+12/25/2023,Boston,Daniel Jackson,Lavinia Farens,Lexus,GX,2009,29967,0.140744,4217.675448
+6/23/2022,Los Angeles,Alexander Kelly,Rickey Klemz,Nissan,350Z,2004,49698,0.107375,5336.32275
+9/2/2022,Memphis,Thomas Ward,Pavel Runcie,Toyota,Celica,2005,38777,0.075132,2913.393564
+9/17/2022,Denver,John Scott,Berny Pendergrast,Mercedes-Benz,CL-Class,2010,48242,0.072598,3502.272716
+9/19/2021,Louisville,Ella Sanchez,Tiphany McHenry,Toyota,FJ Cruiser,2012,28068,0.052989,1487.295252
+4/15/2019,Albuquerque,Henry Patterson,Katinka Blampey,Ford,Probe,1996,13939,0.104148,1451.718972
+6/1/2019,Milwaukee,Zoey Morgan,Ilyssa Summerfield,Dodge,Dakota,1994,41213,0.058303,2402.841539
+2/10/2024,Seattle,Matthew Taylor,Averil O' Culligan,Mitsubishi,Cordia,1986,20233,0.132833,2687.610089
+6/8/2018,Phoenix,Zoey Torres,Alejandra Mc Corley,GMC,Jimmy,2000,38805,0.087626,3400.32693
+11/9/2018,San Diego,Chloe Hall,Konstanze Bewley,Dodge,Ram Wagon B250,1993,32864,0.099834,3280.944576
+11/17/2021,Oakland,Stella Campbell,Dasha Gavrieli,Isuzu,Space,1993,23505,0.09719,2284.45095
+10/4/2018,Atlanta,Matthew Taylor,Carrie Lessmare,Plymouth,Colt,1992,49449,0.109398,5409.621702
+12/4/2021,Houston,Zoey Thomas,Prissie Cubbini,Lincoln,Town Car,1996,12609,0.077244,973.969596
+1/7/2023,Boston,Samuel Adams,Bartlett Pailin,Volvo,C70,2002,32729,0.094563,3094.952427
+4/1/2021,Fresno,Amelia Moore,Cory Murdie,Dodge,Ram Van 3500,1995,44630,0.06404,2858.1052
+12/6/2019,Tampa,Aurora Cooper,Brinn Lochran,Ford,E-Series,1996,37161,0.147322,5474.632842
+1/2/2024,Tulsa,Michael Taylor,Vinnie Jobey,Ford,Taurus,2010,27091,0.057772,1565.101252
+5/23/2019,Washington,Owen Barnes,Earle Philipot,Oldsmobile,98,1996,13298,0.149789,1991.894122
+5/11/2022,Kansas City,David Williams,Marys Beazleigh,Volkswagen,Touareg,2011,24301,0.050871,1236.216171
+6/13/2018,Chicago,Emma Brown,Theo Allday,Chevrolet,Silverado 2500,2012,34733,0.057328,1991.173424
+1/8/2021,Atlanta,Layla Lee,Sawyer Leward,Chevrolet,Metro,2001,18871,0.146262,2760.110202
+11/26/2022,Austin,Alexander Thompson,Hussein McCracken,Mazda,Mazda6,2012,48274,0.106926,5161.745724
+8/18/2018,Portland,Gabriel Wilson,Aldus Triggel,Chevrolet,Tahoe,2010,32608,0.051263,1671.583904

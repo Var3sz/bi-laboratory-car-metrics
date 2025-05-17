@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>CarMetrics</Name>
-    <LastWriteTime>2025-05-17T00:07:45.7966797Z</LastWriteTime>
+    <LastWriteTime>2025-05-17T15:48:58.757832Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>CM_ETL_03_BuildAggregations.dtsx</Name>
-      <LastWriteTime>2025-05-17T00:13:47.1587393Z</LastWriteTime>
+      <LastWriteTime>2025-05-17T17:22:19.5772419Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
