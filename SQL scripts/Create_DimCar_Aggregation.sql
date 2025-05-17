@@ -1,11 +1,9 @@
-CREATE TABLE [dbo].[dwh.DimCar]
-(
-    CarKey     INT           NOT NULL
-               CONSTRAINT PK_DimCar PRIMARY KEY,
+CREATE TABLE [dbo].[dwh.DimCar](
+	[CarKey] [int] IDENTITY(1,1) NOT NULL,
+	[CarMake] [nvarchar](200) NOT NULL,
+	[CarModel] [nvarchar](200) NOT NULL,
+	[CarYear] [int] NOT NULL,
 
-    CarMake    NVARCHAR(200)  NOT NULL,
-    CarModel   NVARCHAR(200)  NOT NULL,
-    CarYear    INT      NOT NULL,
-
-    CONSTRAINT UQ_DimCar_ModelYear UNIQUE (CarMake, CarModel, CarYear)
-);
+    CONSTRAINT [PK_DimCar] PRIMARY KEY
+    CONSTRAINT [UQ_DimCar_ModelYear] UNIQUE 
+)
