@@ -11,8 +11,8 @@
   DTS:LocaleID="1038"
   DTS:ObjectName="CM_ETL_02_CleanAndStage"
   DTS:PackageType="5"
-  DTS:VersionBuild="30"
-  DTS:VersionGUID="{8BA4F768-EEFD-43A4-AFBA-6E3F1F1F3E5C}">
+  DTS:VersionBuild="31"
+  DTS:VersionGUID="{F2815078-194D-4954-A29A-FDEF6CAF72CD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -37,7 +37,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAC/hKe6CnNmS+r2vPkXar6UYprblxoe8km7oYTFl0cWfwAAAAAOgAAAAAIAACAAAABZTWT23bZ1KPo3VdwmIE36BCbT2TvdqOxb3qJfvgnwiSAAAADwWgJrZTQwXLx199ZwQdpN1QroCwUGOVlJeHnd9Iz1PkAAAAAQDLE4+/C4AIL84q4NUUE7ZXJTh8WMKPgUJ0F4ITR+lIfYvR8sIRFtk9UtdSJBDD9Mc68qYAke9z5kX/rKf9E0</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA3zCrl/Wf4UGqMEhzuOgw8QAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAA1ES7jlLXpA/qhOOzMog3B/I86Lw19MDTVDVWIIfySlwAAAAAOgAAAAAIAACAAAAD+vM3ydivr4OQqwuCX2ZXtN3mO4nHJj7Xrp2NGom4GXiAAAABe5mprPicQCLE/2YMSUcU5P8hc9Uz69gI0u8MF+0poYEAAAAA3rh6KnbQOa2IQIcgpkHH3TGdQYZAjO/Xf4cJ5dGDUMxuXdyGxf0LGCk0CWjI+ZByDITKpqSSLpQeYbql+NXp+</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -2021,7 +2021,7 @@
         <NodeLayout
           Size="312,42"
           Id="Package\Clean data and insert to Staged table (CityData)"
-          TopLeft="742.5,132.5" />
+          TopLeft="742.5,131.5" />
         <NodeLayout
           Size="191,42"
           Id="Package\Execute BuildAggregations ETL"
@@ -2062,14 +2062,14 @@
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,49"
+              EndConnector="0,48"
               Start="0,0"
-              End="0,41.5">
+              End="0,40.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41.5" />
+                    End="0,40.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2114,30 +2114,30 @@
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="898.5,174.5">
+          TopLeft="898.5,173.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-177,88"
+              EndConnector="-177,89"
               Start="0,0"
-              End="-177,80.5">
+              End="-177,81.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,48.3613707165109" />
+                    End="0,48.9563862928349" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,48.3613707165109"
-                    Point2="0,52.3613707165109"
-                    Point3="-4,52.3613707165109" />
+                    Point1="0,48.9563862928349"
+                    Point2="0,52.9563862928349"
+                    Point3="-4,52.9563862928349" />
                   <mssgle:LineSegment
-                    End="-173,52.3613707165109" />
+                    End="-173,52.9563862928349" />
                   <mssgle:CubicBezierSegment
-                    Point1="-173,52.3613707165109"
-                    Point2="-177,52.3613707165109"
-                    Point3="-177,56.3613707165109" />
+                    Point1="-173,52.9563862928349"
+                    Point2="-177,52.9563862928349"
+                    Point3="-177,56.9563862928349" />
                   <mssgle:LineSegment
-                    End="-177,80.5" />
+                    End="-177,81.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2153,7 +2153,7 @@
     design-time-name="Package\Clean data and insert to Staged table (CarSales)">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="243,42"
           Id="Package\Clean data and insert to Staged table (CarSales)\Sort the dataset by purchase date"
@@ -2189,9 +2189,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2213,9 +2211,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2237,9 +2233,7 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2267,6 +2261,18 @@
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="99,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Sort"
+          TopLeft="786.5,188.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Raw CityData table"
+          TopLeft="504.5,26.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Clean data and insert to Staged table (CityData)\Trim string fields"
+          TopLeft="507.5,182.5" />
+        <NodeLayout
           Size="186,42"
           Id="Package\Clean data and insert to Staged table (CityData)\Staged CityData table"
           TopLeft="750.5,275.5" />
@@ -2274,14 +2280,6 @@
           Size="157,42"
           Id="Package\Clean data and insert to Staged table (CityData)\Filter USA cities"
           TopLeft="507.5,96.5" />
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Clean data and insert to Staged table (CityData)\Trim string fields"
-          TopLeft="507.5,182.5" />
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Clean data and insert to Staged table (CityData)\Raw CityData table"
-          TopLeft="504.5,26.5" />
         <EdgeLayout
           Id="Package\Clean data and insert to Staged table (CityData).Paths[USA cities]"
           TopLeft="586.75,138.5">
@@ -2307,19 +2305,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Clean data and insert to Staged table (CityData).Paths[ADO NET Source Output]"
-          TopLeft="588.5,68.5">
+          Id="Package\Clean data and insert to Staged table (CityData).Paths[Sort Output]"
+          TopLeft="839.75,230.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,28"
+              EndConnector="0,45"
               Start="0,0"
-              End="0,20.5">
+              End="0,37.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.5" />
+                    End="0,37.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2328,10 +2326,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Clean data and insert to Staged table (CityData)\Sort"
-          TopLeft="786.5,188.5" />
         <EdgeLayout
           Id="Package\Clean data and insert to Staged table (CityData).Paths[Derived Column Output]"
           TopLeft="667.5,206.5">
@@ -2355,19 +2349,19 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Clean data and insert to Staged table (CityData).Paths[Sort Output]"
-          TopLeft="839.75,230.5">
+          Id="Package\Clean data and insert to Staged table (CityData).Paths[ADO NET Source Output]"
+          TopLeft="588.5,68.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,45"
+              EndConnector="0,28"
               Start="0,0"
-              End="0,37.5">
+              End="0,20.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,37.5" />
+                    End="0,20.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
